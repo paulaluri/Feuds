@@ -4737,7 +4737,7 @@ MonoBehaviour:
   Duration: 10
   Capacity: 4
   MainColor: {r: 1, g: 1, b: 1, a: 0}
-  ImportantColor: {r: .926470578, g: .149870217, b: .149870217, a: 0}
+  ImportantColor: {r: 1, g: .847058833, b: 0, a: 0}
   OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   Outline: 1
 --- !u!4 &658921507
