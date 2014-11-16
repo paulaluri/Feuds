@@ -894,7 +894,7 @@ GameObject:
   - 81: {fileID: 155586802}
   m_Layer: 0
   m_Name: LOS Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1663,6 +1663,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 1053897507}
@@ -1899,6 +1903,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 1938885061}
@@ -4319,6 +4327,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 2052198113}
@@ -4657,6 +4669,7 @@ GameObject:
   - 4: {fileID: 658921507}
   - 114: {fileID: 658921506}
   - 114: {fileID: 658921508}
+  - 114: {fileID: 658921509}
   m_Layer: 0
   m_Name: UserInterface
   m_TagString: Untagged
@@ -4764,6 +4777,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ms: {fileID: 658921506}
+--- !u!114 &658921509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 658921505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d266038af72634ab1139853ffdfaf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseStartPosition: {x: 0, y: 0, z: 0}
+  mouseDown: 0
+  selectionRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!1 &665588870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6621,7 +6712,7 @@ GameObject:
   - 111: {fileID: 887265849}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6965,6 +7056,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400028, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 887265848}
@@ -6984,7 +7079,7 @@ GameObject:
   - 81: {fileID: 917544784}
   m_Layer: 0
   m_Name: Terrain Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7644,6 +7739,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400028, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 1698127066}
@@ -7800,7 +7899,7 @@ GameObject:
   - 111: {fileID: 1053897509}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9882,6 +9981,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400036, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 2145853426}
@@ -11286,7 +11389,7 @@ GameObject:
   - 111: {fileID: 1698127068}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14162,7 +14265,7 @@ GameObject:
   - 111: {fileID: 1938885063}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14736,7 +14839,7 @@ GameObject:
   - 111: {fileID: 2052198115}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16471,7 +16574,7 @@ GameObject:
   - 111: {fileID: 2145853428}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
