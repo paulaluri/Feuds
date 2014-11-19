@@ -2,14 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum Stance{
+	Aggressive,
+	Defensive,
+	StandGround,
+	Passive,
+	Resting,
+	Active
+}
+
 // An explicit behavior tree with states
 public class ActionController : MonoBehaviour {
 	public Action[] Actions { get; private set; }
+	public Stance CurrentStance;
+
 	private int actionIdx;
 
 	// Use this for initialization
 	void Start () {
-	
+		CurrentStance = Stance.Aggressive;
 	}
 	
 	// Update is called once per frame
