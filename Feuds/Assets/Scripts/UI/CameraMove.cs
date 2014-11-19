@@ -17,7 +17,7 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 mouse_pos = Input.mousePosition;
-
+		
 		float height = Screen.height-BOTTOM_MARGIN;
 
 		float x_off = 0;
