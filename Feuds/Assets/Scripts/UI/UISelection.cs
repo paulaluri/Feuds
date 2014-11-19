@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerController : MonoBehaviour {
+public class UISelection : MonoBehaviour {
 	public List<GameObject> characters;
 	public List<GameObject> selectedCharacters;
 	public Vector3 mouseStartPosition;
