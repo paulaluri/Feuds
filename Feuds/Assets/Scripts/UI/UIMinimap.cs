@@ -11,7 +11,6 @@ public class UIMinimap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(Input.mousePosition);
 		if(minimapRect==null){
 			return;
 		}

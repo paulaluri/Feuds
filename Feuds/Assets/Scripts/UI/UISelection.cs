@@ -10,6 +10,8 @@ public class UISelection : MonoBehaviour {
 	public Rect selectionRect;
 	public GUIStyle style;
 	
+	public int bottom_threshold;
+	
 	public InputManager inputManager;
 	
 	public const int LEFT_CLICK = 0;
@@ -18,12 +20,16 @@ public class UISelection : MonoBehaviour {
 	void Start () {
 		characters = new List<GameObject>();
 		characters.Add(GameObject.Find("City_guard"));
+		bottom_threshold = 192;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(characters == null || characters.Count==0){
 			//Not Initialize yet
+			return;
+		}
+		if (Input.mousePosition.y<bottom_threshold){
 			return;
 		}
 		if(Input.GetMouseButtonDown(LEFT_CLICK)){
@@ -59,9 +65,18 @@ public class UISelection : MonoBehaviour {
 				if(selectionRect.Contains(screenPos)){
 					//To do
 					//Select()
-					selectedCharacters.Add(c);
-					//Send it somewhere?
-					inputManager.SelectCharacters(selectedCharacters);
+					if(!selectedCharacters.Contains(c)){
+						selectedCharacters.Add(c);
+						//Send it somewhere?
+						inputManager.SelectCharacters(selectedCharacters);
+					}
+				}
+				else {
+					if(selectedCharacters.Contains(c)){
+						selectedCharacters.Remove(c);
+						//Send it somewhere?
+						inputManager.SelectCharacters(selectedCharacters);
+					}
 				}
 			}
 		}
