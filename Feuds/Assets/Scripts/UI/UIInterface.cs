@@ -36,10 +36,21 @@ public class UIInterface : MonoBehaviour {
 		//if (common == Stance.Aggressive)
 			//Aggressive
 		//else
-		     GUI.Button (new Rect (8, 30, 64, 64), attack, buttonStyle);
-		GUI.Button (new Rect(78,30, 64, 64), defense, buttonStyle);
-		GUI.Button (new Rect(148,30, 64, 64), standground, buttonStyle);
-		GUI.Button (new Rect(218,30, 64, 64), passive, buttonStyle);
+		if (GUI.Button (new Rect (8, 30, 64, 64), attack, buttonStyle)) {
+			inputManager.SetStance (Stance.Aggressive);
+		}
+
+		if (GUI.Button (new Rect(78,30, 64, 64), defense, buttonStyle)){
+			inputManager.SetStance (Stance.Defensive);
+		}
+
+		if (GUI.Button (new Rect(148,30, 64, 64), standground, buttonStyle)) {
+			inputManager.SetStance (Stance.StandGround);
+		}
+
+		if (GUI.Button (new Rect (218, 30, 64, 64), passive, buttonStyle)) {
+			inputManager.SetStance (Stance.Active);
+		}
 
 		//GUI.Button (new Rect(8,100, 64, 64), "Skill 1");
 		//GUI.Button (new Rect(78,100, 64, 64), "Skill 2");
