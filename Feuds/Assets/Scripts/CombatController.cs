@@ -26,33 +26,45 @@ public enum Class {
 	Guard,Archer,Magician
 }
 
+[System.Serializable]
+public class Stat {
+	public float current;
+	public float max;
+}
+
 public class CombatController : MonoBehaviour {
-	public float Health;
-	public float MaxHealth;
-	public float Speed;
+	public Stat Health;
+	public Stat MovSpeed;
+	public Stat AtkSpeed;
 	public Damage Attack;
 	public Damage Defense;
 	public Class Class;
 
-	public bool isDead { get {return Health <= 0;} }
+	public bool isDead { get {return Health.current <= 0;} }
+	public bool canAttack { get {return AtkSpeed.current >= AtkSpeed.max; } }
 	public bool inCombat;
+
+	private NavMeshAgent agent;
 
 	// Use this for initialization
 	void Start () {
-		Health = MaxHealth;
+		agent = GetComponent<NavMeshAgent> ();
+		AtkSpeed.current = 0.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		AtkSpeed.current += Time.deltaTime;
+		agent.speed = MovSpeed.current;
 	}
 
 
-	void DoDamage(CombatController other) {
+	public void DoDamage(CombatController other) {
+		AtkSpeed.current = 0.0f;
 		other.TakeDamage (Random.Range(1.0f, 1.5f) * Attack);
 	}
 	
-	void TakeDamage(Damage atk) {
+	public void TakeDamage(Damage atk) {
 		Health -= (atk - Random.Range (1.0f, 1.5f) * Defense).total * Random.Range (0.0f, 1.0f);
 	}
 

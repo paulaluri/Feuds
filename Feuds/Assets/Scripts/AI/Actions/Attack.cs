@@ -8,29 +8,39 @@ public class Attack : Action {
 	private CombatController target;
 
 	private bool pursue;
-	private bool goback;
-
 
 	public Attack(GameObject target) : this(target,true,false) {
 	}
 
-	public Attack(GameObject target, bool pursue, bool goback) {
+	public Attack(GameObject target, bool pursue) {
 		this.target = target.GetComponent<CombatController>();
 		this.pursue = pursue;
-		this.goback = goback;
 
 		actions = new List<Action> ();
 	}
 
 	// Use this for initialization
 	public override void Start (GameObject g) {
-
+		if(pursue) {
+			actions.Add(new Pursue(target.gameObject.transform));
+		}
+		actions.Add (new AttackDirect (target));
+		if(g.GetComponent<ActionController>().CurrentStance == Stance.Defensive) {
+			actions.Add(new MoveTo(g.transform.position));
+		}
+		foreach(Action action in actions) {
+			action.Start(g);
+		}
 	}
 	
 	// Return true if target is dead
 	// If target is out of range, check stance and determine
 	// whether you should pursue and attack again
 	public override bool Update () {
+		foreach(Action action in actions) {
+			if(!action.Update())
+				return false;
+		}
 		return true;
 	}
 }
