@@ -16,6 +16,8 @@ public class UISelection : MonoBehaviour {
 	public const int RIGHT_CLICK = 1;
 	// Use this for initialization
 	void Start () {
+		characters = new List<GameObject>();
+		characters.Add(GameObject.Find("City_guard"));
 	}
 	
 	// Update is called once per frame
@@ -43,7 +45,7 @@ public class UISelection : MonoBehaviour {
 		
 		}
 		
-		if(Input.GetMouseButtonDown(LEFT_CLICK) && mouseDown){
+		if(mouseDown){
 			selectionRect.xMin = mouseStartPosition.x < Input.mousePosition.x? mouseStartPosition.x: Input.mousePosition.x;
 			selectionRect.xMax = mouseStartPosition.x > Input.mousePosition.x? mouseStartPosition.x: Input.mousePosition.x;
 			selectionRect.yMin = Camera.main.pixelHeight - (mouseStartPosition.y > Input.mousePosition.y? mouseStartPosition.y: Input.mousePosition.y);
@@ -69,13 +71,9 @@ public class UISelection : MonoBehaviour {
 		// Make a background box
 		if(mouseDown)GUI.Box(selectionRect, "");
 	
-		foreach(GameObject c in characters){
-			Vector3 screenPos = Camera.main.WorldToScreenPoint(c.transform.position);
-			GUI.Box(new Rect(screenPos.x,Camera.main.pixelHeight -screenPos.y,1,1),"");
-		}
 	}
 	
-	void Initialize(List<GameObject> c){
+	public void Initialize(List<GameObject> c){
 		characters = c;
 		selectedCharacters = new List<GameObject>();
 	}

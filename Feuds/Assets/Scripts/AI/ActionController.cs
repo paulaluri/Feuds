@@ -26,7 +26,7 @@ public class ActionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(actionIdx < Actions.Length && Actions[actionIdx].Update()) {
+		if(Actions != null && actionIdx < Actions.Length && Actions[actionIdx].Update()) {
 			actionIdx++;
 		}
 	}
