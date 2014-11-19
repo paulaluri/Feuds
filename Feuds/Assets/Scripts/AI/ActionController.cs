@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 // An explicit behavior tree with states
-public class ActionControler : MonoBehaviour {
+public class ActionController : MonoBehaviour {
 	public Action[] Actions { get; private set; }
 	private int actionIdx;
 
