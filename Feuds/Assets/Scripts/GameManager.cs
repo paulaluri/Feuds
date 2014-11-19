@@ -14,9 +14,6 @@ public class GameManager : MonoBehaviour {
 	public int round;
 	public int maxRound;
 	
-	public const int AI = 1;
-	public const int NETWORK = 2;
-	
 	// Use this for initialization
 	void Start () {
 		
