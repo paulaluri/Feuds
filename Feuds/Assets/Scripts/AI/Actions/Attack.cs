@@ -1,12 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Attack : Action {
 	// This should probably be some script for attacking
-	GameObject target;
+	private List<Action> actions;
+	private CombatController target;
 
-	public Attack(GameObject t) {
-		target = t;
+	private bool pursue;
+	private bool goback;
+
+
+	public Attack(GameObject target) : this(target,true,false) {
+	}
+
+	public Attack(GameObject target, bool pursue, bool goback) {
+		this.target = target.GetComponent<CombatController>();
+		this.pursue = pursue;
+		this.goback = goback;
+
+		actions = new List<Action> ();
 	}
 
 	// Use this for initialization

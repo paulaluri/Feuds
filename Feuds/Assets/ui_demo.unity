@@ -73,7 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-  m_NavMesh: {fileID: 0}
+  m_NavMesh: {fileID: 19400000, guid: fb65186050b8e4517b06b5768dd3271a, type: 2}
 --- !u!1 &10159597
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +328,47 @@ Transform:
   - {fileID: 1309217592}
   m_Father: {fileID: 248429560}
   m_RootOrder: 0
+--- !u!1 &326996368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 326996370}
+  - 114: {fileID: 326996369}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &326996369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326996368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a40bd6801664cc083a7a1203b44f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  selectedCharacters: []
+--- !u!4 &326996370
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326996368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.4139519, y: -12.2732697, z: 28.9749298}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &380705827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1563,7 @@ MonoBehaviour:
   health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
   terrain: {fileID: 2800000, guid: ee39d61c46c3d104fb67e733c99f4d27, type: 3}
+  inputManager: {fileID: 326996369}
 --- !u!4 &1459197883
 Transform:
   m_ObjectHideFlags: 0
@@ -1858,6 +1900,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1743306724}
   - 95: {fileID: 1743306725}
+  - 195: {fileID: 1743306726}
+  - 114: {fileID: 1743306727}
   m_Layer: 0
   m_Name: City_guard
   m_TagString: Untagged
@@ -1895,6 +1939,40 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!195 &1743306726
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743306723}
+  m_Enabled: 1
+  m_Radius: .5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1743306727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743306723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c23f03e79e2488ca6f1b1a2aa65dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Speed: 0
+  inCombat: 0
 --- !u!1 &1822529842
 GameObject:
   m_ObjectHideFlags: 0

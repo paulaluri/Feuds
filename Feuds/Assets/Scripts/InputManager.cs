@@ -27,6 +27,23 @@ public class InputManager : MonoBehaviour {
 		}
 	}
 
+	//Return common stance or Stance.None
+	public Stance GetCommonStance(){
+		Stance initStance = Stance.None;
+		for(int i = 0; i < selectedCharacters.Count; i++) {
+			Stance charStance = selectedCharacters[i].GetComponent<ActionController>().CurrentStance;
+
+			if(i == 0)
+				initStance = charStance;
+			else{
+				if(charStance != initStance)
+					return Stance.None;
+			}
+		}
+
+		return initStance;
+	}
+
 	//TODO: Not implemented yet
 	//Selected characters set skill
 	public void SetSkill(){

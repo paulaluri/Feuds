@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MessageTest : MonoBehaviour {
-	public MessageScript ms;
+	public UIMessage ms;
 
 	// Use this for initialization
 	void Start () {
