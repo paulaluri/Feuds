@@ -19,7 +19,23 @@ public class InputManager : MonoBehaviour {
 			g.GetComponent<ActionController>().Do(new MoveTo(target));
 		}
 	}
-	
+
+	//Selected characters change stance
+	public void SetStance(Stance stance){
+		foreach (GameObject g in selectedCharacters) {
+			g.GetComponent<ActionController>().CurrentStance = stance;
+		}
+	}
+
+	//TODO: Not implemented yet
+	//Selected characters set skill
+	public void SetSkill(){
+		foreach (GameObject g in selectedCharacters) {
+			//g.GetComponent<ActionController>()
+		}
+	}
+
+	//Allow UI to select characters
 	public void SelectCharacters(List<GameObject> characters){
 		selectedCharacters = characters;
 	}
