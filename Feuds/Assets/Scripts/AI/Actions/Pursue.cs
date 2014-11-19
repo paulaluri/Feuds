@@ -5,7 +5,7 @@ public class Pursue : Action {
 	Transform target;
 	NavMeshAgent agent;
 
-	Pursue(Transform t) {
+	public Pursue(Transform t) {
 		target = t;
 	}
 

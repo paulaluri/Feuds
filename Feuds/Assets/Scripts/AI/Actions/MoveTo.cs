@@ -5,7 +5,7 @@ public class MoveTo : Action {
 	private NavMeshAgent agent;
 	private Vector3 target;
 
-	MoveTo(Vector3 pos) {
+	public MoveTo(Vector3 pos) {
 		target = pos;
 	}
 	

@@ -5,7 +5,7 @@ public class Attack : Action {
 	// This should probably be some script for attacking
 	GameObject target;
 
-	Attack(GameObject t) {
+	public Attack(GameObject t) {
 		target = t;
 	}
 
