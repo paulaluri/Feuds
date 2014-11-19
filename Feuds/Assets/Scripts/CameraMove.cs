@@ -16,10 +16,12 @@ public class CameraMove : MonoBehaviour {
 	void Update () {
 		Vector3 mouse_pos = Input.mousePosition;
 
+		float height = Screen.height-192;
+
 		float x_off = 0;
 		float z_off = 0;
 
-		if(mouse_pos.y < SCROLL_THRESH){
+		if(mouse_pos.y < SCROLL_THRESH + 192 && mouse_pos.y >= 192){
 			x_off += -SCROLL_SPEED;
 			z_off += -SCROLL_SPEED;
 		}
@@ -42,6 +44,12 @@ public class CameraMove : MonoBehaviour {
 		}
 		else
 			TIME_SCROLL += Time.deltaTime;
+
+		if(mouse_pos.y < 192){
+			x_off = 0;
+			z_off = 0;
+		}
+
 
 		x_off *= TIME_SCROLL;
 		z_off *= TIME_SCROLL;
