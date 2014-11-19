@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public struct Damage {
+[System.Serializable]
+public class Damage {
 	public Damage(float physical, float magic) {
 		this.physical = physical;
 		this.magic = magic;
@@ -19,20 +20,26 @@ public struct Damage {
 		return new Damage (scalar * atk.physical, scalar * atk.magic);
 	}
 
-};
+}
+
+public enum Class {
+	Guard,Archer,Magician
+}
 
 public class CombatController : MonoBehaviour {
 	public float Health;
+	public float MaxHealth;
 	public float Speed;
 	public Damage Attack;
 	public Damage Defense;
+	public Class Class;
 
 	public bool isDead { get {return Health <= 0;} }
 	public bool inCombat;
 
 	// Use this for initialization
 	void Start () {
-	
+		Health = MaxHealth;
 	}
 	
 	// Update is called once per frame
