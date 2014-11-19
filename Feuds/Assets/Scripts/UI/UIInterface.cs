@@ -62,13 +62,14 @@ public class UIInterface : MonoBehaviour {
 		//Selections
 		GUI.BeginGroup(new Rect(310, Screen.height-192, Screen.width-(300+400), 192));
 
-		GUI.DrawTexture(new Rect(8,30, 64, 64), guard);
-		GUI.DrawTexture(new Rect(8,30, 64, 4), wound);
-		GUI.DrawTexture(new Rect(8,30, 48, 4), health);
 
-		GUI.DrawTexture(new Rect(76,30, 64, 64), guard);
-		GUI.DrawTexture(new Rect(76,30, 64, 4), wound);
-		GUI.DrawTexture(new Rect(76,30, 22, 4), health);
+		for (int i = 0; i < inputManager.selectedCharacters.Count; i++) {
+			CombatController combat = inputManager.selectedCharacters[i].GetComponent<CombatController>();
+
+			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 64), guard);
+			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
+			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health/combat.MaxHealth)*64, 4), health);
+		}
 
 		GUI.EndGroup();
 
