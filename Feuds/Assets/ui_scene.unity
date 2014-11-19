@@ -1032,8 +1032,13 @@ GameObject:
   - 124: {fileID: 155586803}
   - 81: {fileID: 155586802}
   m_Layer: 0
+<<<<<<< HEAD:Feuds/Assets/ui_scene.unity
   m_Name: Icon Camera
   m_TagString: MainCamera
+=======
+  m_Name: LOS Camera
+  m_TagString: Untagged
+>>>>>>> origin/master:Feuds/Assets/main.unity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1883,6 +1888,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 1053897507}
@@ -2119,6 +2128,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 1938885061}
@@ -2478,7 +2491,7 @@ Transform:
   m_Children:
   - {fileID: 917544788}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &268779419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2490,6 +2503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1564c5f83afdcfb4eb4f0b418e778695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomSpeed: 2
 --- !u!82 &268779420
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3007,6 +3021,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 110074090}
   m_RootOrder: 1
+--- !u!1 &348523373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 348523378}
+  - 20: {fileID: 348523377}
+  - 124: {fileID: 348523376}
+  - 92: {fileID: 348523375}
+  - 81: {fileID: 348523374}
+  - 114: {fileID: 348523379}
+  m_Layer: 0
+  m_Name: minimapCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &348523374
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348523373}
+  m_Enabled: 1
+--- !u!92 &348523375
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348523373}
+  m_Enabled: 1
+--- !u!124 &348523376
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348523373}
+  m_Enabled: 1
+--- !u!20 &348523377
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348523373}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: .74000001
+    y: .0199999996
+    width: .243000001
+    height: .330000013
+  near clip plane: .300000012
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 50
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
+--- !u!4 &348523378
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348523373}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: -8.03401566, y: 32.2162933, z: -8.96479034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!114 &348523379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348523373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370dcfbd7e142ef469c99dc5d680f055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &354826127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,7 +3320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &371229701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4755,6 +4865,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 2052198113}
@@ -4787,7 +4901,7 @@ Transform:
   m_Children:
   - {fileID: 834515002}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &611564541
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!114 &658921508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5209,6 +5323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 658921505}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Feuds/Assets/ui_scene.unity
   m_Script: {fileID: 11500000, guid: 2ee1d9b2f832cb94fb4213a3db4f45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5216,6 +5331,23 @@ MonoBehaviour:
     m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 2cd3df1ba1120674595de129b5050dbc, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: d4d266038af72634ab1139853ffdfaf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseStartPosition: {x: 0, y: 0, z: 0}
+  mouseDown: 0
+  selectionRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+>>>>>>> origin/master:Feuds/Assets/main.unity
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -5269,6 +5401,7 @@ MonoBehaviour:
     m_ContentOffset: {x: 0, y: 0}
     m_FixedWidth: 0
     m_FixedHeight: 0
+<<<<<<< HEAD:Feuds/Assets/ui_scene.unity
     m_StretchWidth: 0
     m_StretchHeight: 0
   buttonStyle:
@@ -5338,6 +5471,10 @@ MonoBehaviour:
   health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
   terrain: {fileID: 2800000, guid: ee39d61c46c3d104fb67e733c99f4d27, type: 3}
+=======
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+>>>>>>> origin/master:Feuds/Assets/main.unity
 --- !u!1 &665588870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7433,7 +7570,7 @@ GameObject:
   - 95: {fileID: 887265849}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7468,7 +7605,7 @@ Transform:
   - {fileID: 362549980}
   - {fileID: 618249319}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &889437976
 GameObject:
   m_ObjectHideFlags: 0
@@ -7778,6 +7915,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400028, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 887265848}
@@ -7797,7 +7938,7 @@ GameObject:
   - 81: {fileID: 917544784}
   m_Layer: 0
   m_Name: Terrain Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7844,7 +7985,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 10
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 288
@@ -8640,6 +8781,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400028, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 1698127066}
@@ -8871,7 +9016,7 @@ GameObject:
   - 95: {fileID: 1053897509}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11093,6 +11238,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400036, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+    - target: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   m_RootGameObject: {fileID: 2145853426}
@@ -12635,7 +12784,7 @@ GameObject:
   - 95: {fileID: 1698127068}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12654,10 +12803,16 @@ Transform:
   - {fileID: 1626362520}
   - {fileID: 669632056}
   m_Father: {fileID: 0}
+<<<<<<< HEAD:Feuds/Assets/ui_scene.unity
   m_RootOrder: 11
 --- !u!95 &1698127068
 Animator:
   serializedVersion: 3
+=======
+  m_RootOrder: 12
+--- !u!111 &1698127068
+Animation:
+>>>>>>> origin/master:Feuds/Assets/main.unity
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9500000, guid: 423bf080bf54c8d47b6afd1389737bde,
     type: 3}
@@ -15801,7 +15956,7 @@ GameObject:
   - 95: {fileID: 1938885063}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15820,10 +15975,16 @@ Transform:
   - {fileID: 2056761992}
   - {fileID: 1168470000}
   m_Father: {fileID: 0}
+<<<<<<< HEAD:Feuds/Assets/ui_scene.unity
   m_RootOrder: 9
 --- !u!95 &1938885063
 Animator:
   serializedVersion: 3
+=======
+  m_RootOrder: 10
+--- !u!111 &1938885063
+Animation:
+>>>>>>> origin/master:Feuds/Assets/main.unity
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9500000, guid: 423bf080bf54c8d47b6afd1389737bde,
     type: 3}
@@ -16410,7 +16571,7 @@ GameObject:
   - 95: {fileID: 2052198115}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18176,7 +18337,7 @@ GameObject:
   - 95: {fileID: 2145853428}
   m_Layer: 8
   m_Name: City_guard
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

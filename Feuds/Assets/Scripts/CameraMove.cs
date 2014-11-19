@@ -7,6 +7,7 @@ public class CameraMove : MonoBehaviour {
 	private const float MAX_SPEED = .5f;
 	private float TIME_SCROLL = 0;
 
+	public float zoomSpeed;
 	// Use this for initialization
 	void Start () {
 	
@@ -60,5 +61,7 @@ public class CameraMove : MonoBehaviour {
 			z_off = (z_off / Mathf.Abs (z_off)) * MAX_SPEED;
 
 		this.transform.position = this.transform.position + new Vector3(x_off, 0, z_off);
+		
+		Camera.main.orthographicSize-=Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
 	}
 }
