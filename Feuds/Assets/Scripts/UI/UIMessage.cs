@@ -58,7 +58,7 @@ public class MessageItem{
 	}	
 }
 
-public class MessageScript : MonoBehaviour {
+public class UIMessage : MonoBehaviour {
 	public GUIStyle Style;
 	public float Duration = 10; //seconds
 	public int Capacity = 5; //# of messages

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InterfaceScript : MonoBehaviour {
+public class UIInterface : MonoBehaviour {
 	public GUIStyle style;
 	public GUIStyle buttonStyle;
 	public Texture attack;
@@ -12,6 +12,9 @@ public class InterfaceScript : MonoBehaviour {
 	public Texture health;
 	public Texture wound;
 	public Texture terrain;
+
+	public InputManager inputManager;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -28,15 +31,20 @@ public class InterfaceScript : MonoBehaviour {
 		//Buttons
 		GUI.BeginGroup(new Rect(0, Screen.height-192, 300, 192));
 
-		GUI.Button (new Rect(8,30, 64, 64), attack, buttonStyle);
+		Stance common = inputManager.GetCommonStance ();
+
+		//if (common == Stance.Aggressive)
+			//Aggressive
+		//else
+		     GUI.Button (new Rect (8, 30, 64, 64), attack, buttonStyle);
 		GUI.Button (new Rect(78,30, 64, 64), defense, buttonStyle);
 		GUI.Button (new Rect(148,30, 64, 64), standground, buttonStyle);
 		GUI.Button (new Rect(218,30, 64, 64), passive, buttonStyle);
 
-		GUI.Button (new Rect(8,100, 64, 64), "Skill 1");
-		GUI.Button (new Rect(78,100, 64, 64), "Skill 2");
-		GUI.Button (new Rect(148,100, 64, 64), "Skill 3");
-		GUI.Button (new Rect(218,100, 64, 64), "Skill 4");
+		//GUI.Button (new Rect(8,100, 64, 64), "Skill 1");
+		//GUI.Button (new Rect(78,100, 64, 64), "Skill 2");
+		//GUI.Button (new Rect(148,100, 64, 64), "Skill 3");
+		//GUI.Button (new Rect(218,100, 64, 64), "Skill 4");
 
 		GUI.EndGroup();
 
