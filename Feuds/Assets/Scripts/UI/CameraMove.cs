@@ -62,6 +62,7 @@ public class CameraMove : MonoBehaviour {
 
 		this.transform.position = this.transform.position + new Vector3(x_off, 0, z_off);
 		
+<<<<<<< HEAD:Feuds/Assets/Scripts/UI/CameraMove.cs
 		float cam_size = Camera.main.orthographicSize-Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
 
 		if (cam_size > 30)
@@ -70,5 +71,8 @@ public class CameraMove : MonoBehaviour {
 			cam_size = 5;
 
 		Camera.main.orthographicSize = cam_size;
+=======
+		Camera.main.orthographicSize-=Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
+>>>>>>> FETCH_HEAD:Feuds/Assets/Scripts/CameraMove.cs
 	}
 }
