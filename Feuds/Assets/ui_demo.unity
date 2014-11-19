@@ -940,6 +940,50 @@ Transform:
   - {fileID: 11040257}
   m_Father: {fileID: 1743306724}
   m_RootOrder: 0
+--- !u!1 &1027289624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1027289626}
+  - 114: {fileID: 1027289625}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1027289625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027289624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d369889937bf402daf876d69e422d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacters: []
+  enemyCharacters: []
+  mode: 0
+  round: 0
+  maxRound: 0
+--- !u!4 &1027289626
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027289624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.7829704, y: -8.8805666, z: 29.1384468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1028163062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1463,7 @@ GameObject:
   - 114: {fileID: 1459197882}
   - 114: {fileID: 1459197885}
   - 114: {fileID: 1459197884}
+  - 114: {fileID: 1459197886}
   m_Layer: 0
   m_Name: User Interface
   m_TagString: Untagged
@@ -1664,6 +1709,88 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ms: {fileID: 1459197884}
+--- !u!114 &1459197886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459197881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3c15a64c679ce498ac9bea8c4de89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters: []
+  selectedCharacters: []
+  mouseStartPosition: {x: 0, y: 0, z: 0}
+  mouseDown: 0
+  selectionRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  bottom_threshold: 0
+  inputManager: {fileID: 326996369}
 --- !u!1 &1468637202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +2029,7 @@ GameObject:
   - 95: {fileID: 1743306725}
   - 195: {fileID: 1743306726}
   - 114: {fileID: 1743306727}
+  - 114: {fileID: 1743306728}
   m_Layer: 0
   m_Name: City_guard
   m_TagString: Untagged
@@ -1970,9 +2098,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c23f03e79e2488ca6f1b1a2aa65dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Speed: 0
+  Health:
+    current: 100
+    max: 100
+  MovSpeed:
+    current: 1
+    max: 1
+  AtkSpeed:
+    current: 0
+    max: .5
+  Attack:
+    physical: 0
+    magic: 0
+  Defense:
+    physical: 0
+    magic: 0
+  Class: 0
   inCombat: 0
+--- !u!114 &1743306728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743306723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentStance: 1
 --- !u!1 &1822529842
 GameObject:
   m_ObjectHideFlags: 0

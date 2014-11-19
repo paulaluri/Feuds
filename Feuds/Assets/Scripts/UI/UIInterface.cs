@@ -68,7 +68,7 @@ public class UIInterface : MonoBehaviour {
 
 			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 64), guard);
 			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
-			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health/combat.MaxHealth)*64, 4), health);
+			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health.current/combat.Health.max)*64, 4), health);
 		}
 
 		GUI.EndGroup();

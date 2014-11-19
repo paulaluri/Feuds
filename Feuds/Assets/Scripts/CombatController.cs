@@ -65,10 +65,10 @@ public class CombatController : MonoBehaviour {
 	}
 	
 	public void TakeDamage(Damage atk) {
-		Health -= (atk - Random.Range (1.0f, 1.5f) * Defense).total * Random.Range (0.0f, 1.0f);
+		Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total * Random.Range (0.0f, 1.0f);
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
-		stream.Serialize (ref Health);
+		stream.Serialize (ref Health.current);
 	}
 }

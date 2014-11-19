@@ -9,7 +9,7 @@ public class Attack : Action {
 
 	private bool pursue;
 
-	public Attack(GameObject target) : this(target,true,false) {
+	public Attack(GameObject target) : this(target,true) {
 	}
 
 	public Attack(GameObject target, bool pursue) {
