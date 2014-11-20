@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 		GameManager.playerCharacters = new List<GameObject>();
 		GameManager.playerCharacters.AddRange(GameObject.FindGameObjectsWithTag("Character"));
 		GameManager.enemyCharacters = new List<GameObject>();
-		GameManager.playerCharacters.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+		GameManager.enemyCharacters.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 	}
 	
 	void checkRoundEnd(){
