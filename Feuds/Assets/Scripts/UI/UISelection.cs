@@ -19,7 +19,7 @@ public class UISelection : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		characters = new List<GameObject>();
-		characters.Add(GameObject.Find("City_guard"));
+		Initialize(GameManager.playerCharacters);
 		bottom_threshold = 192;
 	}
 	

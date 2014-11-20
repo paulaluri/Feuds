@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		InitializeRound();
 	}
 	
 	// Update is called once per frame
@@ -31,9 +31,10 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	//Might not needed in the future
-	public static void InitializeRound(List<GameObject> playerCharacters){
-		GameManager.playerCharacters = playerCharacters;
-		enemyCharacters = new List<GameObject>();
+	public static void InitializeRound(){
+		GameManager.playerCharacters = new List<GameObject>();
+		GameManager.playerCharacters.AddRange(GameObject.FindGameObjectsWithTag("Character"));
+		GameManager.enemyCharacters = new List<GameObject>();
 	}
 	
 	void checkRoundEnd(){
