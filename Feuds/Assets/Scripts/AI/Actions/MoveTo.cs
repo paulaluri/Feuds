@@ -17,6 +17,7 @@ public class MoveTo : Action {
 	// Set the destination if it is not the target,
 	// return true if the target has been reached
 	public override bool Update() {
+		agent.stoppingDistance = 0.5f;
 		if(agent && (agent.destination - target).magnitude > agent.stoppingDistance) {
 			agent.SetDestination(target);
 		}

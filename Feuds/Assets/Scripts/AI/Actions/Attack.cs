@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public class Attack : Action {
 	// This should probably be some script for attacking
 	private List<Action> actions;
+	private CombatController attacker;
 	private CombatController target;
+	private NavMeshAgent agent;
 
 	private bool pursue;
 
@@ -21,6 +23,8 @@ public class Attack : Action {
 
 	// Use this for initialization
 	public override void Start (GameObject g) {
+		attacker = g.GetComponent<CombatController> ();
+		agent = g.GetComponent<NavMeshAgent> ();
 		if(pursue) {
 			actions.Add(new Pursue(target.gameObject.transform));
 		}
@@ -37,6 +41,7 @@ public class Attack : Action {
 	// If target is out of range, check stance and determine
 	// whether you should pursue and attack again
 	public override bool Update () {
+		agent.stoppingDistance = attacker.Radius;
 		foreach(Action action in actions) {
 			if(!action.Update())
 				return false;

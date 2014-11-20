@@ -14,23 +14,42 @@ public enum Stance{
 
 // An explicit behavior tree with states
 public class ActionController : MonoBehaviour {
-	public Action[] Actions { get; private set; }
-	public Stance CurrentStance;
+	public Action[] CommandActions { get; private set; }
+	private Action[] IdleActions;
+	private Action[] DummyActions = new Action[0];
 
-	private int actionIdx;
-
+	private Stance _currentStance;
+	public Stance CurrentStance {
+		get { return _currentStance; }
+		set {
+			IdleActions = DummyActions;
+			_currentStance = value;
+		}
+	}
+	
 	// Use this for initialization
 	void Start () {
-		Actions = new Action[0];
+		CommandActions = DummyActions;
 		CurrentStance = Stance.Aggressive;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		DoActions ();
+		if(DoActions (CommandActions)) {
+			if(DoActions (IdleActions)) {
+				switch (CurrentStance) {
+					case Stance.Aggressive:
+					case Stance.Defensive:
+					case Stance.StandGround:
+						break;
+					default:
+						break;
+				}
+			}
+		}
 	}
 
-	private bool DoActions() {
+	private bool DoActions(Action[] Actions) {
 		foreach(Action action in Actions) {
 			if(!action.Update())
 				return false;
@@ -40,9 +59,8 @@ public class ActionController : MonoBehaviour {
 
 	// Do the actions in order
 	public void Do(params Action[] actions) {
-		this.Actions = actions;
-		this.actionIdx = 0;
-		foreach(Action action in actions) {
+		this.CommandActions = actions;
+		foreach(Action action in CommandActions) {
 			action.Start(gameObject);
 		}
 	}
