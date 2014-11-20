@@ -192,7 +192,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: speed
-    m_EventTreshold: 3
+    m_EventTreshold: .100000001
     m_ExitTime: .785714507
   m_Atomic: 1
   m_Solo: 0
@@ -212,7 +212,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: speed
-    m_EventTreshold: 3
+    m_EventTreshold: 0
     m_ExitTime: .925000012
   m_Atomic: 1
   m_Solo: 0

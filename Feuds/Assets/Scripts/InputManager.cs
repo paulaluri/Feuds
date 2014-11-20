@@ -29,7 +29,13 @@ public class InputManager : MonoBehaviour {
 	//Return common stance or Stance.None
 	public Stance GetCommonStance(){
 		Stance initStance = Stance.None;
+
 		for(int i = 0; i < selectedCharacters.Count; i++) {
+			/*if(selectedCharacters[i]==null)
+				Debug.Log ("selectedChar is null");
+			else if(selectedCharacters[i].GetComponent<ActionController>() == null)
+				Debug.Log ("No Action Controller");*/
+
 			Stance charStance = selectedCharacters[i].GetComponent<ActionController>().CurrentStance;
 
 			if(i == 0)
