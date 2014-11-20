@@ -73,10 +73,13 @@ public class CombatController : MonoBehaviour {
 	
 	public void TakeDamage(Damage atk) {
 		Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total * Random.Range (0.0f, 1.0f);
+		if(isDead) {
+			collider.enabled = false;
+		}
 	}
 
 	public bool CanAttack(CombatController other) {
-		return !other.isDead && AtkSpeed.current >= AtkSpeed.max && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
+		return !isDead && !other.isDead && AtkSpeed.current >= AtkSpeed.max && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
