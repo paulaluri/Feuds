@@ -6,8 +6,8 @@ public class UIMinimap : MonoBehaviour {
 	public GameObject map; //-->terrain
 	public GUIStyle style;
 	public Rect positionRect;
-	public int positionRectWidth;
-	public int positionRectHeight;
+	public int positionRectWidth =100;
+	public int positionRectHeight = 100;
 	// Use this for initialization
 	void Start () {
 		minimapRect = new Rect(Screen.width-175,Screen.height-175,172,172);
@@ -29,7 +29,7 @@ public class UIMinimap : MonoBehaviour {
 	}
 	
 	void SetPositionRect(){
-		Ray ray = Camera.main.ScreenPointToRay (new Vector3(Screen.width/2.0,Screen.height/2.0);
+		Ray ray = Camera.main.ScreenPointToRay (new Vector3(Screen.width/2.0f,Screen.height/2.0f));
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit)) {
 			
