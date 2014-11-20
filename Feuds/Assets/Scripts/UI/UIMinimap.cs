@@ -36,6 +36,13 @@ public class UIMinimap : MonoBehaviour {
 		}    
 	}
 	
+	Vector2 getPositionRelatedToScreen(int x,int y){
+		Vector2 ret = new Vector2();
+		ret.x = (x+100)/200.0f;
+		ret.y = (y+30)/100.0f;
+		return ret;
+	}
+	
 	void Initialize(Rect r){
 		minimapRect = r;
 	}
