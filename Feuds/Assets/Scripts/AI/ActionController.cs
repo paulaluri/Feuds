@@ -14,7 +14,6 @@ public enum Stance{
 
 // An explicit behavior tree with states
 public class ActionController : MonoBehaviour {
-	public bool enabled = true;
 	private Action[] CommandActions;
 	private Action IdleAction;
 	private Action[] DummyActions = new Action[0];
@@ -43,7 +42,7 @@ public class ActionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(enabled && DoActions (CommandActions)) {
+		if(DoActions (CommandActions)) {
 			CommandActions = DummyActions;
 			if(IdleAction == null || IdleAction.Update()) {
 				switch (CurrentStance) {

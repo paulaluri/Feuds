@@ -69,7 +69,7 @@ public class CameraMove : MonoBehaviour {
 		this.transform.position = this.transform.position + new Vector3(x_off, 0, z_off);
 
 		//cameraLimit();
-		print (transform.position);
+		//print (transform.position);
 		
 
 		float cam_size = Camera.main.orthographicSize-Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;

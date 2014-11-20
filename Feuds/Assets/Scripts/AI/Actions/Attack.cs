@@ -42,8 +42,7 @@ public class Attack : Action {
 	// If target is out of range, check stance and determine
 	// whether you should pursue and attack again
 	public override bool Update () {
-		float radius = attacker.Radius;
-		agent.stoppingDistance = radius;
+		agent.stoppingDistance = attacker.Radius * 0.8f;
 		foreach(Action action in actions) {
 			if(!action.Update())
 				return false;
