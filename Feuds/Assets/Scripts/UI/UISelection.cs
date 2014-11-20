@@ -59,12 +59,10 @@ public class UISelection : MonoBehaviour {
 				if(GameManager.enemyCharacters.Contains(hit.collider.gameObject)){
 					//Enemy!!!
 					//Attack
-					print ("Attack : "+hit.collider.gameObject.name + " at "+hit.point);
 					inputManager.Attack(hit.collider.gameObject);
 				}
 				else {
 					//Move to this position
-					print ("Move To : "+hit.point);
 					inputManager.MoveTo(hit.point);
 				}
 			}    
@@ -84,7 +82,6 @@ public class UISelection : MonoBehaviour {
 				if(selectionRect.Contains(screenPos)){
 					//To do
 					//Select()
-					print (c.name);
 					if(!selectedCharacters.Contains(c)){
 						selectedCharacters.Add(c);
 						//Send it somewhere?
