@@ -29,6 +29,6 @@ public class UICharacter : MonoBehaviour {
 		Vector3 screen = Camera.main.WorldToScreenPoint (transform.position + new Vector3 (0, 2.2f, 0));
 
 		GUI.DrawTexture(new Rect(screen.x - 32,Screen.height - screen.y, 64, 4), Wound);
-		GUI.DrawTexture(new Rect(screen.x - 32,Screen.height - screen.y, (combat.Health.current/combat.Health.max)*64, 4), Health);
+		GUI.DrawTexture(new Rect(screen.x - 32,Screen.height - screen.y, (Mathf.Max (0, combat.Health.current)/combat.Health.max)*64, 4), Health);
 	}
 }
