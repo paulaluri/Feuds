@@ -21,14 +21,21 @@ public class ActionController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Actions = new Action[0];
 		CurrentStance = Stance.Aggressive;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Actions != null && actionIdx < Actions.Length && Actions[actionIdx].Update()) {
-			actionIdx++;
+		DoActions ();
+	}
+
+	private bool DoActions() {
+		foreach(Action action in Actions) {
+			if(!action.Update())
+				return false;
 		}
+		return true;
 	}
 
 	// Do the actions in order
