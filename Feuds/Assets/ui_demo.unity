@@ -1319,11 +1319,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.74112344
+      value: 3.03911209
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.2605648
+      value: 35.7885818
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2066,7 +2066,7 @@ Transform:
   m_PrefabInternal: {fileID: 307261723}
   m_GameObject: {fileID: 470470594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.0160999, y: 1.74112344, z: 18.2605648}
+  m_LocalPosition: {x: -18.0160999, y: 3.03911209, z: 35.7885818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 578593501}
@@ -2123,8 +2123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
-    current: 50
-    max: 50
+    current: 100
+    max: 100
   MovSpeed:
     current: 2
     max: 5
@@ -2135,7 +2135,7 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 0
+    physical: 9.89999962
     magic: 0
   Radius: 3
   Class: 0
@@ -4008,7 +4008,7 @@ Transform:
   m_PrefabInternal: {fileID: 1774827403}
   m_GameObject: {fileID: 652645869}
   m_LocalRotation: {x: 0, y: .98809284, z: 0, w: .153858691}
-  m_LocalPosition: {x: 1.03795087, y: 0, z: 6.44850016}
+  m_LocalPosition: {x: -23.9453831, y: 3.12422204, z: 44.0663681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1698072903}
@@ -4082,8 +4082,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
-    current: 50
-    max: 50
+    current: 100
+    max: 100
   MovSpeed:
     current: 2
     max: 5
@@ -4094,9 +4094,9 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.94999981
+    physical: 9.89999962
     magic: 0
-  Radius: 0
+  Radius: 3
   Class: 0
   inCombat: 0
   attackedThisFrame: 0
@@ -4400,7 +4400,7 @@ Transform:
   m_PrefabInternal: {fileID: 719943624}
   m_GameObject: {fileID: 696354165}
   m_LocalRotation: {x: 0, y: .986215174, z: 0, w: -.165468201}
-  m_LocalPosition: {x: 2.91806483, y: 0, z: 4.90278006}
+  m_LocalPosition: {x: -22.0652695, y: 3.12422204, z: 42.5206451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1482369512}
@@ -4474,8 +4474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
-    current: 50
-    max: 50
+    current: 100
+    max: 100
   MovSpeed:
     current: 2
     max: 5
@@ -4486,9 +4486,9 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.94999981
+    physical: 9.89999962
     magic: 0
-  Radius: 0
+  Radius: 3
   Class: 0
   inCombat: 0
   attackedThisFrame: 0
@@ -4767,15 +4767,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.91806483
+      value: -22.0652695
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.12422204
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.90278006
+      value: 42.5206451
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4815,7 +4815,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.94999981
+      value: 9.89999962
       objectReference: {fileID: 0}
     - target: {fileID: 100086, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -5004,6 +5004,22 @@ Prefab:
     - target: {fileID: 100084, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: AtkSpeed.max
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.current
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.max
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Radius
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -7647,7 +7663,7 @@ Transform:
   m_PrefabInternal: {fileID: 1454190798}
   m_GameObject: {fileID: 1089882519}
   m_LocalRotation: {x: 0, y: .950765848, z: 0, w: .309910357}
-  m_LocalPosition: {x: -2.23297501, y: 0, z: 4.65851021}
+  m_LocalPosition: {x: -27.1317787, y: 3.12422204, z: 38.7937202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1706564446}
@@ -7721,8 +7737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
-    current: 50
-    max: 50
+    current: 100
+    max: 100
   MovSpeed:
     current: 2
     max: 5
@@ -7733,9 +7749,9 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.94999981
+    physical: 9.89999962
     magic: 0
-  Radius: 0
+  Radius: 3
   Class: 0
   inCombat: 0
   attackedThisFrame: 0
@@ -7785,15 +7801,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.818206728
+      value: -25.8015404
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.12422204
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 5.85608149
+      value: 43.4739456
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7833,7 +7849,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.94999981
+      value: 9.89999962
       objectReference: {fileID: 0}
     - target: {fileID: 100084, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -8022,6 +8038,22 @@ Prefab:
     - target: {fileID: 100086, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.current
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.max
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: AtkSpeed.max
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -10235,15 +10267,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.23297501
+      value: -27.1317787
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.12422204
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.65851021
+      value: 38.7937202
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10283,7 +10315,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.94999981
+      value: 9.89999962
       objectReference: {fileID: 0}
     - target: {fileID: 100084, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -10472,6 +10504,22 @@ Prefab:
     - target: {fileID: 100086, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.current
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.max
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: AtkSpeed.max
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -11700,15 +11748,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -24.8988075
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.12422204
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 34.1352081
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12676,7 +12724,7 @@ Transform:
   m_PrefabInternal: {fileID: 1646646485}
   m_GameObject: {fileID: 1743306723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -24.8988075, y: 3.12422204, z: 34.1352081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 256465951}
@@ -12732,8 +12780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
-    current: 50
-    max: 50
+    current: 100
+    max: 100
   MovSpeed:
     current: 2
     max: 5
@@ -12744,7 +12792,7 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 0
+    physical: 9.89999962
     magic: 0
   Radius: 3
   Class: 0
@@ -12861,15 +12909,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.03795087
+      value: -23.9453831
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.12422204
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.44850016
+      value: 44.0663681
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_LocalRotation.x
@@ -12909,7 +12957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.94999981
+      value: 9.89999962
       objectReference: {fileID: 0}
     - target: {fileID: 100086, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -13098,6 +13146,22 @@ Prefab:
     - target: {fileID: 100084, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.current
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Health.max
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: AtkSpeed.max
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -14937,7 +15001,7 @@ Transform:
   m_PrefabInternal: {fileID: 1093506714}
   m_GameObject: {fileID: 2115532970}
   m_LocalRotation: {x: 0, y: .98809284, z: 0, w: .153858691}
-  m_LocalPosition: {x: -.818206728, y: 0, z: 5.85608149}
+  m_LocalPosition: {x: -25.8015404, y: 3.12422204, z: 43.4739456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1720667595}
@@ -14998,8 +15062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health:
-    current: 50
-    max: 50
+    current: 100
+    max: 100
   MovSpeed:
     current: 2
     max: 5
@@ -15010,9 +15074,9 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.94999981
+    physical: 9.89999962
     magic: 0
-  Radius: 0
+  Radius: 3
   Class: 0
   inCombat: 0
   attackedThisFrame: 0
