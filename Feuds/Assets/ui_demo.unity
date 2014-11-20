@@ -1811,6 +1811,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01b8081ffd1f7af4e8a1a701148d8d11, type: 2}
+    - target: {fileID: 100014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
   m_RootGameObject: {fileID: 2115532970}
@@ -3917,9 +3921,10 @@ GameObject:
   - 114: {fileID: 2115532974}
   - 114: {fileID: 2115532973}
   - 114: {fileID: 2115532972}
+  - 136: {fileID: 2115532978}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Character
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4047,6 +4052,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &2115532978
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115532970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2116137483
 GameObject:
   m_ObjectHideFlags: 0
