@@ -47,8 +47,22 @@ public class UISelection : MonoBehaviour {
 			
 		}
 		
-		if(Input.GetMouseButton(RIGHT_CLICK)){
-		
+		if(Input.GetMouseButtonUp(RIGHT_CLICK)){
+			//right click
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit)) {
+
+				if(false && GameManager.enemyCharacters.Contains(hit.collider.gameObject)){
+					//Enemy!!!
+					//Attack
+				}
+				else {
+					//Move to this position
+					print ("Move To : "+hit.point);
+					inputManager.MoveTo(hit.point);
+				}
+			}    
 		}
 		
 		if(mouseDown){

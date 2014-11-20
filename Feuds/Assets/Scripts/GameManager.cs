@@ -8,11 +8,11 @@ public enum PlayMode{
 }
 
 public class GameManager : MonoBehaviour {
-	public List<GameObject> playerCharacters;
-	public List<GameObject> enemyCharacters;
-	public PlayMode mode;
-	public int round;
-	public int maxRound;
+	public static List<GameObject> playerCharacters;
+	public static List<GameObject> enemyCharacters;
+	public static PlayMode mode;
+	public static int round;
+	public static int maxRound;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,15 +25,15 @@ public class GameManager : MonoBehaviour {
 		checkRoundEnd();
 	}
 	
-	void InitializeGameManager(int maxRound, PlayMode mode){
-		this.maxRound = maxRound;
-		this.mode = mode;
+	public static void InitializeGameManager(int maxRound, PlayMode mode){
+		GameManager.maxRound = maxRound;
+		GameManager.mode = mode;
 	}
 	
 	//Might not needed in the future
-	void InitializeRound(List<GameObject> playerCharacters){
-		this.playerCharacters = playerCharacters;
-		enemyCharacters = null;
+	public static void InitializeRound(List<GameObject> playerCharacters){
+		GameManager.playerCharacters = playerCharacters;
+		enemyCharacters = new List<GameObject>();
 	}
 	
 	void checkRoundEnd(){

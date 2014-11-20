@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class InputManager : MonoBehaviour {
-	public GameManager gameManager;
 	public List<GameObject> selectedCharacters;
 
 	//Selected characters attack
