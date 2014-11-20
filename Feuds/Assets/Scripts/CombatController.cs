@@ -42,7 +42,8 @@ public class CombatController : MonoBehaviour {
 	public Class Class;
 
 	public bool isDead { get {return Health.current <= 0;} }
-	public bool inCombat;
+	public bool inCombat = false;
+	public bool attackedThisFrame = false;
 
 	private NavMeshAgent agent;
 
@@ -56,6 +57,10 @@ public class CombatController : MonoBehaviour {
 	void Update () {
 		AtkSpeed.current += Time.deltaTime;
 		agent.speed = MovSpeed.current;
+		if(!attackedThisFrame) {
+			inCombat = false;
+		}
+		attackedThisFrame = false;
 	}
 
 
