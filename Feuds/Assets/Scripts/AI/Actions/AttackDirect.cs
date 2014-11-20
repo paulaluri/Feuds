@@ -15,7 +15,11 @@ public class AttackDirect : Action {
 
 	public override bool Update() {
 		if(attacker.CanAttack(target)) {
+			attacker.inCombat = true;
 			attacker.DoDamage(target);
+		}
+		else {
+			attacker.inCombat = false;
 		}
 		return target.isDead;
 	}
