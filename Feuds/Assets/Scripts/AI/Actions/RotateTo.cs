@@ -16,6 +16,7 @@ public class RotateTo : Action {
 
 	public override bool Update() {
 		if(!lookedAt) {
+			Debug.Log("lookin'");
 			Vector3 forward = target.transform.position - rotater.transform.position;
 			forward.y = 0.0f;
 			forward.Normalize ();

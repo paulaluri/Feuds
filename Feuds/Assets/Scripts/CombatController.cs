@@ -55,7 +55,9 @@ public class CombatController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		AtkSpeed.current += Time.deltaTime;
+		if(inCombat) {
+			AtkSpeed.current += Time.deltaTime;
+		}
 		agent.speed = MovSpeed.current;
 		if(!attackedThisFrame) {
 			inCombat = false;
@@ -74,7 +76,7 @@ public class CombatController : MonoBehaviour {
 	}
 
 	public bool CanAttack(CombatController other) {
-		return AtkSpeed.current >= AtkSpeed.max && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
+		return !other.isDead && AtkSpeed.current >= AtkSpeed.max && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
