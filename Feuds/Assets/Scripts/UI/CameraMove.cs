@@ -61,7 +61,7 @@ public class CameraMove : MonoBehaviour {
 			z_off = (z_off / Mathf.Abs (z_off)) * MAX_SPEED;
 
 		this.transform.position = this.transform.position + new Vector3(x_off, 0, z_off);
-
+		print (transform.position);
 		float cam_size = Camera.main.orthographicSize-Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
 
 		if (cam_size > 30)
