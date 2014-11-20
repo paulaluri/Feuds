@@ -6,6 +6,12 @@ public class CameraMove : MonoBehaviour {
 	private const float SCROLL_SPEED = 1f;
 	private const float MAX_SPEED = .5f;
 	private const float BOTTOM_MARGIN = 192;
+	
+	private const float leftMost = -100;
+	private const float rightMost = 100;
+	private const float topMost = -70;
+	private const float bottomMost = 30;
+	
 	private float TIME_SCROLL = 0;
 
 	public float zoomSpeed;
@@ -62,6 +68,10 @@ public class CameraMove : MonoBehaviour {
 
 		this.transform.position = this.transform.position + new Vector3(x_off, 0, z_off);
 
+		//cameraLimit();
+		print (transform.position);
+		
+
 		float cam_size = Camera.main.orthographicSize-Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
 
 		if (cam_size > 30)
@@ -70,5 +80,12 @@ public class CameraMove : MonoBehaviour {
 			cam_size = 5;
 
 		Camera.main.orthographicSize = cam_size;
+	}
+	
+	void cameraLimit(){
+		if(transform.position.x < leftMost)transform.position = new Vector3(leftMost,transform.position.y,transform.position.z);
+		if(transform.position.x > rightMost)transform.position = new Vector3(rightMost,transform.position.y,transform.position.z);
+		if(transform.position.z > bottomMost)transform.position = new Vector3(transform.position.x,transform.position.y,bottomMost);
+		if(transform.position.z < topMost)transform.position = new Vector3(transform.position.x,transform.position.y,topMost);
 	}
 }
