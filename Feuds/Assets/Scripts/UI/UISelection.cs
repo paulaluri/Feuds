@@ -49,13 +49,18 @@ public class UISelection : MonoBehaviour {
 		
 		if(Input.GetMouseButtonUp(RIGHT_CLICK)){
 			//right click
+			if(selectedCharacters.Count==0){
+				return ;
+			}
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 
-				if(false && GameManager.enemyCharacters.Contains(hit.collider.gameObject)){
+				if(GameManager.enemyCharacters.Contains(hit.collider.gameObject)){
 					//Enemy!!!
 					//Attack
+					print ("Attack : "+hit.collider.gameObject.name + " at "+hit.point);
+					inputManager.Attack(hit.collider.gameObject);
 				}
 				else {
 					//Move to this position
@@ -79,6 +84,7 @@ public class UISelection : MonoBehaviour {
 				if(selectionRect.Contains(screenPos)){
 					//To do
 					//Select()
+					print (c.name);
 					if(!selectedCharacters.Contains(c)){
 						selectedCharacters.Add(c);
 						//Send it somewhere?
