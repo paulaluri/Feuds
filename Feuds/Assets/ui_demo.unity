@@ -2111,6 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &470470599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,12 +2131,12 @@ MonoBehaviour:
     max: 5
   AtkSpeed:
     current: 0
-    max: 0
+    max: .5
   Attack:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.89999962
+    physical: 10
     magic: 0
   Radius: 3
   Class: 0
@@ -4069,6 +4070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &652645875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4089,12 +4091,12 @@ MonoBehaviour:
     max: 5
   AtkSpeed:
     current: 0
-    max: 0
+    max: .5
   Attack:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.89999962
+    physical: 10
     magic: 0
   Radius: 3
   Class: 0
@@ -4461,6 +4463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &696354171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4481,12 +4484,12 @@ MonoBehaviour:
     max: 5
   AtkSpeed:
     current: 0
-    max: 0
+    max: .5
   Attack:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.89999962
+    physical: 10
     magic: 0
   Radius: 3
   Class: 0
@@ -4815,7 +4818,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.89999962
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100086, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -5007,7 +5010,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: AtkSpeed.max
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Health.current
@@ -7724,6 +7727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &1089882525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7744,12 +7748,12 @@ MonoBehaviour:
     max: 5
   AtkSpeed:
     current: 0
-    max: 0
+    max: .5
   Attack:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.89999962
+    physical: 10
     magic: 0
   Radius: 3
   Class: 0
@@ -7849,7 +7853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.89999962
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100084, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -8053,7 +8057,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: AtkSpeed.max
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -10315,7 +10319,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.89999962
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100084, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -10519,7 +10523,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: AtkSpeed.max
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -12787,12 +12791,12 @@ MonoBehaviour:
     max: 5
   AtkSpeed:
     current: 0
-    max: 0
+    max: .5
   Attack:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.89999962
+    physical: 10
     magic: 0
   Radius: 3
   Class: 0
@@ -12824,6 +12828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &1743306730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12957,7 +12962,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: Defense.physical
-      value: 9.89999962
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100086, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: m_Layer
@@ -13161,7 +13166,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: AtkSpeed.max
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -15049,6 +15054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &2115532975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15069,12 +15075,12 @@ MonoBehaviour:
     max: 5
   AtkSpeed:
     current: 0
-    max: 0
+    max: .5
   Attack:
     physical: 10
     magic: 0
   Defense:
-    physical: 9.89999962
+    physical: 10
     magic: 0
   Radius: 3
   Class: 0

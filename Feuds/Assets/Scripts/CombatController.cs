@@ -58,6 +58,9 @@ public class CombatController : MonoBehaviour {
 		if(inCombat) {
 			AtkSpeed.current += Time.deltaTime;
 		}
+		else {
+			AtkSpeed.current = 0.0f;
+		}
 		agent.speed = MovSpeed.current;
 		if(!attackedThisFrame) {
 			inCombat = false;
@@ -67,19 +70,23 @@ public class CombatController : MonoBehaviour {
 
 
 	public void DoDamage(CombatController other) {
-		AtkSpeed.current = 0.0f;
-		other.TakeDamage (Random.Range(1.0f, 1.5f) * Attack);
+		if(AtkSpeed.current > AtkSpeed.max) {
+			AtkSpeed.current = 0.0f;
+			other.TakeDamage (Random.Range(1.0f, 1.5f) * Attack);
+		}
 	}
 	
 	public void TakeDamage(Damage atk) {
-		Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total * Random.Range (0.0f, 1.0f);
+		Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total;
 		if(isDead) {
 			collider.enabled = false;
+			agent.enabled = false;
+			GetComponent<ActionController>().enabled = false;
 		}
 	}
 
 	public bool CanAttack(CombatController other) {
-		return !isDead && !other.isDead && AtkSpeed.current >= AtkSpeed.max && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
+		return !isDead && !other.isDead && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
