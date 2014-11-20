@@ -87,4 +87,8 @@ public class ActionController : MonoBehaviour {
 			action.Start(gameObject);
 		}
 	}
+
+	void OnNetworkInstantiate(NetworkMessageInfo info) {
+		enabled = networkView.isMine;
+	}
 }
