@@ -28,6 +28,7 @@ public class Attack : Action {
 		if(pursue) {
 			actions.Add(new Pursue(target.gameObject.transform));
 		}
+		actions.Add (new RotateTo (target.gameObject.transform));
 		actions.Add (new AttackDirect (target));
 		if(g.GetComponent<ActionController>().CurrentStance == Stance.Defensive) {
 			actions.Add(new MoveTo(g.transform.position));
