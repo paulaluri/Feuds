@@ -38,10 +38,10 @@ public class CombatController : MonoBehaviour {
 	public Stat AtkSpeed;
 	public Damage Attack;
 	public Damage Defense;
+	public float Radius;
 	public Class Class;
 
 	public bool isDead { get {return Health.current <= 0;} }
-	public bool canAttack { get {return AtkSpeed.current >= AtkSpeed.max; } }
 	public bool inCombat;
 
 	private NavMeshAgent agent;
@@ -66,6 +66,10 @@ public class CombatController : MonoBehaviour {
 	
 	public void TakeDamage(Damage atk) {
 		Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total * Random.Range (0.0f, 1.0f);
+	}
+
+	public bool CanAttack(CombatController other) {
+		return AtkSpeed.current >= AtkSpeed.max && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
