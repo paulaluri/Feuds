@@ -15,16 +15,12 @@ public class RotateTo : Action {
 	}
 
 	public override bool Update() {
-		if(!lookedAt) {
-			Debug.Log("lookin'");
-			Vector3 forward = target.transform.position - rotater.transform.position;
-			forward.y = 0.0f;
-			forward.Normalize ();
+		Vector3 forward = target.transform.position - rotater.transform.position;
+		forward.y = 0.0f;
+		forward.Normalize ();
 
-			rotater.transform.forward = Vector3.Lerp (rotater.transform.forward, forward, Time.deltaTime * 10.0f);
+		rotater.transform.forward = Vector3.Lerp (rotater.transform.forward, forward, Time.deltaTime * 10.0f);
 
-			lookedAt = Vector3.Dot(rotater.transform.forward, forward) > 0.9;
-		}
-		return lookedAt;
+		return Vector3.Dot(rotater.transform.forward, forward) > 0.9;
 	}
 }
