@@ -55,22 +55,19 @@ public class UISelection : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-
 				if(GameManager.enemyCharacters.Contains(hit.collider.gameObject)){
 					//Enemy!!!
 					//Attack
-					print ("Attack : "+hit.collider.gameObject.name + " at "+hit.point);
 					inputManager.Attack(hit.collider.gameObject);
 				}
 				else {
 					//Move to this position
-					print ("Move To : "+hit.point);
 					inputManager.MoveTo(hit.point);
 				}
 			}    
 		}
 		
-		if(mouseDown){
+		if(mouseDown || Input.GetMouseButtonDown(0)){
 			selectionRect.xMin = mouseStartPosition.x < Input.mousePosition.x? mouseStartPosition.x: Input.mousePosition.x;
 			selectionRect.xMax = mouseStartPosition.x > Input.mousePosition.x? mouseStartPosition.x: Input.mousePosition.x;
 			selectionRect.yMin = Camera.main.pixelHeight - (mouseStartPosition.y > Input.mousePosition.y? mouseStartPosition.y: Input.mousePosition.y);
@@ -78,13 +75,19 @@ public class UISelection : MonoBehaviour {
 			
 			characters.RemoveAll(item => item == null);
 			foreach(GameObject c in characters){
-				Vector3 screenPos = Camera.main.WorldToScreenPoint(c.transform.position);
-				screenPos.y = Camera.main.pixelHeight -screenPos.y;
+				Vector3 footPos = Camera.main.WorldToScreenPoint(c.transform.position + new Vector3(-0.5f,0,0));
+				footPos.y = Camera.main.pixelHeight -footPos.y;
 				//print (""+screenPos+" - "+Input.mousePosition);
-				if(selectionRect.Contains(screenPos)){
+				Vector3 headPos = Camera.main.WorldToScreenPoint(c.transform.position + new Vector3(0.5f,2,0));
+				headPos.y = Camera.main.pixelHeight -headPos.y;
+				Rect selectableArea = new Rect();
+				selectableArea.xMin = footPos.x;
+				selectableArea.xMax = headPos.x;
+				selectableArea.yMax = footPos.y;
+				selectableArea.yMin = headPos.y;
+				if(selectionRect.Overlaps(selectableArea)){
 					//To do
 					//Select()
-					print (c.name);
 					if(!selectedCharacters.Contains(c)){
 						selectedCharacters.Add(c);
 						//Send it somewhere?
@@ -104,7 +107,11 @@ public class UISelection : MonoBehaviour {
 	
 	void OnGUI () {
 		// Make a background box
-		if(mouseDown)GUI.Box(selectionRect, "");
+		if(mouseDown){
+			if(selectionRect.width>5 || selectionRect.height>5){
+				GUI.Box(selectionRect, "");
+			}
+		}
 	
 	}
 	

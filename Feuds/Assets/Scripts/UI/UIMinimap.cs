@@ -4,9 +4,14 @@ using System.Collections;
 public class UIMinimap : MonoBehaviour {
 	public Rect minimapRect; //-->>GUI Position
 	public GameObject map; //-->terrain
+	public GUIStyle style;
+	public Rect positionRect;
+	public int positionRectWidth =100;
+	public int positionRectHeight = 100;
 	// Use this for initialization
 	void Start () {
 		minimapRect = new Rect(Screen.width-175,Screen.height-175,172,172);
+		positionRect = new Rect(10,10,positionRectWidth,positionRectHeight);
 	}
 	
 	// Update is called once per frame
@@ -14,10 +19,21 @@ public class UIMinimap : MonoBehaviour {
 		if(minimapRect==null){
 			return;
 		}
-		Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
-		if(minimapRect.Contains(guiPosition)){
-			
+		SetPositionRect();
+		if(Input.GetMouseButtonDown(0)){
+			Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
+			if(minimapRect.Contains(guiPosition)){
+				
+			}
 		}
+	}
+	
+	void SetPositionRect(){
+		Ray ray = Camera.main.ScreenPointToRay (new Vector3(Screen.width/2.0f,Screen.height/2.0f));
+		RaycastHit hit;
+		if (Physics.Raycast (ray, out hit)) {
+			
+		}    
 	}
 	
 	void Initialize(Rect r){
@@ -33,6 +49,7 @@ public class UIMinimap : MonoBehaviour {
 		if(minimapRect.Contains(guiPosition)){
 			GUI.Box(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,10,10),"");
 		}
+		GUI.Box(positionRect,"",style);
 	}
 	
 	Vector2 FromMouseToGUIPosition(Vector2 mP){
