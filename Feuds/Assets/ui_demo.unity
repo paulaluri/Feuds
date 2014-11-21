@@ -353,6 +353,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackables:
+    serializedVersion: 2
+    m_Bits: 2048
+  agent: {fileID: 0}
+  myCombat: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  targetCombat: {fileID: 0}
+  CurrentStance: 0
+  CurrentCommand: 0
 --- !u!114 &69442602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,7 +1179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_Controller
@@ -1474,7 +1483,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
       propertyPath: m_Controller
@@ -2033,6 +2042,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackables:
+    serializedVersion: 2
+    m_Bits: 2048
+  agent: {fileID: 0}
+  myCombat: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  targetCombat: {fileID: 0}
+  CurrentStance: 0
+  CurrentCommand: 0
 --- !u!114 &470470599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3539,6 +3557,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackables:
+    serializedVersion: 2
+    m_Bits: 1024
+  agent: {fileID: 0}
+  myCombat: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  targetCombat: {fileID: 0}
+  CurrentStance: 0
+  CurrentCommand: 0
 --- !u!114 &652645875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6107,6 +6134,14 @@ Prefab:
     - target: {fileID: 11400006, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
       propertyPath: AtkSpeed.max
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: attackables.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: CurrentStance
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
@@ -9924,6 +9959,14 @@ Prefab:
       propertyPath: AtkSpeed.max
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: attackables.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
+      propertyPath: CurrentStance
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
   m_RootGameObject: {fileID: 652645869}
@@ -11452,6 +11495,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05cea5d7dbc24e65a19742ec0087ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackables:
+    serializedVersion: 2
+    m_Bits: 1024
+  agent: {fileID: 0}
+  myCombat: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  targetCombat: {fileID: 0}
+  CurrentStance: 0
+  CurrentCommand: 0
 --- !u!114 &2115532975
 MonoBehaviour:
   m_ObjectHideFlags: 0

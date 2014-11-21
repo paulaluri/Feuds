@@ -1,52 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class Attack : Action {
-	// This should probably be some script for attacking
-	private List<Action> actions;
-	private CombatController attacker;
-	private CombatController target;
-	private NavMeshAgent agent;
 
-	private bool pursue;
+	public override bool Update() {
+		CombatController attacker = ac.myCombat;
+		CombatController target = ac.targetCombat;
 
-	public Attack(GameObject target) : this(target,true) {
-	}
-
-	public Attack(GameObject target, bool pursue) {
-		this.target = target.GetComponent<CombatController>();
-		this.pursue = pursue;
-
-		actions = new List<Action> ();
-	}
-
-	// Use this for initialization
-	public override void Start (GameObject g) {
-		attacker = g.GetComponent<CombatController> ();
-		agent = g.GetComponent<NavMeshAgent> ();
-		if(pursue) {
-			actions.Add(new Pursue(target.gameObject.transform));
+		if(attacker.CanAttack(target)) {
+			attacker.inCombat = true;
+			attacker.attackedThisFrame = true;
+			attacker.DoDamage(target);
 		}
-		actions.Add (new RotateTo (target.gameObject.transform));
-		actions.Add (new AttackDirect (target));
-		if(g.GetComponent<ActionController>().CurrentStance == Stance.Defensive) {
-			actions.Add(new MoveTo(g.transform.position));
-		}
-		foreach(Action action in actions) {
-			action.Start(g);
-		}
-	}
-	
-	// Return true if target is dead
-	// If target is out of range, check stance and determine
-	// whether you should pursue and attack again
-	public override bool Update () {
-		agent.stoppingDistance = attacker.Radius * 0.8f;
-		foreach(Action action in actions) {
-			if(!action.Update())
-				return false;
-		}
-		return true;
+		return target.isDead;
 	}
 }

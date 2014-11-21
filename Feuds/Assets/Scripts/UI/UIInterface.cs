@@ -49,7 +49,7 @@ public class UIInterface : MonoBehaviour {
 		}
 
 		if (GUI.Button (new Rect (218, 30, 64, 64), passive, buttonStyle)) {
-			inputManager.SetStance (Stance.Active);
+			inputManager.SetStance (Stance.Passive);
 		}
 
 		//GUI.Button (new Rect(8,100, 64, 64), "Skill 1");
