@@ -9,6 +9,7 @@ public class UISelection : MonoBehaviour {
 	public bool mouseDown;
 	public Rect selectionRect;
 	public GUIStyle style;
+	public GameObject Select;
 	
 	public int bottom_threshold;
 	
@@ -62,6 +63,7 @@ public class UISelection : MonoBehaviour {
 				}
 				else {
 					//Move to this position
+					GameObject.Instantiate(Select, hit.point, Quaternion.identity);
 					inputManager.MoveTo(hit.point);
 				}
 			}    

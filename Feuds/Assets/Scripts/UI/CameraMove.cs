@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraMove : MonoBehaviour {
-	private const int SCROLL_THRESH = 100;
+	private const int SCROLL_THRESH = 20;
 	private const float SCROLL_SPEED = 1f;
 	private const float MAX_SPEED = .5f;
 	private const float BOTTOM_MARGIN = 192;
