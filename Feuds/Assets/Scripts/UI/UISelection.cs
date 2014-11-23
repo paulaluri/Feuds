@@ -59,6 +59,7 @@ public class UISelection : MonoBehaviour {
 					//Enemy!!!
 					//Attack
 					inputManager.Attack(hit.collider.gameObject);
+					UIFogOfWar.DisableRenderer(hit.collider.gameObject);
 				}
 				else {
 					//Move to this position
