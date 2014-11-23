@@ -7,10 +7,10 @@ public class CameraMove : MonoBehaviour {
 	private const float MAX_SPEED = .5f;
 	private const float BOTTOM_MARGIN = 192;
 	
-	private const float leftMost = -100;
-	private const float rightMost = 100;
-	private const float topMost = -70;
-	private const float bottomMost = 30;
+	public static float leftMost = -20;
+	public static float rightMost = 100;
+	public static float topMost = -100;
+	public static float bottomMost = 20;
 	
 	private float TIME_SCROLL = 0;
 
@@ -68,7 +68,7 @@ public class CameraMove : MonoBehaviour {
 
 		this.transform.position = this.transform.position + new Vector3(x_off, 0, z_off);
 
-		//cameraLimit();
+		cameraLimit();
 		//print (transform.position);
 		
 
@@ -87,5 +87,12 @@ public class CameraMove : MonoBehaviour {
 		if(transform.position.x > rightMost)transform.position = new Vector3(rightMost,transform.position.y,transform.position.z);
 		if(transform.position.z > bottomMost)transform.position = new Vector3(transform.position.x,transform.position.y,bottomMost);
 		if(transform.position.z < topMost)transform.position = new Vector3(transform.position.x,transform.position.y,topMost);
+	}
+	
+	public static float GetWidth(){
+		return rightMost-leftMost;
+	}
+	public static float GetHeight(){
+		return bottomMost-topMost;
 	}
 }
