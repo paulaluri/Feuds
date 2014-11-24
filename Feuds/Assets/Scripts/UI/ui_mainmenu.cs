@@ -11,6 +11,8 @@ public class ui_mainmenu : MonoBehaviour {
 	public Texture logo;
 	public GUIStyle menu_btn;
 	public GUIStyle guard_btn;
+	public GUIStyle wizard_btn;
+	public GUIStyle archer_btn;
 	public GUIStyle credit_style;
 	public GUIStyle menu_text;
 
@@ -62,8 +64,8 @@ public class ui_mainmenu : MonoBehaviour {
 
 			//Soldiers
 			GUI.Button(new Rect(400, 120, 64, 64), "", guard_btn);
-			GUI.Button(new Rect(464, 120, 64, 64), "", guard_btn);
-			GUI.Button(new Rect(528, 120, 64, 64), "", guard_btn);
+			GUI.Button(new Rect(464, 120, 64, 64), "", wizard_btn);
+			GUI.Button(new Rect(528, 120, 64, 64), "", archer_btn);
 		}
 	}
 }
