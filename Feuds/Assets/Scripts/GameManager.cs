@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void checkRoundEnd(){
-		int winner = game.Winner;
+		//int winner = game.winner;
+		int winner = -1;
 		if(winner == 0){
 			//no one yet
 		}

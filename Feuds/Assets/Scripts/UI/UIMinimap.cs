@@ -12,14 +12,24 @@ public class UIMinimap : MonoBehaviour {
 
 	public Vector2 center;
 	
+	public bool mouseDown = false;
+	
 	// Use this for initialization
 	void Start () {
-		minimapDiamond = new Diamond(new Vector2(527,270),new Vector2(527,415),new Vector2(455,380),new Vector2(600,380));
+		Vector2 leftcorner=new Vector2(Screen.width-224,Screen.height-224);
+		minimapDiamond = new Diamond(new Vector2(leftcorner.x+108,leftcorner.y),new Vector2(leftcorner.x+108,leftcorner.y+216-50),
+		                             new Vector2(leftcorner.x+25,leftcorner.y+108-25),new Vector2(leftcorner.x+216-25,leftcorner.y+108-25));
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetMouseButtonDown(0)){
+			mouseDown = true;
+		}
+		if(Input.GetMouseButtonUp(0)){
+			mouseDown = false;
+		}
+		if(mouseDown){
 			Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
 			if(minimapDiamond.Contains(guiPosition)){
 				//transport camera to that position
@@ -36,7 +46,7 @@ public class UIMinimap : MonoBehaviour {
 		//print (FromMouseToGUIPosition(Input.mousePosition));
 		
 		center = GetGUICenterPoint();
-		//print (center);
+		print (center);
 		
 		
 	}
@@ -77,7 +87,7 @@ public class UIMinimap : MonoBehaviour {
 		//Debug.Log("I");
 		Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
 		if(minimapDiamond.Contains(guiPosition)){
-			GUI.Box(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,10,10),"");
+			//GUI.Box(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,10,10),"");
 		}
 		
 		GUI.Box(new Rect(center.x,center.y,5,5),"");
