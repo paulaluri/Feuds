@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour {
 	public static PlayMode mode;
 	public static int round;
 	public static int maxRound;
-	
+	public static GameMode game;
+
 	// Use this for initialization
 	void Start () {
 		InitializeRound();
@@ -39,14 +40,15 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void checkRoundEnd(){
-		if(playerCharacters.Count == 0){
-			//LOSE
+		int winner = game.Winner;
+		if(winner == 0){
+			//no one yet
 		}
-		if(enemyCharacters.Count == 0){
-			//WIN
+		if(winner == 1){
+			//player 1
 		}
-		if(round == maxRound){
-			//Do something?
+		if(winner == 2){
+			//player 2
 		}
 	}
 }
