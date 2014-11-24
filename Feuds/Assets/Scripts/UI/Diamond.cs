@@ -23,6 +23,10 @@ public class Diamond : MonoBehaviour {
 		return right.x-left.x;
 	}
 	
+	public float GetLength(){
+		return Mathf.Sqrt(Mathf.Pow(GetWidth()/2f,2) + Mathf.Pow(GetHeight()/2f,2));
+	}
+	
 	public bool Contains(Vector2 pos){
 		if(isPointUnderLine(pos,top,right) && isPointUnderLine(pos,top,left)
 			&& !isPointUnderLine(pos,left,bottom) && !isPointUnderLine(pos,right,bottom)){
