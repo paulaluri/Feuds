@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class KingOfTheHill : GameMode {
+
 	public float Radius;
 	public float Speed;
-	public LayerMask Player1;
-	public LayerMask Player2;
 
 	private float percent;
 	private LayerMask players;
@@ -13,13 +12,13 @@ public class KingOfTheHill : GameMode {
 	public override int Winner {
 		get {
 			if(percent >= 100.0f) {
-				return 1;
+				return attacker;
 			}
-			else if(GameManager.playerCharacters.Count == 0) {
-				return 2;
+			else if(GameManager.characters[attacker].Count == 0) {
+				return defender;
 			}
 			else {
-				return 0;
+				return -1;
 			}
 		}
 	}
@@ -27,17 +26,17 @@ public class KingOfTheHill : GameMode {
 	// Use this for initialization
 	void Start () {
 		percent = 0.0f;
-		players = Player1 | Player2;
+		players = 1 << attackerLayer | 1 << defenderLayer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(networkView.isMine) {
-			Collider[] colliders = Physics.OverlapSphere(transform.position,Radius);
+			Collider[] colliders = Physics.OverlapSphere(transform.position,Radius,players);
 			int attackers = 0;
 			int defenders = 0;
 			foreach(Collider col in colliders) {
-				if(col.gameObject.layer == Player1) {
+				if(col.gameObject.layer == attackerLayer) {
 					attackers++;
 				}
 				else {

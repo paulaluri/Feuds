@@ -20,7 +20,7 @@ public class UISelection : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		characters = new List<GameObject>();
-		Initialize(GameManager.playerCharacters);
+		Initialize(GameManager.characters[GameManager.player]);
 		bottom_threshold = 192;
 	}
 	
@@ -56,7 +56,7 @@ public class UISelection : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				if(GameManager.enemyCharacters.Contains(hit.collider.gameObject)){
+				if(hit.collider.gameObject.layer == GameManager.otherLayer){
 					//Enemy!!!
 					//Attack
 					inputManager.Attack(hit.collider.gameObject);

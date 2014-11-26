@@ -46,7 +46,7 @@ public class UIMinimap : MonoBehaviour {
 		//print (FromMouseToGUIPosition(Input.mousePosition));
 		
 		center = GetGUICenterPoint();
-		print (center);
+		//print (center);
 		
 		
 	}
