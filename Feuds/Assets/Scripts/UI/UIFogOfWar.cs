@@ -12,9 +12,9 @@ public class UIFogOfWar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		foreach(GameObject enemy in GameManager.enemyCharacters){
+		foreach(GameObject enemy in GameManager.characters[GameManager.other]){
 			bool check = false;
-			foreach(GameObject player in GameManager.playerCharacters){
+			foreach(GameObject player in GameManager.characters[GameManager.player]){
 				if((enemy.transform.position - player.transform.position).magnitude <= visionLength){
 					EnableRenderer(enemy);
 					check = true;

@@ -58,6 +58,7 @@ public class ActionController : MonoBehaviour {
 		foreach(Action action in IdleAction) {
 			action.Start(gameObject);
 		}
+		GameManager.characters [gameObject.layer - 10].Add (gameObject);
 	}
 	
 	// Update is called once per frame

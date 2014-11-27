@@ -59,7 +59,7 @@ public class nav_LOUNGE : MonoBehaviour {
 
 		//Resources Left
 		GUI.color = new Color(255,216,0);
-		GUI.Label(new Rect(10, 60, 200, 20), init_resources.ToString(), menu_text);
+		GUI.Label(new Rect(10, 60, 200, 20), "Resources left: " + init_resources.ToString(), menu_text);
 		GUI.color = new Color(255, 255, 255);
 
 		//Add items
@@ -96,7 +96,17 @@ public class nav_LOUNGE : MonoBehaviour {
 		GUI.Label (new Rect(68,80,200,64), "[" + COST_ARCHER.ToString() + "]", menu_text);
 		GUI.Label (new Rect(68,144,200,64), "[" + COST_WIZARD.ToString() + "]", menu_text);
 		GUI.color = new Color(255, 255, 255);
-
+		
+		GUI.EndGroup();
+		
+		//Attack icon
+		GUI.BeginGroup(new Rect(10, 300, 264, 192));
+		GUI.DrawTexture(new Rect(0, 0, 64, 64), boost_attack);
+		GUI.Label (new Rect(68,24,200,64), "Attack boost", menu_text);
+		GUI.DrawTexture(new Rect(0, 64, 64, 64), boost_defense);
+		GUI.Label (new Rect(68,88,200,64), "Armor boost", menu_text);
+		GUI.DrawTexture(new Rect(0, 128, 64, 64), boost_resist);
+		GUI.Label (new Rect(68,152,200,64), "Magic resistance boost", menu_text);
 		GUI.EndGroup();
 
 		//Character List
