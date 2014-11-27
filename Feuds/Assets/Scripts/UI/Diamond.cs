@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Diamond : MonoBehaviour {
+public class Diamond {
 
 	public Vector2 top;
 	public Vector2 bottom;
