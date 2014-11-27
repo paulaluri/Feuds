@@ -26,8 +26,7 @@ public class FogOfWar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3[] positions = FindPositionToClearFog(GameManager.playerCharacters);
-        print(GameManager.playerCharacters.Count+""+positions.Length);
+        Vector3[] positions = FindPositionToClearFog(GameManager.characters[GameManager.player]);
         ClearFog(positions);
     }
 
