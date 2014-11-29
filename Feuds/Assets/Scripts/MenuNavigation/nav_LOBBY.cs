@@ -6,22 +6,68 @@ public class nav_LOBBY : MonoBehaviour {
 	public string SceneLounge;
 	public GUIStyle menu_btn;
 	public GUIStyle menu_text;
+	public GUIStyle menu_selected;
 
 	private int scene_lobby;
-	private string ip = "127.0.0.1";
+	private string name = "";
+	private HostData selectedHost = null;
+	private Vector2 scrollPosition = Vector2.zero;
+
+	void Start() {
+		MasterServer.RequestHostList ("Feuds");
+	}
 
 
 	// Update is called once per frame
 	void OnGUI(){
+		HostData[] hosts = MasterServer.PollHostList ();
+
+		scrollPosition = GUI.BeginScrollView (new Rect(10,10,Screen.width-20,Screen.height-68),
+		                                            scrollPosition,
+		                                            new Rect(0,0,100,100));
+		foreach(HostData host in hosts) {
+			GUILayout.BeginHorizontal();
+			if(selectedHost != null && selectedHost.guid == host.guid) {
+				if(GUILayout.Button(host.gameName,menu_selected, GUILayout.Width(Screen.width-20))) {
+					Join ();
+				}
+			}
+			else {
+				if(GUILayout.Button(host.gameName,menu_text, GUILayout.Width(Screen.width-20))) {
+					selectedHost = host;
+				}
+			}
+			GUILayout.EndHorizontal();
+		}
+		GUI.EndScrollView ();
+
 		//Back
-		if(GUI.Button(new Rect(Screen.width-182, 10, 172, 48), "Back", menu_btn))
+		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Back", menu_btn)) {
 			Application.LoadLevel (SceneMain);
+		}
 		
 		//Options
-		if(GUI.Button(new Rect(10, 10, 172, 48), "Host", menu_btn))
-			Application.LoadLevel (SceneLounge);
-		GUI.Button(new Rect(182, 10, 172, 48), "Join", menu_btn);
+		if(GUI.Button(new Rect(10, Screen.height-58, 172, 48), "Host", menu_btn)) {
+			Host ();
+		}
+
+		name = GUI.TextField (new Rect(192, Screen.height-58, Screen.width-(182*3+20), 48), name, menu_text);
+
+		if(GUI.Button(new Rect(Screen.width-182*2, Screen.height-58, 172, 48), "Join", menu_btn) && selectedHost != null) {
+			Join ();
+		}
 		
-		ip = GUI.TextField (new Rect(354, 10, 172, 48), ip, menu_text);
+
+	}
+
+	void Join() {
+		Network.Connect (selectedHost);
+		Application.LoadLevel (SceneLounge);
+	}
+
+	void Host() {
+		Network.InitializeServer (1, 15466, !Network.HavePublicAddress ());
+		MasterServer.RegisterHost ("Feuds", name);
+		Application.LoadLevel (SceneLounge);
 	}
 }
