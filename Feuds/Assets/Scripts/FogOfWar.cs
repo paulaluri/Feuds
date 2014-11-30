@@ -67,7 +67,7 @@ public class FogOfWar : MonoBehaviour
             {
                 if ((vertices[i] - pos[j]).sqrMagnitude<radius)
                 {
-                    //print(pos[j]);
+                    print(pos[j]);
                     colors[i].a = 0;
                     break;
                 }
