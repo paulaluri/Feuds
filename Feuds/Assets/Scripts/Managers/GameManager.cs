@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour {
 	
 	//Might not needed in the future
 	public static void InitializeRound(){
-		GameManager.characters[0].AddRange(GameObject.FindGameObjectsWithTag("Player1"));
-		GameManager.characters[1].AddRange(GameObject.FindGameObjectsWithTag("Player2"));
+		GameManager.characters[0].AddRange(GameObject.FindGameObjectsWithTag("Character"));
+		GameManager.characters[1].AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 	}
 	
 	void checkRoundEnd(){

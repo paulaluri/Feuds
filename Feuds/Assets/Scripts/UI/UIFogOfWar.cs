@@ -40,6 +40,7 @@ public class UIFogOfWar : MonoBehaviour {
 	public static void EnableRenderer(GameObject character){
 		Renderer[] renderers = character.GetComponentsInChildren<Renderer>();
 		foreach(Renderer r in renderers){
+            if (r.name == "Selection") continue;
 			r.enabled = true;
 		}
 		if(character.renderer != null){
