@@ -5349,7 +5349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de4fa29370b6bb46a5672d5a15ebd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimapDiamond: {fileID: 0}
   map: {fileID: 0}
   style:
     m_Name: 
@@ -5410,7 +5409,6 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  positionDiamond: {fileID: 0}
   cameras: {fileID: 1378959944}
   UIHeight: 192
   center: {x: 0, y: 0}
