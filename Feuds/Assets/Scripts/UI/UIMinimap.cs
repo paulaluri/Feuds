@@ -23,7 +23,8 @@ public class UIMinimap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) && minimapDiamond.Contains(FromMouseToGUIPosition(Input.mousePosition)))
+        {
 			mouseDown = true;
 		}
 		if(Input.GetMouseButtonUp(0)){
@@ -35,7 +36,7 @@ public class UIMinimap : MonoBehaviour {
 				//transport camera to that position
 				//get ratio first
 				Vector2 relativePos = GetRelativePosFromPoint(guiPosition);
-				print (relativePos);
+				//print (relativePos);
 				Vector3 newCameraPos = new Vector3(0,cameras.transform.position.y,0);
 				newCameraPos.x = relativePos.x*CameraMove.GetWidth()+CameraMove.leftMost;
 				newCameraPos.z = relativePos.y*CameraMove.GetHeight()+CameraMove.topMost;

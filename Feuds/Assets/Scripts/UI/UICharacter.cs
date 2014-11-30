@@ -12,6 +12,7 @@ public class UICharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		combat = gameObject.GetComponent<CombatController> ();
+        selection.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -19,9 +20,11 @@ public class UICharacter : MonoBehaviour {
 		if (inputManager.selectedCharacters.Contains (gameObject)) {
 			//Draw selection circle
 			selection.enabled = true;
+            //print(gameObject);
 		}
 		else {
 			selection.enabled = false;
+            //print("?" + gameObject);
 		}
 	}
 

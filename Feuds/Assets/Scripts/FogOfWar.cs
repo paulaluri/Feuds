@@ -41,7 +41,7 @@ public class FogOfWar : MonoBehaviour
             Debug.DrawRay(character.transform.position-100*cameraDir, 100 * cameraDir);
             if (Physics.Raycast(character.transform.position - 100 * cameraDir, 100 * cameraDir, out hit, layerMask))
             {
-                print(hit.point);
+                //print(hit.point);
                 Vector3 point = mf.transform.InverseTransformPoint(hit.point);
                 tmp[count] = point;
                 count++;
@@ -67,7 +67,7 @@ public class FogOfWar : MonoBehaviour
             {
                 if ((vertices[i] - pos[j]).sqrMagnitude<radius)
                 {
-                    print(pos[j]);
+                    //print(pos[j]);
                     colors[i].a = 0;
                     break;
                 }
