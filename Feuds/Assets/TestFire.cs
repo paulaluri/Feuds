@@ -31,11 +31,7 @@ public class TestFire : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		Debug.Log ("Test");
 		isFiring = false;
-<<<<<<< HEAD
 
-=======
-        print(c.name);
->>>>>>> FETCH_HEAD
 		this.transform.parent = c.transform;
 	}
 }
