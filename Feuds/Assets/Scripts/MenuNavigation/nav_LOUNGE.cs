@@ -192,7 +192,7 @@ public class nav_LOUNGE : MonoBehaviour {
 	// network instantiate characters, load scene
 	void StartGame() {
 		GameObject spawn = Instantiate (Spawner) as GameObject;
-		//spawn.GetComponent<CharacterSpawn> ().units = chars;
+		spawn.GetComponent<CharacterSpawn> ().units = chars;
 		DontDestroyOnLoad (spawn);
 		Application.LoadLevel (SceneGame);
 
