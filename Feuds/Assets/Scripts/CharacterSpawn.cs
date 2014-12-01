@@ -14,14 +14,16 @@ public class CharacterSpawn : MonoBehaviour {
 
 	public List<LoungeCharacter> units;
 
+	private bool ready = false;
+
 	// Use this for initialization
 	void Start () {
-	
+		DontDestroyOnLoad (gameObject);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Application.loadedLevelName.StartsWith ("game")) {
+		if(ready && Application.loadedLevelName.StartsWith ("game")) {
 			Vector3 spawnLocation;
 			
 			if(GameManager.player == GameManager.round % 2) {
@@ -61,5 +63,14 @@ public class CharacterSpawn : MonoBehaviour {
 			}
 			Destroy(gameObject);
 		}
+	}
+
+	public void Ready() {
+		networkView.RPC ("OtherReady",RPCMode.OthersBuffered);
+	}
+
+	[RPC]
+	public void OtherReady() {
+		ready = true;
 	}
 }

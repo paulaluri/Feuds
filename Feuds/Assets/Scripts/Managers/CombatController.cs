@@ -98,9 +98,23 @@ public class CombatController : MonoBehaviour {
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref Health.current);
-		stream.Serialize (ref Attack.physical);
-		stream.Serialize (ref Attack.magic);
-		stream.Serialize (ref Defense.physical);
-		stream.Serialize (ref Defense.magic);
+	}
+
+	void OnNetworkInstantiate(NetworkMessageInfo info) {
+		if(!networkView.isMine) {
+			NetworkView view = gameObject.AddComponent<NetworkView> ();
+			view.observed = this;
+			view.stateSynchronization = NetworkStateSynchronization.ReliableDeltaCompressed;
+			view.viewID = Network.AllocateViewID();
+			networkView.RPC("WatchHealth",RPCMode.OthersBuffered,view.viewID);
+		}
+	}
+
+	[RPC]
+	void WatchHealth(NetworkViewID id) {
+		NetworkView view = gameObject.AddComponent<NetworkView> ();
+		view.observed = this;
+		view.stateSynchronization = NetworkStateSynchronization.ReliableDeltaCompressed;
+		view.viewID = id;
 	}
 }

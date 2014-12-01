@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		InitializeRound();
 		player = Convert.ToInt32(!(Network.peerType == NetworkPeerType.Disconnected || Network.isServer));
+		FindObjectOfType<CharacterSpawn> ().Ready ();
 	}
 	
 	// Update is called once per frame

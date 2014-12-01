@@ -32,7 +32,7 @@ public class nav_LOUNGE : MonoBehaviour {
 	public Texture boost_resist;
 	public Texture delete;
 
-	public GameObject Spawner;
+	public CharacterSpawn Spawner;
 
 	private List<LoungeCharacter> chars = new List<LoungeCharacter>();
 
@@ -191,9 +191,7 @@ public class nav_LOUNGE : MonoBehaviour {
 
 	// network instantiate characters, load scene
 	void StartGame() {
-		GameObject spawn = Instantiate (Spawner) as GameObject;
-		spawn.GetComponent<CharacterSpawn> ().units = chars;
-		DontDestroyOnLoad (spawn);
+		Spawner.units = chars;
 		Application.LoadLevel (SceneGame);
 
 	}
