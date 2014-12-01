@@ -43,6 +43,7 @@ public class CombatController : MonoBehaviour {
 
 	public bool isDead { get {return Health.current <= 0;} }
 	public bool inCombat = false;
+	public bool inSkill = false;
 	public bool attackedThisFrame = false;
 
 	private NavMeshAgent agent;

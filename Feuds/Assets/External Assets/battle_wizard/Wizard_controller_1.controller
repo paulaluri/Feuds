@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GuardController
+  m_Name: Wizard_controller_1
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: is_combat
@@ -293,11 +293,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Guard_swing_left
+  m_Name: Wizard Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400030, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400032, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110720017}
   m_Position: {x: 960, y: 108, z: 0}
@@ -309,11 +309,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Guard_StandingFree
+  m_Name: Wizard_StandingFree
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400044, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400052, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}
   m_ParentStateMachine: {fileID: 110732483}
   m_Position: {x: -156, y: 132, z: 0}
   m_IKOnFeet: 0
@@ -324,11 +324,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Guard_walk
+  m_Name: Wizard_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400056, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400074, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}
   m_ParentStateMachine: {fileID: 110732483}
   m_Position: {x: 96, y: 132, z: 0}
   m_IKOnFeet: 0
@@ -339,11 +339,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Guard_run
+  m_Name: Wizard_Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400052, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400070, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}
   m_ParentStateMachine: {fileID: 110732483}
   m_Position: {x: 348, y: 132, z: 0}
   m_IKOnFeet: 0
@@ -358,7 +358,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400058, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400024, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 48, y: 36, z: 0}
   m_IKOnFeet: 0
@@ -369,11 +369,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Guard_specal_attack_A
+  m_Name: Wizard Special Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400024, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400040, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110720017}
   m_Position: {x: 696, y: 108, z: 0}
@@ -398,22 +398,6 @@ StateMachine:
   - {x: -216, y: -36, z: 0}
   m_OrderedTransitions:
     data:
-      first: {fileID: 110256065}
-      second:
-      - {fileID: 110127959}
-    data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 110220251}
-      second:
-      - {fileID: 110111246}
-      - {fileID: 110170592}
-      - {fileID: 110173213}
-    data:
-      first: {fileID: 110245145}
-      second: []
-    data:
       first: {fileID: 0}
       second: []
     data:
@@ -423,16 +407,29 @@ StateMachine:
       - {fileID: 110122670}
       - {fileID: 110130197}
     data:
-      first: {fileID: 110229344}
+      first: {fileID: 110220251}
       second:
-      - {fileID: 110179928}
-      - {fileID: 110116579}
+      - {fileID: 110111246}
+      - {fileID: 110170592}
+      - {fileID: 110173213}
     data:
       first: {fileID: 110224489}
       second:
       - {fileID: 110193446}
       - {fileID: 110124051}
       - {fileID: 110100000}
+    data:
+      first: {fileID: 110229344}
+      second:
+      - {fileID: 110179928}
+      - {fileID: 110116579}
+    data:
+      first: {fileID: 110245145}
+      second: []
+    data:
+      first: {fileID: 110256065}
+      second:
+      - {fileID: 110127959}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 72, y: -60, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
