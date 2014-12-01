@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public enum Command{
 	Attack,
 	Move,
+    UseSkill,
 	None
 }
 
@@ -29,6 +30,7 @@ public class ActionController : MonoBehaviour {
 	private Action[] CommandActions = new Action[] {
 		new Sequencer(new Pursue(), new Rotate(), new Attack(), new Move()),
 		new Move(),
+        new UseSkill(),
 		new Idle()
 	};
 	private Action[] IdleAction = new Action[] {
@@ -79,6 +81,11 @@ public class ActionController : MonoBehaviour {
 		CurrentCommand = Command.Move;
 		position = pos;
 	}
+
+    public void UseSkill()
+    {
+        CurrentCommand = Command.UseSkill;
+    }
 
 	void OnNetworkInstantiate(NetworkMessageInfo info) {
 		enabled = networkView.isMine;

@@ -597,7 +597,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .529779971
+        functionName: PlaySound
+        data: 
+        objectReferenceParameter: {fileID: 100000, guid: 423bf080bf54c8d47b6afd1389737bde,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 0
       maskSource: {instanceID: 0}

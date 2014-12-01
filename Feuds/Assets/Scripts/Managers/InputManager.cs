@@ -19,6 +19,45 @@ public class InputManager : MonoBehaviour {
 		}
 	}
 
+    //Selected characters use skill
+    public void UseSkill()
+    {
+        foreach (GameObject g in selectedCharacters)
+        {
+            g.GetComponent<ActionController>().UseSkill();
+        }
+    }
+
+    public void clickSkill()
+    {
+        Class c = selectedCharacters[0].GetComponent<CombatController>().Class;
+        for (int i = 1; i < selectedCharacters.Count; i++)
+        {
+            if (c != selectedCharacters[i].GetComponent<CombatController>().Class)
+            {
+                //Error, should not be able to click skill
+                return;
+            }
+        }
+        if (c == Class.Magician)
+        {
+            //Do magic stuff
+            UISelection.selectMode = UISelection.SelectMode.AOESKILL;
+        }
+        else if (c == Class.Guard)
+        {
+            //Do guard stuff
+            print("guard");
+            UseSkill();
+        }
+        else if (c == Class.Archer)
+        {
+            //Do archer stuff
+            UseSkill();
+        }
+
+    }
+
 	//Selected characters change stance
 	public void SetStance(Stance stance){
 		foreach (GameObject g in selectedCharacters) {

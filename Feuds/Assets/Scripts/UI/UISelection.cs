@@ -16,14 +16,28 @@ public class UISelection : MonoBehaviour
 
     public InputManager inputManager;
 
+    public Light lightForAoe;
+
     public const int LEFT_CLICK = 0;
     public const int RIGHT_CLICK = 1;
+
+    public float skillRadius = 10;
+
+    public enum SelectMode
+    {
+        NORMAL,
+        AOESKILL
+    }
+
+    public static SelectMode selectMode;
     // Use this for initialization
     void Start()
     {
         characters = new List<GameObject>();
         Initialize(GameManager.characters[GameManager.player]);
         bottom_threshold = 192;
+        lightForAoe.enabled = false;
+        selectMode = SelectMode.NORMAL;
     }
 
     // Update is called once per frame
@@ -37,6 +51,33 @@ public class UISelection : MonoBehaviour
         if (Input.mousePosition.y < bottom_threshold)
         {
             return;
+        }
+        if (selectMode == SelectMode.AOESKILL)
+        {
+            MoveAoeSkill(lightForAoe);
+            if (Input.GetMouseButtonDown(LEFT_CLICK))
+            {
+                selectMode = SelectMode.NORMAL;
+                lightForAoe.enabled = false;
+                return;
+            }
+            if (Input.GetMouseButtonDown(RIGHT_CLICK))
+            {
+                selectMode = SelectMode.NORMAL;
+                lightForAoe.enabled = false;
+                Vector3 pos = GetWorldPositionFromMouse();
+                List<GameObject> allcharacters = GameManager.characters[GameManager.other];
+
+                foreach (GameObject character in allcharacters)
+                {
+                    if ((character.transform.position - pos).magnitude < skillRadius)
+                    {
+                        //initiate some kind of damage on the character
+
+                    }
+                }
+                return;
+            }
         }
         if (Input.GetMouseButtonDown(LEFT_CLICK))
         {
@@ -126,6 +167,8 @@ public class UISelection : MonoBehaviour
                 }
             }
         }
+
+        
     }
 
     void OnGUI()
@@ -145,5 +188,28 @@ public class UISelection : MonoBehaviour
     {
         characters = c;
         selectedCharacters = new List<GameObject>();
+    }
+
+    public void MoveAoeSkill(Light light)
+    {
+        light.enabled = true;
+        Vector3 pos = GetWorldPositionFromMouse();
+        pos.y += skillRadius;
+        light.transform.position = pos;
+        //print(hit.point);
+        //do something with the character in the area?
+
+    }
+
+    public Vector3 GetWorldPositionFromMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        int layer = 1 << 8;
+        if (Physics.Raycast(ray, out hit, 1000, layer))
+        {
+            return hit.point;
+        }
+        else return new Vector3();
     }
 }
