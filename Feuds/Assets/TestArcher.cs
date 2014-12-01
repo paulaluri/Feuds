@@ -13,7 +13,7 @@ public class TestArcher : MonoBehaviour {
 	}
 
 	public void LoadArrow(){
-		g = (GameObject)GameObject.Instantiate(projectile, Vector3.zero, Quaternion.identity);
+		g = (GameObject)GameObject.Instantiate(projectile, Vector3.zero, Quaternion.Euler (0, -90, 0));
 		g.transform.parent = spawnpoint.transform;
 		g.transform.localPosition = Vector3.zero;
 		g.transform.localRotation = Quaternion.Euler (0, -90, 0);
