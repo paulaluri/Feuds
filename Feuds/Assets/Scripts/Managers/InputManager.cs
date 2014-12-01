@@ -39,10 +39,21 @@ public class InputManager : MonoBehaviour {
                 return;
             }
         }
-        if (true || c == Class.Magician)
+        if (c == Class.Magician)
         {
             //Do magic stuff
             UISelection.selectMode = UISelection.SelectMode.AOESKILL;
+        }
+        else if (c == Class.Guard)
+        {
+            //Do guard stuff
+            print("guard");
+            UseSkill();
+        }
+        else if (c == Class.Archer)
+        {
+            //Do archer stuff
+            UseSkill();
         }
 
     }

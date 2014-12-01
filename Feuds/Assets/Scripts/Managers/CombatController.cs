@@ -45,6 +45,8 @@ public class CombatController : MonoBehaviour {
 	public Stat AtkSpeed;
 	public Damage Attack;
 	public Damage Defense;
+    public float skillCD;
+    public float startCD;
 	public float Radius;
 	public Class Class;
 
@@ -59,6 +61,7 @@ public class CombatController : MonoBehaviour {
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
 		AtkSpeed.current = 0.0f;
+        startCD = -skillCD;
 	}
 	
 	// Update is called once per frame

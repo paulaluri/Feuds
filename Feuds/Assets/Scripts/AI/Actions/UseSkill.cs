@@ -3,28 +3,35 @@ using System.Collections;
 
 public class UseSkill : Action
 {
-    public float guardSkillRadius;
+    public float guardSkillRadius = 10;
     public float archerSlowConstant;
     public override bool Update()
     {
         CombatController attacker = ac.myCombat;
         CombatController target = ac.targetCombat;
 
+        if (Time.time - attacker.startCD < attacker.skillCD)
+        {
+            return true;
+        }
+
         if (attacker.Class == Class.Guard)
         {
             //Aura for increasing defense . . .
+            Debug.Log("Aura");
             Vector3 pos = attacker.transform.position;
-            foreach (GameObject character in GameManager.characters[0])
+            foreach (GameObject character in GameManager.characters[GameManager.player])
             {
                 if ((character.transform.position - pos).magnitude < guardSkillRadius)
                 {
                     CombatController cc = character.GetComponent<CombatController>();
-                    cc.Defense -= new Damage(-1.0f, -1.0f);
+                    cc.Defense += new Damage(1.0f, 1.0f);
                 }
             }
-            //attacker.Defense -= new Damage(-1.0f, -1.0f);
+            attacker.inSkill = true;
 
             //set cooldown...
+            attacker.startCD = Time.time;
         }
         else if (attacker.Class == Class.Archer)
         {
@@ -37,13 +44,14 @@ public class UseSkill : Action
                 }
                 //... start countdown to return to normal speed?
 
+                //do attack?
+                //how many damage?
                 attacker.inCombat = true;
                 attacker.attackedThisFrame = true;
                 attacker.DoDamage(target);
-                //do attack?
-                //how many damage?
             }
             //set cooldown...
+            attacker.startCD = Time.time;
         }
         else if (attacker.Class == Class.Magician)
         {
@@ -51,8 +59,9 @@ public class UseSkill : Action
             //set the animation
             attacker.inSkill = true;
             //set cooldown...
+            attacker.startCD = Time.time;
         }
 
-        return target.isDead;
+        return true;
     }
 }
