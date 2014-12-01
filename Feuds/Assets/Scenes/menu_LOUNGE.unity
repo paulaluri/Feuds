@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneLobby: menu_LOBBY
-  SceneGame: 
+  SceneGame: game_KOTH
   menu_btn:
     m_Name: 
     m_Normal:
@@ -595,6 +595,7 @@ MonoBehaviour:
   boost_defense: {fileID: 2800000, guid: f32e503150c17704f9b57ff9e8164d4f, type: 3}
   boost_resist: {fileID: 2800000, guid: 2b8bb8125b04ccf4185de8657cbfe6ba, type: 3}
   delete: {fileID: 2800000, guid: 52e8af249f292ad4fad5388a91913fcc, type: 3}
+  Spawner: {fileID: 100000, guid: 6f96d18f8ffc342c8956b9ca9ba5b965, type: 2}
 --- !u!1 &1532597037
 GameObject:
   m_ObjectHideFlags: 0

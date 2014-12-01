@@ -9,7 +9,7 @@ public class nav_LOBBY : MonoBehaviour {
 	public GUIStyle menu_selected;
 
 	private int scene_lobby;
-	private string name = "";
+	private string gameName = "";
 	private HostData selectedHost = null;
 	private Vector2 scrollPosition = Vector2.zero;
 
@@ -51,7 +51,7 @@ public class nav_LOBBY : MonoBehaviour {
 			Host ();
 		}
 
-		name = GUI.TextField (new Rect(192, Screen.height-58, Screen.width-(182*3+20), 48), name, menu_text);
+		gameName = GUI.TextField (new Rect(192, Screen.height-58, Screen.width-(182*3+20), 48), gameName, menu_text);
 
 		if(GUI.Button(new Rect(Screen.width-182*2, Screen.height-58, 172, 48), "Join", menu_btn) && selectedHost != null) {
 			Join ();
@@ -67,7 +67,7 @@ public class nav_LOBBY : MonoBehaviour {
 
 	void Host() {
 		Network.InitializeServer (1, 15466, !Network.HavePublicAddress ());
-		MasterServer.RegisterHost ("Feuds", name);
+		MasterServer.RegisterHost ("Feuds", gameName);
 		Application.LoadLevel (SceneLounge);
 	}
 }

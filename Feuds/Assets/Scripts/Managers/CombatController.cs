@@ -12,14 +12,21 @@ public class Damage {
 	public float magic;
 	public float total { get { return Mathf.Max(physical + magic,0.0f); } }
 
+	public static Damage operator+(Damage atk, Damage bonus) {
+		return new Damage (atk.physical + bonus.physical, atk.magic + bonus.magic);
+	}
+
 	public static Damage operator-(Damage atk, Damage def) {
 		return new Damage (Mathf.Max (atk.physical - def.physical, 0.0f), Mathf.Max (atk.magic - def.magic, 0.0f));
+	}
+
+	public static Damage operator*(Damage atk, float scalar) {
+		return new Damage (scalar * atk.physical, scalar * atk.magic);
 	}
 
 	public static Damage operator*(float scalar, Damage atk) {
 		return new Damage (scalar * atk.physical, scalar * atk.magic);
 	}
-
 }
 
 public enum Class {
@@ -91,5 +98,9 @@ public class CombatController : MonoBehaviour {
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref Health.current);
+		stream.Serialize (ref Attack.physical);
+		stream.Serialize (ref Attack.magic);
+		stream.Serialize (ref Defense.physical);
+		stream.Serialize (ref Defense.magic);
 	}
 }

@@ -13,11 +13,12 @@ public class UICharacter : MonoBehaviour {
 	void Start () {
 		combat = gameObject.GetComponent<CombatController> ();
         selection.enabled = false;
+		inputManager = FindObjectOfType<InputManager> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (inputManager.selectedCharacters.Contains (gameObject)) {
+			if (inputManager.selectedCharacters.Contains (gameObject)) {
 			//Draw selection circle
 			selection.enabled = true;
             //print(gameObject);

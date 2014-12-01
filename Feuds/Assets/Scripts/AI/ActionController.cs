@@ -58,7 +58,7 @@ public class ActionController : MonoBehaviour {
 			action.Start(gameObject);
 		}
 		//Let the GameManager add the character itself
-        //GameManager.characters [gameObject.layer - 10].Add (gameObject);
+        GameManager.characters [gameObject.layer - 10].Add (gameObject);
 	}
 	
 	// Update is called once per frame
