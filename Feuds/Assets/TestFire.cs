@@ -4,6 +4,7 @@ using System.Collections;
 public class TestFire : MonoBehaviour {
 	private bool isFiring = false;
 	private float initTime = 0;
+	public float speed = 1f;
 	// Use this for initialization
 	void Start () {
 		initTime = Time.realtimeSinceStartup;
@@ -17,7 +18,7 @@ public class TestFire : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(isFiring){
-			this.transform.position = this.transform.position - this.transform.right*.08f;
+			this.transform.position = this.transform.position - this.transform.right*speed;
 		}
 
 		if(Time.realtimeSinceStartup - initTime > 10)
