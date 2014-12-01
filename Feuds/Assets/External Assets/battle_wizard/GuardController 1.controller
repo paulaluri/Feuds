@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GuardController
+  m_Name: GuardController 1
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: is_combat
@@ -430,26 +430,13 @@ StateMachine:
   - {x: -216, y: -36, z: 0}
   m_OrderedTransitions:
     data:
-      first: {fileID: 110230917}
-      second:
-      - {fileID: 110130182}
-      - {fileID: 110189801}
+      first: {fileID: 0}
+      second: []
     data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110175259}
       - {fileID: 110122670}
-    data:
-      first: {fileID: 110229344}
-      second:
-      - {fileID: 110179928}
-      - {fileID: 110116579}
-    data:
-      first: {fileID: 110224489}
-      second:
-      - {fileID: 110193446}
-      - {fileID: 110124051}
-      - {fileID: 110100000}
     data:
       first: {fileID: 110220251}
       second:
@@ -458,17 +445,21 @@ StateMachine:
       - {fileID: 110173213}
       - {fileID: 110183078}
     data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110224489}
+      second:
+      - {fileID: 110193446}
+      - {fileID: 110124051}
+      - {fileID: 110100000}
     data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110229344}
+      second:
+      - {fileID: 110179928}
+      - {fileID: 110116579}
     data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110230917}
+      second:
+      - {fileID: 110130182}
+      - {fileID: 110189801}
     data:
       first: {fileID: 110245145}
       second: []

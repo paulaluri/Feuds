@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	public static int round;
 	public static int maxRound;
 	public static GameMode game;
-	
+
 	// Use this for initialization
 	void Start () {
 		InitializeRound();
