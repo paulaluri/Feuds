@@ -6,6 +6,7 @@ public class TestArcher : MonoBehaviour {
 	public GameObject projectile;
 	public GameObject spawnpoint;
 	private GameObject g;
+	public GameObject target;
 	// Use this for initialization
 	void Start () {
 		anim = gameObject.GetComponent<Animator>();
@@ -15,11 +16,11 @@ public class TestArcher : MonoBehaviour {
 		g = (GameObject)GameObject.Instantiate(projectile, Vector3.zero, Quaternion.identity);
 		g.transform.parent = spawnpoint.transform;
 		g.transform.localPosition = Vector3.zero;
-		g.transform.localRotation = Quaternion.identity;
+		g.transform.localRotation = Quaternion.Euler (0, -90, 0);
 	}
 
 	public void Shoot(){
 		g.transform.parent = null;
-		g.GetComponent<TestFire>().Fire ();
+		g.GetComponent<TestArrow>().Fire (this.transform.position, target.transform.position);
 	}
 }
