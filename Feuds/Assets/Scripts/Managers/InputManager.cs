@@ -19,6 +19,15 @@ public class InputManager : MonoBehaviour {
 		}
 	}
 
+    //Selected characters use skill
+    public void UseSkill()
+    {
+        foreach (GameObject g in selectedCharacters)
+        {
+            g.GetComponent<ActionController>().UseSkill();
+        }
+    }
+
 	//Selected characters change stance
 	public void SetStance(Stance stance){
 		foreach (GameObject g in selectedCharacters) {
