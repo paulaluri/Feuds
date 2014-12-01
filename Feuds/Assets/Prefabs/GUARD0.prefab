@@ -61,6 +61,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 136: {fileID: 13600000}
   - 148: {fileID: 14800000}
+  - 148: {fileID: 14800002}
   m_Layer: 10
   m_Name: GUARD0
   m_TagString: Player1
@@ -1469,9 +1470,12 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 0
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
+  inSkill: 0
   attackedThisFrame: 0
 --- !u!136 &13600000
 CapsuleCollider:
@@ -1566,6 +1570,18 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 1
   m_Observed: {fileID: 400006}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14800002
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11400000}
   m_ViewID:
     m_ID: 0
     m_Type: 0

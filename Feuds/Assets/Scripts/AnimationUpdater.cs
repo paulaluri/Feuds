@@ -11,6 +11,11 @@ public class AnimationUpdater : MonoBehaviour {
 	private int inCombatIdx;
 	private int inSkillIdx;
 
+	private float speed = 0.0f;
+	private bool isDead = false;
+	private bool inCombat = false;
+	private bool inSkill = false;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -25,9 +30,23 @@ public class AnimationUpdater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		anim.SetFloat (speedIdx, agent.velocity.magnitude);
-		anim.SetBool (isDeadIdx, attacker.isDead);
-		anim.SetBool (inCombatIdx, attacker.inCombat);
-		anim.SetBool (inSkillIdx, attacker.inSkill);
+		if(networkView.isMine) {
+			speed = agent.velocity.magnitude;
+			isDead = attacker.isDead;
+			inCombat = attacker.inCombat;
+			inSkill = attacker.inSkill;
+		}
+
+		anim.SetFloat (speedIdx, speed);
+		anim.SetBool (isDeadIdx, isDead);
+		anim.SetBool (inCombatIdx, inCombat);
+		anim.SetBool (inSkillIdx, inSkill);
+	}
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		stream.Serialize (ref speed);
+		stream.Serialize (ref isDead);
+		stream.Serialize (ref inCombat);
+		stream.Serialize (ref inSkill);
 	}
 }
