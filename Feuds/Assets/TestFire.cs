@@ -28,10 +28,10 @@ public class TestFire : MonoBehaviour {
 		isFiring = true;
 	}
 
-	void OnCollisionEnter(Collision c){
+	void OnTriggerEnter(Collider c){
 		Debug.Log ("Test");
 		isFiring = false;
 
-		this.transform.parent = c.collider.transform;
+		this.transform.parent = c.transform;
 	}
 }

@@ -26,7 +26,6 @@ public class ActionController : MonoBehaviour {
 
 	public CombatController targetCombat;
 
-
 	private Action[] CommandActions = new Action[] {
 		new Sequencer(new Pursue(), new Rotate(), new Attack(), new Move()),
 		new Move(),
