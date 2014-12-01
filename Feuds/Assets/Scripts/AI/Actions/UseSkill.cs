@@ -48,7 +48,8 @@ public class UseSkill : Action
         else if (attacker.Class == Class.Magician)
         {
             //Now that's a bit complicated . . .
-            //Since it's an AOE, may be something els should handle this
+            //set the animation
+            attacker.inSkill = true;
             //set cooldown...
         }
 

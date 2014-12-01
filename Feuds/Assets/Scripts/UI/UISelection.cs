@@ -37,7 +37,7 @@ public class UISelection : MonoBehaviour
         Initialize(GameManager.characters[GameManager.player]);
         bottom_threshold = 192;
         lightForAoe.enabled = false;
-        selectMode = SelectMode.AOESKILL;
+        selectMode = SelectMode.NORMAL;
     }
 
     // Update is called once per frame
