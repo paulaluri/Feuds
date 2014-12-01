@@ -30,7 +30,16 @@ public class UseSkill : Action
         {
             if (attacker.CanAttack(target))
             {
-                target.MovSpeed.current *= archerSlowConstant;
+                if (target.MovSpeed.current > 5)
+                {
+                    //No stacking
+                    target.MovSpeed.current *= archerSlowConstant;
+                }
+                //... start countdown to return to normal speed?
+
+                attacker.inCombat = true;
+                attacker.attackedThisFrame = true;
+                attacker.DoDamage(target);
                 //do attack?
                 //how many damage?
             }
