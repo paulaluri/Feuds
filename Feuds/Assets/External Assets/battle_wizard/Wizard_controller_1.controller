@@ -5,7 +5,11 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Feuds/Assets/External Assets/battle_wizard/Wizard_controller_1.controller
   m_Name: Wizard_controller_1
+=======
+  m_Name: GuardController 1
+>>>>>>> FETCH_HEAD:Feuds/Assets/External Assets/battle_wizard/GuardController 1.controller
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: is_combat
@@ -412,6 +416,10 @@ StateMachine:
       - {fileID: 110111246}
       - {fileID: 110170592}
       - {fileID: 110173213}
+<<<<<<< HEAD:Feuds/Assets/External Assets/battle_wizard/Wizard_controller_1.controller
+=======
+      - {fileID: 110183078}
+>>>>>>> FETCH_HEAD:Feuds/Assets/External Assets/battle_wizard/GuardController 1.controller
     data:
       first: {fileID: 110224489}
       second:
@@ -423,6 +431,14 @@ StateMachine:
       second:
       - {fileID: 110179928}
       - {fileID: 110116579}
+<<<<<<< HEAD:Feuds/Assets/External Assets/battle_wizard/Wizard_controller_1.controller
+=======
+    data:
+      first: {fileID: 110230917}
+      second:
+      - {fileID: 110130182}
+      - {fileID: 110189801}
+>>>>>>> FETCH_HEAD:Feuds/Assets/External Assets/battle_wizard/GuardController 1.controller
     data:
       first: {fileID: 110245145}
       second: []

@@ -32,8 +32,8 @@ public class nav_LOUNGE : MonoBehaviour {
 	public Texture boost_resist;
 	public Texture delete;
 
-	private int scene_lobby;
-	private string ip = "127.0.0.1";
+	public GameObject Spawner;
+
 	private List<LoungeCharacter> chars = new List<LoungeCharacter>();
 
 	private const int RESOURCES = 1500;
@@ -55,7 +55,9 @@ public class nav_LOUNGE : MonoBehaviour {
 		//Back and Confirm
 		if(GUI.Button(new Rect(Screen.width-354, Screen.height-58, 172, 48), "Back", menu_btn))
 			Application.LoadLevel (SceneLobby);
-		GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Confirm Team", menu_btn);
+		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Confirm Team", menu_btn)) {
+			StartGame();
+		}
 
 		//Resources Left
 		GUI.color = new Color(255,216,0);
@@ -185,5 +187,14 @@ public class nav_LOUNGE : MonoBehaviour {
 		}
 
 		GUI.EndGroup();
+	}
+
+	// network instantiate characters, load scene
+	void StartGame() {
+		GameObject spawn = Instantiate (Spawner) as GameObject;
+		spawn.GetComponent<CharacterSpawn> ().units = chars;
+		DontDestroyOnLoad (spawn);
+		Application.LoadLevel (SceneGame);
+
 	}
 }

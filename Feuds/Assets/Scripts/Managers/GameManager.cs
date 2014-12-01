@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	public static int round;
 	public static int maxRound;
 	public static GameMode game;
-	
+
 	// Use this for initialization
 	void Start () {
 		InitializeRound();
@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour {
 	
 	//Might not needed in the future
 	public static void InitializeRound(){
-		GameManager.characters[0].AddRange(GameObject.FindGameObjectsWithTag("Character"));
-		GameManager.characters[1].AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+		//GameManager.characters[0].AddRange(GameObject.FindGameObjectsWithTag("Character"));
+		//GameManager.characters[1].AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 	}
 	
 	void checkRoundEnd(){

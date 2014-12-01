@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/menu_LOBBY.unity
   - enabled: 1
     path: Assets/Scenes/menu_LOUNGE.unity
+  - enabled: 1
+    path: Assets/Scenes/game_KOTH.unity
