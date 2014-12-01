@@ -28,6 +28,25 @@ public class InputManager : MonoBehaviour {
         }
     }
 
+    public void clickSkill()
+    {
+        Class c = selectedCharacters[0].GetComponent<CombatController>().Class;
+        for (int i = 1; i < selectedCharacters.Count; i++)
+        {
+            if (c != selectedCharacters[i].GetComponent<CombatController>().Class)
+            {
+                //Error, should not be able to click skill
+                return;
+            }
+        }
+        if (true || c == Class.Magician)
+        {
+            //Do magic stuff
+            UISelection.selectMode = UISelection.SelectMode.AOESKILL;
+        }
+
+    }
+
 	//Selected characters change stance
 	public void SetStance(Stance stance){
 		foreach (GameObject g in selectedCharacters) {

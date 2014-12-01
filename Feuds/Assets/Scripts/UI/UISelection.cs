@@ -29,7 +29,7 @@ public class UISelection : MonoBehaviour
         AOESKILL
     }
 
-    public SelectMode selectMode;
+    public static SelectMode selectMode;
     // Use this for initialization
     void Start()
     {
@@ -51,6 +51,33 @@ public class UISelection : MonoBehaviour
         if (Input.mousePosition.y < bottom_threshold)
         {
             return;
+        }
+        if (selectMode == SelectMode.AOESKILL)
+        {
+            MoveAoeSkill(lightForAoe);
+            if (Input.GetMouseButtonDown(LEFT_CLICK))
+            {
+                selectMode = SelectMode.NORMAL;
+                lightForAoe.enabled = false;
+                return;
+            }
+            if (Input.GetMouseButtonDown(RIGHT_CLICK))
+            {
+                selectMode = SelectMode.NORMAL;
+                lightForAoe.enabled = false;
+                Vector3 pos = GetWorldPositionFromMouse();
+                List<GameObject> allcharacters = GameManager.characters[GameManager.other];
+
+                foreach (GameObject character in allcharacters)
+                {
+                    if ((character.transform.position - pos).magnitude < skillRadius)
+                    {
+                        //initiate some kind of damage on the character
+
+                    }
+                }
+                return;
+            }
         }
         if (Input.GetMouseButtonDown(LEFT_CLICK))
         {
@@ -141,33 +168,7 @@ public class UISelection : MonoBehaviour
             }
         }
 
-        if (selectMode == SelectMode.AOESKILL)
-        {
-            MoveAoeSkill(lightForAoe);
-            if (Input.GetMouseButtonDown(LEFT_CLICK))
-            {
-                selectMode = SelectMode.NORMAL;
-                lightForAoe.enabled = false;
-                return;
-            }
-            if (Input.GetMouseButtonDown(RIGHT_CLICK))
-            {
-                selectMode = SelectMode.NORMAL;
-                lightForAoe.enabled = false;
-                Vector3 pos = GetWorldPositionFromMouse();
-                List<GameObject> allcharacters = GameManager.characters[GameManager.other];
-                
-                foreach (GameObject character in allcharacters)
-                {
-                    if ((character.transform.position - pos).magnitude < skillRadius)
-                    {
-                        //initiate some kind of damage on the character
-
-                    }
-                }
-                return;
-            }
-        }
+        
     }
 
     void OnGUI()

@@ -55,10 +55,13 @@ public class UIInterface : MonoBehaviour {
 			else if (GUI.Button (new Rect (200, 30, 64, 64), passive, buttonStyle))
 				inputManager.SetStance (Stance.Passive);
 
-			//GUI.Button (new Rect(8,100, 64, 64), "Skill 1");
-			//GUI.Button (new Rect(78,100, 64, 64), "Skill 2");
-			//GUI.Button (new Rect(148,100, 64, 64), "Skill 3");
-			//GUI.Button (new Rect(218,100, 64, 64), "Skill 4");
+            if (GUI.Button(new Rect(8, 100, 64, 64), "Skill 1"))
+            {
+                inputManager.clickSkill();
+            }
+			GUI.Button (new Rect(78,100, 64, 64), "Skill 2");
+			GUI.Button (new Rect(148,100, 64, 64), "Skill 3");
+			GUI.Button (new Rect(218,100, 64, 64), "Skill 4");
 
 			GUI.EndGroup();
 		}
