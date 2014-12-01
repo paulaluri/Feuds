@@ -73,6 +73,13 @@ public class CombatController : MonoBehaviour {
 			inCombat = false;
 		}
 		attackedThisFrame = false;
+
+		if(isDead) {
+			enabled = false;
+			collider.enabled = false;
+			agent.enabled = false;
+			GetComponent<ActionController>().enabled = false;
+		}
 	}
 
 
@@ -85,11 +92,6 @@ public class CombatController : MonoBehaviour {
 	
 	public void TakeDamage(Damage atk) {
 		Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total;
-		if(isDead) {
-			collider.enabled = false;
-			agent.enabled = false;
-			GetComponent<ActionController>().enabled = false;
-		}
 	}
 
 	public bool CanAttack(CombatController other) {
