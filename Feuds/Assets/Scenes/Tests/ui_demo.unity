@@ -500,6 +500,8 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 0
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
@@ -787,6 +789,8 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 0
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
@@ -3231,6 +3235,8 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 5
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
@@ -5077,6 +5083,8 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 0
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
@@ -11322,7 +11330,6 @@ MonoBehaviour:
   inputManager: {fileID: 326996369}
   lightForAoe: {fileID: 1195486558}
   skillRadius: 10
-  selectMode: 0
 --- !u!114 &1459197887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11754,6 +11761,8 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 0
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
@@ -15946,6 +15955,8 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
+  skillCD: 0
+  startCD: 0
   Radius: 3
   Class: 0
   inCombat: 0
