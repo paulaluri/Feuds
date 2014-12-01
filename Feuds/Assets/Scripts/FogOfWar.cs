@@ -62,12 +62,12 @@ public class FogOfWar : MonoBehaviour
         Color[] colors = new Color[vertices.Length];
         for (int i = 0; i < vertices.Length; i++)
         { 
-            colors[i].a = 1;
+            colors[i].a = 0.7f;
             for (int j = 0; j < pos.Length; j++)
             {
                 if ((vertices[i] - pos[j]).sqrMagnitude<radius)
                 {
-                    print(pos[j]);
+                    //print(pos[j]);
                     colors[i].a = 0;
                     break;
                 }
