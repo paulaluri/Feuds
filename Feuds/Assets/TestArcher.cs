@@ -21,6 +21,6 @@ public class TestArcher : MonoBehaviour {
 
 	public void Shoot(){
 		g.transform.parent = null;
-		g.GetComponent<TestArrow>().Fire (this.transform.position, target.transform.position);
+		g.GetComponent<TestArrow>().Fire (this.transform, target.transform);
 	}
 }

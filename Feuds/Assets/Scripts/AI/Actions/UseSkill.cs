@@ -18,7 +18,7 @@ public class UseSkill : Action
         if (attacker.Class == Class.Guard)
         {
             //Aura for increasing defense . . .
-            Debug.Log("Aura");
+            //Debug.Log(attacker.name+"Aura");
             Vector3 pos = attacker.transform.position;
             foreach (GameObject character in GameManager.characters[GameManager.player])
             {
