@@ -62,6 +62,7 @@ GameObject:
   - 136: {fileID: 13600000}
   - 148: {fileID: 14800000}
   - 148: {fileID: 14800002}
+  - 114: {fileID: 11400008}
   m_Layer: 10
   m_Name: GUARD0
   m_TagString: Player1
@@ -1477,6 +1478,18 @@ MonoBehaviour:
   inCombat: 0
   inSkill: 0
   attackedThisFrame: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e502a9502c374ef2a93d414db4a43bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: .10000000149011612
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1569,7 +1582,7 @@ NetworkView:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   m_StateSynchronization: 1
-  m_Observed: {fileID: 400006}
+  m_Observed: {fileID: 11400008}
   m_ViewID:
     m_ID: 0
     m_Type: 0
