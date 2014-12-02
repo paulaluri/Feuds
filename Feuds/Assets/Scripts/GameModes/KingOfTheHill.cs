@@ -6,6 +6,12 @@ public class KingOfTheHill : GameMode {
 	public float Radius;
 	public float Speed;
 
+	public GameObject Attack;
+	public GameObject Defense;
+
+	public Color Good;
+	public Color Bad;
+
 	private float percent;
 	private LayerMask players;
 
@@ -27,6 +33,9 @@ public class KingOfTheHill : GameMode {
 	void Start () {
 		percent = 0.0f;
 		players = 1 << attackerLayer | 1 << defenderLayer;
+
+		Attack.renderer.material.color = (attacker == GameManager.player ? Color.blue : Color.red);
+		Defense.renderer.material.color = (attacker == GameManager.other ? Color.blue : Color.red);
 	}
 	
 	// Update is called once per frame
@@ -47,6 +56,8 @@ public class KingOfTheHill : GameMode {
 				percent += Speed * Time.deltaTime;
 			}
 		}
+		Vector3 scale = new Vector3 (percent / 100.0f, percent / 100.0f, 1.0f);
+		Attack.transform.localScale = scale;
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
