@@ -34,8 +34,10 @@ public class KingOfTheHill : GameMode {
 		percent = 0.0f;
 		players = 1 << attackerLayer | 1 << defenderLayer;
 
-		Attack.renderer.material.color = (attacker == GameManager.player ? Color.blue : Color.red);
-		Defense.renderer.material.color = (attacker == GameManager.other ? Color.blue : Color.red);
+		Debug.Log (Good);
+		Debug.Log (Color.blue);
+		Attack.renderer.material.color = (attacker == GameManager.player ? Good : Bad);
+		Defense.renderer.material.color = (attacker == GameManager.other ? Good : Bad);
 	}
 	
 	// Update is called once per frame

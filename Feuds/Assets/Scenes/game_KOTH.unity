@@ -159,8 +159,8 @@ MonoBehaviour:
   Speed: 5
   Attack: {fileID: 1588079657}
   Defense: {fileID: 1090288298}
-  Good: {r: 0, g: 0, b: 1, a: 0}
-  Bad: {r: 1, g: 0, b: 0, a: 0}
+  Good: {r: 0, g: 0, b: 1, a: 1}
+  Bad: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &136744950
 Transform:
   m_ObjectHideFlags: 0
