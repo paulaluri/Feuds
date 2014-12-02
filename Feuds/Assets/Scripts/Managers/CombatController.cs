@@ -83,6 +83,7 @@ public class CombatController : MonoBehaviour {
 			collider.enabled = false;
 			agent.enabled = false;
 			GetComponent<ActionController>().enabled = false;
+			GameManager.characters[gameObject.layer-10].Remove(gameObject);
 		}
 	}
 
