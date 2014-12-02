@@ -18,11 +18,11 @@ public class GameManager : MonoBehaviour {
 	public static int[] wins;
 	public static PlayMode mode;
 	public static Stat Rounds;
-	public static GameMode game;
 	public static bool gameStarted;
 	public static float timeLeft;
 
 	public float Duration;
+	public GameMode game;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(gameStarted && winner < 0) {
-			timeLeft -= Time.deltaTime;
 			if(networkView.isMine) {
+				timeLeft -= Time.deltaTime;
 				checkRoundEnd();
 			}
 		}
@@ -48,13 +48,17 @@ public class GameManager : MonoBehaviour {
 			new List<GameObject>(),
 			new List<GameObject>()
 		};
-		player = Convert.ToInt32(!(Network.peerType == NetworkPeerType.Disconnected || Network.isServer));
+		player = Convert.ToInt32(!Network.isServer);
 		wins = new int[2] {0,0};
+		Rounds = new Stat ();
+		Rounds.current = 0;
+		Rounds.max = 6;
 	}
 
 	public static void StartRound(float Duration) {
 		timeLeft = Duration;
 		winner = -1;
+		FindObjectOfType<CharacterSpawn> ().Ready ();
 	}
 	
 	void checkRoundEnd(){
