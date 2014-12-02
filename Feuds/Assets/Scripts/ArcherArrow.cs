@@ -6,22 +6,25 @@ public class ArcherArrow : MonoBehaviour {
 	public GameObject projectile;
 	public GameObject spawnpoint;
 	private GameObject g;
-	private GameObject target;
+	private Vector3 target;
 	// Use this for initialization
 	void Start () {
 		anim = gameObject.GetComponent<Animator>();
 	}
 
 	public void LoadArrow(){
-		g = (GameObject)GameObject.Instantiate(projectile, Vector3.zero, Quaternion.Euler (0, -90, 0));
+		g = (GameObject)GameObject.Instantiate(projectile, spawnpoint.transform.position, spawnpoint.transform.rotation);
 		g.transform.parent = spawnpoint.transform;
-		g.transform.localPosition = Vector3.zero;
-		g.transform.localRotation = Quaternion.Euler (0, -90, 0);
-        target = gameObject.GetComponent<ActionController>().targetCombat.gameObject;
+		//g.transform.localPosition = Vector3.zero;
+		//g.transform.localRotation = Quaternion.Euler (0, 0, 0);
+		CombatController opp = gameObject.GetComponent<ActionController> ().targetCombat;
+		target = this.gameObject.GetComponent<AnimationUpdater>().targetPos;
 	}
 
 	public void Shoot(){
-		g.transform.parent = null;
-		g.GetComponent<Arrow>().Fire (this.transform, target.transform);
+		if (target != null) {
+			g.transform.parent = null;
+			g.GetComponent<Arrow> ().Fire (this.transform, target);
+		}
 	}
 }

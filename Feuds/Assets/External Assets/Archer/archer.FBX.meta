@@ -418,7 +418,7 @@ ModelImporter:
       - time: .105650984
         functionName: Shoot
         data: 
-        objectReferenceParameter: {fileID: 100132, guid: 88e4263326a720c468e573b5fac3518f,
+        objectReferenceParameter: {fileID: 100132, guid: 9b078f5ac0371ee418f1f94a5b6916c8,
           type: 2}
         floatParameter: 0
         intParameter: 0
@@ -426,7 +426,7 @@ ModelImporter:
       - time: 0
         functionName: LoadArrow
         data: 
-        objectReferenceParameter: {fileID: 100132, guid: 88e4263326a720c468e573b5fac3518f,
+        objectReferenceParameter: {fileID: 100132, guid: 9b078f5ac0371ee418f1f94a5b6916c8,
           type: 2}
         floatParameter: 0
         intParameter: 0
