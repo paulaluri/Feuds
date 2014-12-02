@@ -53,10 +53,10 @@ public class KingOfTheHill : GameMode {
 				}
 			}
 			if(defenders == 0 && attackers > 0) {
-				percent += Speed * Time.deltaTime;
+				percent = Mathf.Min(Speed * Time.deltaTime + percent,100.0f);
 			}
 		}
-		Vector3 scale = new Vector3 (percent / 100.0f, percent / 100.0f, 1.0f);
+		Vector3 scale = new Vector3 (percent / 100.0f, 1.0f, percent / 100.0f);
 		Attack.transform.localScale = scale;
 	}
 
