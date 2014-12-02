@@ -14,7 +14,6 @@ public class KingOfTheHill : GameMode {
 	public Color Bad;
 
 	private float percent;
-	private LayerMask players;
 
 	public override int Winner {
 		get {
@@ -35,7 +34,6 @@ public class KingOfTheHill : GameMode {
 	// Use this for initialization
 	void Start () {
 		percent = 0.0f;
-		players = 1 << attackerLayer | 1 << defenderLayer;
 
 		Attack.renderer.material.color = (attacker == GameManager.player ? Good : Bad);
 		Defense.renderer.material.color = (attacker == GameManager.other ? Good : Bad);

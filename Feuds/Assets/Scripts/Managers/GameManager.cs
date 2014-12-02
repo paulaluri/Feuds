@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour {
 	public static float timeLeft;
 	public static GameMode game;
 
+	public static bool meReady = false;
+	public static bool otherReady = false;
+	public static bool ready { get { return meReady && otherReady; } }
+
 	public float Duration;
 	public GameObject gameModePrefab;
 
@@ -34,6 +38,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(ready && !gameStarted) {
+			StartRound();
+		}
 		if(gameStarted && winner < 0) {
 			if(networkView.isMine) {
 				timeLeft -= Time.deltaTime;
@@ -41,7 +48,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		else if(winner >= 0) {
-			//load stat screen, set game to null
+			EndRound();
 		}
 	}
 
@@ -58,15 +65,15 @@ public class GameManager : MonoBehaviour {
 		Rounds.max = 6;
 	}
 
-	public void StartRound( ) {
+	void StartRound( ) {
+		gameStarted = true;
 		timeLeft = Duration;
 		winner = -1;
-		FindObjectOfType<CharacterSpawn> ().Ready ();
 		if(Network.isServer) {
 			Network.Instantiate(gameModePrefab,gameModePrefab.transform.position,Quaternion.identity,0);
 		}
 	}
-	
+
 	void checkRoundEnd(){
 		if(game) {
 			winner = game.Winner;
@@ -76,10 +83,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	void EndRound() {
+	}
+
 	void OnLevelWasLoaded(int level) {
 		if(Application.loadedLevelName.StartsWith("game")) {
-			StartRound ();
-
+			Ready();
 		}
 	}
 
@@ -90,5 +99,15 @@ public class GameManager : MonoBehaviour {
 		stream.Serialize (ref wins [1]);
 		stream.Serialize (ref Rounds.current);
 		stream.Serialize (ref Rounds.max);
+	}
+
+	void Ready() {
+		meReady = true;
+		networkView.RPC ("OtherReady", RPCMode.OthersBuffered);
+	}
+
+	[RPC]
+	void OtherReady() {
+		otherReady = true;
 	}
 }
