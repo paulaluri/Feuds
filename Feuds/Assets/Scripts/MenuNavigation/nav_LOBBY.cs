@@ -7,6 +7,7 @@ public class nav_LOBBY : MonoBehaviour {
 	public GUIStyle menu_btn;
 	public GUIStyle menu_text;
 	public GUIStyle menu_selected;
+	public GameObject GameManager;
 
 	private int scene_lobby;
 	private string gameName = "";
@@ -62,14 +63,13 @@ public class nav_LOBBY : MonoBehaviour {
 
 	void Join() {
 		Network.Connect (selectedHost);
-		GameManager.StartGame ();
 		Application.LoadLevel (SceneLounge);
 	}
 
 	void Host() {
 		Network.InitializeServer (1, 15466, !Network.HavePublicAddress ());
 		Debug.Log ("calling");
-		GameManager.StartGame ();
+		Network.Instantiate (GameManager, Vector3.zero, Quaternion.identity, 0);
 		MasterServer.RegisterHost ("Feuds", gameName);
 		Application.LoadLevel (SceneLounge);
 	}

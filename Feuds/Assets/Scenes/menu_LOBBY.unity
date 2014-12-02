@@ -355,6 +355,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  GameManager: {fileID: 100000, guid: 0c5abcee9a2664a7c823809bfe67c892, type: 2}
 --- !u!1 &1532597037
 GameObject:
   m_ObjectHideFlags: 0

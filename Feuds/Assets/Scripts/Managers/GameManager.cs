@@ -20,13 +20,15 @@ public class GameManager : MonoBehaviour {
 	public static Stat Rounds;
 	public static bool gameStarted;
 	public static float timeLeft;
+	public static GameMode game;
 
 	public float Duration;
-	public GameMode game;
+
 
 	// Use this for initialization
 	void Start () {
-		StartRound (Duration);
+		StartGame ();
+		DontDestroyOnLoad (gameObject);
 	}
 	
 	// Update is called once per frame
@@ -59,12 +61,19 @@ public class GameManager : MonoBehaviour {
 		timeLeft = Duration;
 		winner = -1;
 		FindObjectOfType<CharacterSpawn> ().Ready ();
+		game = FindObjectOfType<GameMode> ();
 	}
 	
 	void checkRoundEnd(){
 		winner = game.Winner;
 		if(winner >= 0) {
 			wins[winner]++;
+		}
+	}
+
+	void OnLevelWasLoaded(int level) {
+		if(Application.loadedLevelName.StartsWith("game")) {
+			StartRound (Duration);
 		}
 	}
 
