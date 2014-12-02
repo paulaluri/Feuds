@@ -84,6 +84,9 @@ public class CombatController : MonoBehaviour {
 			agent.enabled = false;
 			GetComponent<ActionController>().enabled = false;
 			GameManager.characters[gameObject.layer-10].Remove(gameObject);
+			if(gameObject.layer != GameManager.playerLayer) {
+				FindObjectOfType<UIMessage>().Add("Enemy unit killed!");
+			}
 		}
 	}
 

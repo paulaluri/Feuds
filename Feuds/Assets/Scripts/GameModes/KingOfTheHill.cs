@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class KingOfTheHill : GameMode {
-
-	public float Radius;
+	
 	public float Speed;
 
 	public GameObject Attack;
@@ -12,6 +11,8 @@ public class KingOfTheHill : GameMode {
 
 	public Color Good;
 	public Color Bad;
+
+	public UIMessage msg;
 
 	private float percent;
 
@@ -29,7 +30,10 @@ public class KingOfTheHill : GameMode {
 		}
 	}
 
-	public int[] unitCount = new int[2] {0,0};
+	public List<Collider>[] units = new List<Collider>[2] {
+		new List<Collider>(),
+		new List<Collider>()
+	};
 
 	// Use this for initialization
 	void Start () {
@@ -37,13 +41,25 @@ public class KingOfTheHill : GameMode {
 
 		Attack.renderer.material.color = (attacker == GameManager.player ? Good : Bad);
 		Defense.renderer.material.color = (attacker == GameManager.other ? Good : Bad);
+
+		msg = FindObjectOfType<UIMessage> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		for(int i = 0; i < units.Length; i++) {
+			foreach(Collider col in units[i]) {
+				if(!col.enabled) {
+					units[i].Remove(col);
+					if(i == defender && units[defender].Count == 0 && units[attacker].Count > 0) {
+						msg.Add("Base under attack!");
+					}
+				}
+			}
+		}
 		if(networkView.isMine) {
 
-			if(unitCount[defender] == 0 && unitCount[attacker] > 0) {
+			if(units[defender].Count == 0 && units[attacker].Count > 0) {
 				percent = Mathf.Min(Speed * Time.deltaTime + percent,100.0f);
 			}
 		}
@@ -52,11 +68,20 @@ public class KingOfTheHill : GameMode {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		unitCount [other.gameObject.layer - 10]++;
+		units [other.gameObject.layer - 10].Add (other);
+		if(GameManager.player == defender
+			&& units[attacker].Count == 1 && units[defender].Count == 0) {
+			msg.Add("Base under attack!");
+		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		unitCount [other.gameObject.layer - 10]--;
+		units [other.gameObject.layer - 10].Remove(other);
+		if(GameManager.player == defender
+		   && other.gameObject.layer == defenderLayer
+		   && units[defender].Count == 0 && units[attacker].Count > 0) {
+			msg.Add("Base under attack!");
+		}
 	}
 
 	void OnNetworkInstantiate(NetworkMessageInfo info) {

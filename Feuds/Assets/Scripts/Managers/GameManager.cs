@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour {
 
 	public float Duration;
 	public GameObject gameModePrefab;
-
+	public List<float> TimeAlerts;
+	public UIMessage msg;
 
 	// Use this for initialization
 	void Awake () {
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour {
 			if(networkView.isMine) {
 				timeLeft -= Time.deltaTime;
 				checkRoundEnd();
+			}
+			if(TimeAlerts.Count > 0 && TimeAlerts[0] > timeLeft) {
+				TimeSpan time = TimeSpan.FromSeconds(TimeAlerts[0]);
+				msg.Add(string.Format("Only {0:D}:{1:D2} left!",time.Minutes,time.Seconds), 10.0f, true);
+				TimeAlerts.RemoveAt(0);
 			}
 		}
 		else if(winner >= 0) {
@@ -89,6 +95,7 @@ public class GameManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		if(Application.loadedLevelName.StartsWith("game")) {
 			Ready();
+			msg = FindObjectOfType<UIMessage>();
 		}
 	}
 
