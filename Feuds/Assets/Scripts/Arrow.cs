@@ -28,7 +28,7 @@ public class Arrow : MonoBehaviour {
 		float vSpeed = Mathf.Sqrt(2 * g * maxHeight); // calculate the vertical speed
 		float totalTime = 2 * vSpeed / g; // calculate the total time
 		float hSpeed = maxDistance / totalTime; // calculate the horizontal speed
-		Vector3 direction = (t.position - init.position).normalized;
+		Vector3 direction = (t - init.position).normalized;
 
 		rigidbody.velocity = new Vector3(direction.x*hSpeed, vSpeed, direction.z*hSpeed); 
 	}
