@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Wizard1Controller
+  m_Name: WizardController
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: is_combat

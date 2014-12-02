@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestArrow : MonoBehaviour {
+public class Arrow : MonoBehaviour {
     public float heightDistanceRatio;
 	// Use this for initialization
 	void Start () {

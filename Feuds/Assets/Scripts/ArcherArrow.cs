@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestArcher : MonoBehaviour {
+public class ArcherArrow : MonoBehaviour {
 	Animator anim;
 	public GameObject projectile;
 	public GameObject spawnpoint;
@@ -21,6 +21,6 @@ public class TestArcher : MonoBehaviour {
 
 	public void Shoot(){
 		g.transform.parent = null;
-		g.GetComponent<TestArrow>().Fire (this.transform, target.transform);
+		g.GetComponent<Arrow>().Fire (this.transform, target.transform);
 	}
 }

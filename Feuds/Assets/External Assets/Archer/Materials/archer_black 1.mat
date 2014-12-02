@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: wizard_color
+  m_Name: archer_black 1
   m_Shader: {fileID: 13, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -17,14 +17,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 8dd5eccc2596ac845b69d2c6bc0f27e9, type: 3}
+          m_Texture: {fileID: 2800000, guid: ad9113a00462b904ab91e5d63290180b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 25e983185e914254cb2bde48abc8248d, type: 3}
+          m_Texture: {fileID: 2800000, guid: ea232820e3f99de488eb5be77ca39523, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -34,25 +34,7 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecMap
-        second:
-          m_Texture: {fileID: 2800000, guid: caf7c20ede5d4b4408dc418c3e660105, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _TranspMap
-        second:
-          m_Texture: {fileID: 2800000, guid: a4be474d851f4e54582474a1c0befda3, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _Cutoff
-        second: .0114605296
       data:
         first:
           name: _EmissionLM
@@ -60,16 +42,13 @@ Material:
       data:
         first:
           name: _Shininess
-        second: .637319684
+        second: .078125
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .588, g: .588, b: .588, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .5, g: .5, b: .5, a: 0}
---- !u!1002 &2100001
-EditorExtensionImpl:
-  serializedVersion: 6
+        second: {r: .5, g: .5, b: .5, a: 1}
