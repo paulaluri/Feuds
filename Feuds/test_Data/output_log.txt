@@ -17,23 +17,23 @@ Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 0.309870 ms
+UnloadTime: 0.308291 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 150.
-Total: 0.624477 ms (FindLiveObjects: 0.011842 ms CreateObjectMapping: 0.006710 ms MarkObjects: 0.091579 ms  DeleteObjects: 0.007500 ms)
+Total: 0.693162 ms (FindLiveObjects: 0.014210 ms CreateObjectMapping: 0.009868 ms MarkObjects: 0.100263 ms  DeleteObjects: 0.007500 ms)
 
-UnloadTime: 0.322896 ms
+UnloadTime: 0.468555 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1407.
-Total: 0.815531 ms (FindLiveObjects: 0.033947 ms CreateObjectMapping: 0.016184 ms MarkObjects: 0.307107 ms  DeleteObjects: 0.010263 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1402.
+Total: 1.255665 ms (FindLiveObjects: 0.065131 ms CreateObjectMapping: 0.016579 ms MarkObjects: 0.419213 ms  DeleteObjects: 0.017763 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-UnloadTime: 0.556582 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+UnloadTime: 0.375002 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 1677.
-Total: 1.358297 ms (FindLiveObjects: 0.060789 ms CreateObjectMapping: 0.030000 ms MarkObjects: 0.345791 ms  DeleteObjects: 0.448818 ms)
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1679.
+Total: 1.294349 ms (FindLiveObjects: 0.052500 ms CreateObjectMapping: 0.022894 ms MarkObjects: 0.340659 ms  DeleteObjects: 0.402239 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported

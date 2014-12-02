@@ -67,8 +67,17 @@ public class UIInterface : MonoBehaviour {
 		for (int i = 0; i < inputManager.selectedCharacters.Count; i++) {
 			CombatController combat = inputManager.selectedCharacters[i].GetComponent<CombatController>();
 
-            GUI.DrawTexture(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon);
-			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
+            //GUI.DrawTexture(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon);
+            if (GUI.Button(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon))
+            {
+                //Move Camera to that character
+                Vector3 pos = inputManager.selectedCharacters[i].transform.position;
+                pos.x += 53;
+                pos.z -= 53;
+                pos.y = Camera.main.transform.position.y;
+                //Camera.main.transform.position = pos;
+            }
+            GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
 			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health.current/combat.Health.max)*64, 4), health);
 		}
 
