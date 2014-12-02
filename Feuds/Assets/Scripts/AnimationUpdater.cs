@@ -24,7 +24,7 @@ public class AnimationUpdater : MonoBehaviour {
 		speedIdx = Animator.StringToHash ("speed");
 		isDeadIdx = Animator.StringToHash ("is_dead");
 		inCombatIdx = Animator.StringToHash ("is_combat");
-		inSkillIdx = Animator.StringToHash ("is_skill");
+		//inSkillIdx = Animator.StringToHash ("is_skill");
 	}
 	
 	// Update is called once per frame
@@ -42,14 +42,19 @@ public class AnimationUpdater : MonoBehaviour {
 		anim.SetFloat (speedIdx, speed);
 		anim.SetBool (isDeadIdx, isDead);
 		anim.SetBool (inCombatIdx, inCombat);
-		anim.SetBool (inSkillIdx, inSkill);
+		//anim.SetBool (inSkillIdx, inSkill);
+	}
+
+	[RPC]
+	public void UseSkill(){
+		anim.SetTrigger ("use_skill");
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref speed);
 		stream.Serialize (ref isDead);
 		stream.Serialize (ref inCombat);
-		stream.Serialize (ref inSkill);
+		//stream.Serialize (ref inSkill);
 		stream.Serialize (ref targetPos);
 	}
 }

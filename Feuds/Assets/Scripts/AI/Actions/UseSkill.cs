@@ -28,7 +28,9 @@ public class UseSkill : Action
                     cc.Defense += new Damage(1.0f, 1.0f);
                 }
             }
+
             attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
+			attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("UseSkill", RPCMode.Others);
 
             //set cooldown...
             attacker.startCD = Time.time;
