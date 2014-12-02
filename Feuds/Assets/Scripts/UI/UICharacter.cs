@@ -4,6 +4,7 @@ using System.Collections;
 public class UICharacter : MonoBehaviour {
 	public Texture Health;
 	public Texture Wound;
+    public Texture Icon;
 	public MeshRenderer selection;
 	public InputManager inputManager;
 

@@ -11,7 +11,6 @@ public class UIInterface : MonoBehaviour {
 	public Texture defense;
 	public Texture standground;
 	public Texture passive;
-	public Texture guard;
 	public Texture health;
 	public Texture wound;
 	public Texture terrain;
@@ -68,7 +67,7 @@ public class UIInterface : MonoBehaviour {
 		for (int i = 0; i < inputManager.selectedCharacters.Count; i++) {
 			CombatController combat = inputManager.selectedCharacters[i].GetComponent<CombatController>();
 
-			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 64), guard);
+            GUI.DrawTexture(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon);
 			GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
 			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health.current/combat.Health.max)*64, 4), health);
 		}

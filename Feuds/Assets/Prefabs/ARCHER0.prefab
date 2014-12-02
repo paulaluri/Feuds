@@ -2638,6 +2638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbe4878a667e412b9558720706830f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2651,6 +2652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   Wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
+  Icon: {fileID: 2800000, guid: 39c09e17a63a2184eb269fbebb70c7be, type: 3}
   selection: {fileID: 2300036}
   inputManager: {fileID: 0}
 --- !u!114 &11400004

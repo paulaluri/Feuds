@@ -1076,7 +1076,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
-  m_LocalRotation: {x: -.000370385475, y: -.00014610932, z: -.366964936, w: .930234671}
+  m_LocalRotation: {x: -.000370385504, y: -.000146109334, z: -.366964966, w: .93023473}
   m_LocalPosition: {x: -.142771304, y: 0, z: -9.53674295e-09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1410,6 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbe4878a667e412b9558720706830f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1443,6 +1444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   Wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
+  Icon: {fileID: 2800000, guid: 2afdf8d8fa00aa344beef700f53511c1, type: 3}
   selection: {fileID: 2300002}
   inputManager: {fileID: 0}
 --- !u!114 &11400006
