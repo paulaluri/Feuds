@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: -.507250011, y: .480641574, z: .512274146, w: .499255896}
+  m_LocalRotation: {x: -.507249951, y: .480641514, z: .512274086, w: .499255836}
   m_LocalPosition: {x: -.100059353, y: .0382141098, z: .000718517287}
   m_LocalScale: {x: .999999821, y: 1, z: .999999881}
   m_Children:
@@ -1561,7 +1561,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
-  m_LocalRotation: {x: .00178588275, y: .0137591967, z: .20617421, w: .97841692}
+  m_LocalRotation: {x: .00178588287, y: .0137591977, z: .206174225, w: .978416979}
   m_LocalPosition: {x: -.0722810328, y: 0, z: 0}
   m_LocalScale: {x: .99999994, y: .99999994, z: 1}
   m_Children: []
@@ -1656,7 +1656,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
-  m_LocalRotation: {x: 1.90609817e-09, y: 2.30382255e-10, z: -.124373324, w: .992235482}
+  m_LocalRotation: {x: 1.90609839e-09, y: 2.30382269e-10, z: -.124373332, w: .992235541}
   m_LocalPosition: {x: -.0408598334, y: 7.62939436e-08, z: -9.53674295e-09}
   m_LocalScale: {x: 1.00000012, y: 1.00000012, z: 1}
   m_Children: []
@@ -2429,7 +2429,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 100000, guid: 4af761ae2ff1e1d42bb6f0820cebc509, type: 2}
   spawnpoint: {fileID: 100018}
-  target: {fileID: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

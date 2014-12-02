@@ -32,6 +32,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: use_skill
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -177,7 +183,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: is_skill
+    m_ConditionEvent: use_skill
     m_EventTreshold: 0
     m_ExitTime: .785714507
   m_Atomic: 1
@@ -401,17 +407,20 @@ StateMachine:
       first: {fileID: 0}
       second: []
     data:
-      first: {fileID: 110200000}
-      second:
-      - {fileID: 110175259}
-      - {fileID: 110122670}
-      - {fileID: 110130197}
-    data:
       first: {fileID: 110220251}
       second:
       - {fileID: 110111246}
       - {fileID: 110170592}
       - {fileID: 110173213}
+    data:
+      first: {fileID: 110245145}
+      second: []
+    data:
+      first: {fileID: 110200000}
+      second:
+      - {fileID: 110175259}
+      - {fileID: 110122670}
+      - {fileID: 110130197}
     data:
       first: {fileID: 110224489}
       second:
@@ -423,9 +432,6 @@ StateMachine:
       second:
       - {fileID: 110179928}
       - {fileID: 110116579}
-    data:
-      first: {fileID: 110245145}
-      second: []
     data:
       first: {fileID: 110256065}
       second:

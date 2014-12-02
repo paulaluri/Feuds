@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class KingOfTheHill : GameMode {
 
@@ -29,13 +30,13 @@ public class KingOfTheHill : GameMode {
 		}
 	}
 
+	public int[] unitCount = new int[2] {0,0};
+
 	// Use this for initialization
 	void Start () {
 		percent = 0.0f;
 		players = 1 << attackerLayer | 1 << defenderLayer;
 
-		Debug.Log (Good);
-		Debug.Log (Color.blue);
 		Attack.renderer.material.color = (attacker == GameManager.player ? Good : Bad);
 		Defense.renderer.material.color = (attacker == GameManager.other ? Good : Bad);
 	}
@@ -43,23 +44,21 @@ public class KingOfTheHill : GameMode {
 	// Update is called once per frame
 	void Update () {
 		if(networkView.isMine) {
-			Collider[] colliders = Physics.OverlapSphere(transform.position,Radius,players);
-			int attackers = 0;
-			int defenders = 0;
-			foreach(Collider col in colliders) {
-				if(col.gameObject.layer == attackerLayer) {
-					attackers++;
-				}
-				else {
-					defenders++;
-				}
-			}
-			if(defenders == 0 && attackers > 0) {
+
+			if(unitCount[defender] == 0 && unitCount[attacker] > 0) {
 				percent = Mathf.Min(Speed * Time.deltaTime + percent,100.0f);
 			}
 		}
 		Vector3 scale = new Vector3 (percent / 100.0f, 1.0f, percent / 100.0f);
 		Attack.transform.localScale = scale;
+	}
+
+	void OnTriggerEnter(Collider other) {
+		unitCount [other.gameObject.layer - 10]++;
+	}
+
+	void OnTriggerExit(Collider other) {
+		unitCount [other.gameObject.layer - 10]--;
 	}
 
 	void OnNetworkInstantiate(NetworkMessageInfo info) {

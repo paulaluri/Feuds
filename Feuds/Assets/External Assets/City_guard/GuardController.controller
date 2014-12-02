@@ -26,8 +26,8 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: is_skill
-    m_Type: 4
+  - m_Name: use_skill
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -157,7 +157,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: is_skill
+    m_ConditionEvent: is_combat
     m_EventTreshold: 0
     m_ExitTime: .790000021
   m_Atomic: 1
@@ -177,7 +177,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: is_skill
+    m_ConditionEvent: use_skill
     m_EventTreshold: 0
     m_ExitTime: .785714507
   m_Atomic: 1
@@ -373,7 +373,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400024, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
+  - {fileID: 7400018, guid: 423bf080bf54c8d47b6afd1389737bde, type: 3}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110720017}
   m_Position: {x: 696, y: 108, z: 0}
@@ -398,10 +398,6 @@ StateMachine:
   - {x: -216, y: -36, z: 0}
   m_OrderedTransitions:
     data:
-      first: {fileID: 110256065}
-      second:
-      - {fileID: 110127959}
-    data:
       first: {fileID: 0}
       second: []
     data:
@@ -414,8 +410,9 @@ StateMachine:
       first: {fileID: 110245145}
       second: []
     data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110256065}
+      second:
+      - {fileID: 110127959}
     data:
       first: {fileID: 110200000}
       second:
