@@ -52,15 +52,11 @@ public class CharacterSpawn : MonoBehaviour {
 				GameObject character = Network.Instantiate(typePrefab,spawnLocation + pos,Quaternion.identity,0) as GameObject;
 				CombatController combat = character.GetComponent<CombatController>();
 
-				if(unit.BoostAttack) {
-					combat.Attack *= BonusDamageScale;
-				}
-				if(unit.BoostDefense) {
-					combat.Defense.physical += BonusDefense;
-				}
-				if(unit.BoostResist) {
-					combat.Defense.magic += BonusResist;
-				}
+				float atkScale = unit.BoostAttack ? BonusDamageScale : 1.0f;
+				float physicalDef = unit.BoostDefense ? BonusDefense : 0.0f;
+				float magicDef = unit.BoostResist ? BonusResist : 0.0f;
+
+				combat.SetBonus(atkScale,physicalDef,magicDef);
 			}
 			Destroy(gameObject);
 		}

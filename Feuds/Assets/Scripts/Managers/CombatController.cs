@@ -117,6 +117,16 @@ public class CombatController : MonoBehaviour {
 	}
 
 	[RPC]
+	public void SetBonus(float atkScale, float physicalDef, float magicDef, bool broadcast = true) {
+		Attack *= atkScale;
+		Defense.physical += physicalDef;
+		Defense.magic += magicDef;
+		if(broadcast) {
+			networkView.RPC("SetBonus",RPCMode.OthersBuffered,atkScale,physicalDef,magicDef,false);
+		}
+	}
+
+	[RPC]
 	void WatchHealth(NetworkViewID id) {
 		NetworkView view = gameObject.AddComponent<NetworkView> ();
 		view.observed = this;
