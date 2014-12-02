@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackables:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 1024
   agent: {fileID: 0}
   myCombat: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
