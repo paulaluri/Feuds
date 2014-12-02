@@ -3,8 +3,7 @@ using System.Collections;
 
 public class AnimationUpdater : MonoBehaviour {
 	private Animator anim;
-	private CombatController attacker;
-	private NavMeshAgent agent;
+	private ActionController actionController;
 
 	private int speedIdx;
 	private int isDeadIdx;
@@ -15,12 +14,12 @@ public class AnimationUpdater : MonoBehaviour {
 	private bool isDead = false;
 	private bool inCombat = false;
 	private bool inSkill = false;
+	public Vector3 targetPos = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		attacker = GetComponent<CombatController> ();
-		agent = GetComponent<NavMeshAgent> ();
+		actionController = GetComponent<ActionController> ();
 
 		speedIdx = Animator.StringToHash ("speed");
 		isDeadIdx = Animator.StringToHash ("is_dead");
@@ -31,10 +30,13 @@ public class AnimationUpdater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(networkView.isMine) {
-			speed = agent.velocity.magnitude;
-			isDead = attacker.isDead;
-			inCombat = attacker.inCombat;
-			inSkill = attacker.inSkill;
+			speed = actionController.agent.velocity.magnitude;
+			isDead = actionController.myCombat.isDead;
+			inCombat = actionController.myCombat.inCombat;
+			inSkill = actionController.myCombat.inSkill;
+			if(actionController.targetCombat) {
+				targetPos = actionController.targetCombat.transform.position;
+			}
 		}
 
 		anim.SetFloat (speedIdx, speed);
@@ -48,5 +50,6 @@ public class AnimationUpdater : MonoBehaviour {
 		stream.Serialize (ref isDead);
 		stream.Serialize (ref inCombat);
 		stream.Serialize (ref inSkill);
+		stream.Serialize (ref targetPos);
 	}
 }

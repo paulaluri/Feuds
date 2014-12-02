@@ -68,7 +68,6 @@ public class nav_LOBBY : MonoBehaviour {
 
 	void Host() {
 		Network.InitializeServer (1, 15466, !Network.HavePublicAddress ());
-		Debug.Log ("calling");
 		Network.Instantiate (GameManager, Vector3.zero, Quaternion.identity, 0);
 		MasterServer.RegisterHost ("Feuds", gameName);
 		Application.LoadLevel (SceneLounge);
