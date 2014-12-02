@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestWizard : MonoBehaviour {
+public class Wizard : MonoBehaviour {
 	Animator anim;
 	public GameObject projectile;
 	public GameObject spawnpoint;
@@ -24,7 +24,7 @@ public class TestWizard : MonoBehaviour {
 			g.transform.localPosition = Vector3.zero;
 			g.transform.localRotation = Quaternion.identity;
 			g.transform.parent = null;
-			g.GetComponent<TestFire>().Fire ();
+			g.GetComponent<MagicBullet>().Fire ();
 		}
 	}
 }

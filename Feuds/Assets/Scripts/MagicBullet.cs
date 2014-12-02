@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestFire : MonoBehaviour {
+public class MagicBullet : MonoBehaviour {
 	private bool isFiring = false;
 	private float initTime = 0;
 	public float speed = 1f;
