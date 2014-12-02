@@ -48,9 +48,9 @@ public class KingOfTheHill : GameMode {
 	// Update is called once per frame
 	void Update () {
 		for(int i = 0; i < units.Length; i++) {
-			foreach(Collider col in units[i]) {
-				if(!col.enabled) {
-					units[i].Remove(col);
+			for(int j = units[i].Count - 1; j >= 0; j--) {
+				if(!units[i][j].enabled) {
+					units[i].RemoveAt(j);
 					if(i == defender && units[defender].Count == 0 && units[attacker].Count > 0) {
 						msg.Add("Base under attack!");
 					}
