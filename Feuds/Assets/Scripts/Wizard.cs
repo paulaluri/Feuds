@@ -10,7 +10,7 @@ public class Wizard : MonoBehaviour {
 
 	public void Shoot () {
 		if (this.gameObject.GetComponent<AnimationUpdater>().targetPos != null) {
-			GameObject g = (GameObject)GameObject.Instantiate(projectile, spawnpoint, Quaternion.identity);
+			GameObject g = (GameObject)GameObject.Instantiate(projectile, spawnpoint.transform.position, Quaternion.identity);
 			g.transform.parent = null;
 			g.GetComponent<MagicBullet> ().Fire (this.transform, this.gameObject.GetComponent<AnimationUpdater>().targetPos);
 		}
