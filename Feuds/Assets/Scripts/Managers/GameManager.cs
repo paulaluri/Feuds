@@ -62,7 +62,9 @@ public class GameManager : MonoBehaviour {
 		timeLeft = Duration;
 		winner = -1;
 		FindObjectOfType<CharacterSpawn> ().Ready ();
-		Network.Instantiate(gameModePrefab,gameModePrefab.transform.position,Quaternion.identity,0);
+		if(Network.isServer) {
+			Network.Instantiate(gameModePrefab,gameModePrefab.transform.position,Quaternion.identity,0);
+		}
 	}
 	
 	void checkRoundEnd(){
