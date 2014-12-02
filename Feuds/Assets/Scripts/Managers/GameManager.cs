@@ -9,64 +9,71 @@ public enum PlayMode{
 }
 
 public class GameManager : MonoBehaviour {
-	public static List<GameObject>[] characters = new List<GameObject>[] {
-		new List<GameObject>(),
-		new List<GameObject>()
-	};
+	public static List<GameObject>[] characters;
 	public static int player;
 	public static int other { get { return player ^ 1; } }
 	public static int playerLayer { get { return player + 10; } }
 	public static int otherLayer { get { return other + 10; } }
+	public static int winner;
+	public static int[] wins;
 	public static PlayMode mode;
-	public static int round;
-	public static int maxRound;
-	public static GameMode game;
+	public static Stat Rounds;
 	public static bool gameStarted;
 	public static float timeLeft;
 
 	public float Duration;
+	public GameMode game;
 
 	// Use this for initialization
 	void Start () {
-		timeLeft = Duration;
-		InitializeRound();
-		player = Convert.ToInt32(!(Network.peerType == NetworkPeerType.Disconnected || Network.isServer));
-		FindObjectOfType<CharacterSpawn> ().Ready ();
+		StartRound (Duration);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameStarted) {
-			timeLeft -= Time.deltaTime;
+		if(gameStarted && winner < 0) {
+			if(networkView.isMine) {
+				timeLeft -= Time.deltaTime;
+				checkRoundEnd();
+			}
+		}
+		else if(winner >= 0) {
+			//load stat screen
 		}
 	}
-	
-	public static void InitializeGameManager(int maxRound, PlayMode mode){
-		GameManager.maxRound = maxRound;
-		GameManager.mode = mode;
+
+
+	public static void StartGame() {
+		characters = new List<GameObject>[] {
+			new List<GameObject>(),
+			new List<GameObject>()
+		};
+		player = Convert.ToInt32(!Network.isServer);
+		wins = new int[2] {0,0};
+		Rounds = new Stat ();
+		Rounds.current = 0;
+		Rounds.max = 6;
 	}
-	
-	//Might not needed in the future
-	public static void InitializeRound(){
-		//GameManager.characters[0].AddRange(GameObject.FindGameObjectsWithTag("Character"));
-		//GameManager.characters[1].AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+
+	public static void StartRound(float Duration) {
+		timeLeft = Duration;
+		winner = -1;
+		FindObjectOfType<CharacterSpawn> ().Ready ();
 	}
 	
 	void checkRoundEnd(){
-		//int winner = game.winner;
-		int winner = -1;
-		if(winner == 0){
-			//no one yet
-		}
-		if(winner == 1){
-			//player 1
-		}
-		if(winner == 2){
-			//player 2
+		winner = game.Winner;
+		if(winner >= 0) {
+			wins[winner]++;
 		}
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref timeLeft);
+		stream.Serialize (ref winner);
+		stream.Serialize (ref wins [0]);
+		stream.Serialize (ref wins [1]);
+		stream.Serialize (ref Rounds.current);
+		stream.Serialize (ref Rounds.max);
 	}
 }

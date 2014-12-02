@@ -62,11 +62,14 @@ public class nav_LOBBY : MonoBehaviour {
 
 	void Join() {
 		Network.Connect (selectedHost);
+		GameManager.StartGame ();
 		Application.LoadLevel (SceneLounge);
 	}
 
 	void Host() {
 		Network.InitializeServer (1, 15466, !Network.HavePublicAddress ());
+		Debug.Log ("calling");
+		GameManager.StartGame ();
 		MasterServer.RegisterHost ("Feuds", gameName);
 		Application.LoadLevel (SceneLounge);
 	}
