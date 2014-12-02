@@ -14,25 +14,9 @@ public class MagicBullet : MonoBehaviour {
 			p.Play ();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(isFiring){
-			this.transform.position = this.transform.position - this.transform.right*speed;
-		}
 
-		if(Time.realtimeSinceStartup - initTime > 10)
-			GameObject.Destroy (this.gameObject);
-	}
-
-	public void Fire(){
-		isFiring = true;
-	}
-
-	void OnTriggerEnter(Collider c){
-		Debug.Log ("Test");
-		isFiring = false;
-
-		this.transform.parent = c.transform;
+	public void Fire (Transform init, Vector3 t) {
+		this.transform.forward = (t - init.position).normalized;
+		rigidbody.velocity = this.transform.forward * .1f;
 	}
 }
