@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2cd40d1195e4344b78a4fb1d19f693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightDistanceRatio: 5
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

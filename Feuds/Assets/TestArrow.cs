@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TestArrow : MonoBehaviour {
-
+    public float heightDistanceRatio;
 	// Use this for initialization
 	void Start () {
 		//rigidbody.centerOfMass = new Vector3(-.2f, 0, 0);
@@ -18,10 +18,12 @@ public class TestArrow : MonoBehaviour {
 			rigidbody.rotation = Quaternion.LookRotation(rigidbody.velocity);  
 	}
 
-	public void Fire(Vector3 init, Vector3 target){
+	public void Fire(Transform init, Transform t){
+        Vector3 target = t.position;
 		//this.rigidbody.velocity = this.transform.forward*20;
-		float maxDistance = Vector3.Distance(init, target);//
-		float maxHeight = maxDistance > 8f?2f:.5f;//
+		float maxDistance = Vector3.Distance(init.position, target);//
+		//float maxHeight = maxDistance > 8f?2f:.5f;//
+        float maxHeight = maxDistance / heightDistanceRatio;
 
 		float g = Physics.gravity.magnitude; // get the gravity value
 		float vSpeed = Mathf.Sqrt(2 * g * maxHeight); // calculate the vertical speed
