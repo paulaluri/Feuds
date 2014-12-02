@@ -17,6 +17,6 @@ public class MagicBullet : MonoBehaviour {
 
 	public void Fire (Transform init, Vector3 t) {
 		this.transform.forward = (t - init.position).normalized;
-		rigidbody.velocity = this.transform.forward * .1f;
+		rigidbody.velocity = this.transform.forward * 10f;
 	}
 }
