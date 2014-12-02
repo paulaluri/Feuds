@@ -2,34 +2,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
-public enum PlayMode{
-	SinglePlayer,
-	MultiPlayer
-}
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
-	public static List<GameObject>[] characters;
-	public static int player;
-	public static int other { get { return player ^ 1; } }
-	public static int playerLayer { get { return player + 10; } }
-	public static int otherLayer { get { return other + 10; } }
-	public static int winner;
-	public static int[] wins;
-	public static PlayMode mode;
+	
 	public static Stat Rounds;
 	public static bool gameStarted;
 	public static float timeLeft;
-	public static GameMode game;
 
 	public static bool meReady = false;
 	public static bool otherReady = false;
 	public static bool ready { get { return meReady && otherReady; } }
 
+	public static int winner;
+	public static int[] wins;
+	public static int[] winners;
+
+	public static GameMode game;
+
+	public static int player;
+	public static int other { get { return player ^ 1; } }
+	public static int playerLayer { get { return player + 10; } }
+	public static int otherLayer { get { return other + 10; } }
+
+	public static List<GameObject>[] characters;
+
 	public float Duration;
 	public GameObject gameModePrefab;
 	public List<float> TimeAlerts;
 	public UIMessage msg;
+	public String SceneGameover;
 
 	// Use this for initialization
 	void Awake () {
@@ -54,21 +56,25 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		else if(winner >= 0) {
-			EndRound();
+			//EndRound(winner);
 		}
 	}
 
 
 	public static void StartGame() {
+		Rounds = new Stat ();
+		Rounds.current = 0;
+		Rounds.max = 6;
+
+		player = Convert.ToInt32(!Network.isServer);
+		wins = new int[2] {0,0};
+		winners = Enumerable.Repeat (-1, Mathf.RoundToInt(Rounds.max)).ToArray ();
+
 		characters = new List<GameObject>[] {
 			new List<GameObject>(),
 			new List<GameObject>()
 		};
-		player = Convert.ToInt32(!Network.isServer);
-		wins = new int[2] {0,0};
-		Rounds = new Stat ();
-		Rounds.current = 0;
-		Rounds.max = 6;
+
 	}
 
 	void StartRound( ) {
@@ -83,13 +89,37 @@ public class GameManager : MonoBehaviour {
 	void checkRoundEnd(){
 		if(game) {
 			winner = game.Winner;
-			if(winner >= 0) {
-				wins[winner]++;
-			}
 		}
 	}
 
-	void EndRound() {
+	[RPC]
+	void EndRound(int winner) {
+
+		characters [0].Clear ();
+		characters [1].Clear ();
+
+		gameStarted = false;
+		game = null;
+
+		meReady = false;
+		otherReady = false;
+
+		if(Network.isServer) {
+
+			wins [winner]++;
+			winners [Mathf.RoundToInt(Rounds.current)] = winner;
+			Rounds.current++;
+
+			GameManager.winner = -1;
+
+			networkView.RPC("EndRound",RPCMode.OthersBuffered,winner);
+		}
+
+		Application.LoadLevel (SceneGameover);
+	}
+
+	void EndGame() {
+		Destroy (gameObject);
 	}
 
 	void OnLevelWasLoaded(int level) {
@@ -99,11 +129,17 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	// This is probably way overboard, but hopefully delta compression is
+	// fast and efficient, and this will give the server complete authority
+	// over these variables. If too slow, modify EndRound
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref timeLeft);
 		stream.Serialize (ref winner);
 		stream.Serialize (ref wins [0]);
 		stream.Serialize (ref wins [1]);
+		for(int i = 0; i < winners.Length; i++) {
+			stream.Serialize(ref winners[i]);
+		}
 		stream.Serialize (ref Rounds.current);
 		stream.Serialize (ref Rounds.max);
 	}
