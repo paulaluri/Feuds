@@ -50,7 +50,7 @@ public class UISelection : MonoBehaviour
         }
         if (Input.mousePosition.y < bottom_threshold)
         {
-            //return;
+            if (!mouseDown) return;
         }
         if (selectMode == SelectMode.AOESKILL)
         {
