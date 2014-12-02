@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 300
+  gameModePrefab: {fileID: 100000, guid: 0021424bd80354f7e84d343528956b4e, type: 2}
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

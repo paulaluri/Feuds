@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	public static GameMode game;
 
 	public float Duration;
+	public GameObject gameModePrefab;
 
 
 	// Use this for initialization
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		else if(winner >= 0) {
-			//load stat screen
+			//load stat screen, set game to null
 		}
 	}
 
@@ -57,23 +58,26 @@ public class GameManager : MonoBehaviour {
 		Rounds.max = 6;
 	}
 
-	public static void StartRound(float Duration) {
+	public void StartRound( ) {
 		timeLeft = Duration;
 		winner = -1;
 		FindObjectOfType<CharacterSpawn> ().Ready ();
-		game = FindObjectOfType<GameMode> ();
+		Network.Instantiate(gameModePrefab,gameModePrefab.transform.position,Quaternion.identity,0);
 	}
 	
 	void checkRoundEnd(){
-		winner = game.Winner;
-		if(winner >= 0) {
-			wins[winner]++;
+		if(game) {
+			winner = game.Winner;
+			if(winner >= 0) {
+				wins[winner]++;
+			}
 		}
 	}
 
 	void OnLevelWasLoaded(int level) {
 		if(Application.loadedLevelName.StartsWith("game")) {
-			StartRound (Duration);
+			StartRound ();
+
 		}
 	}
 

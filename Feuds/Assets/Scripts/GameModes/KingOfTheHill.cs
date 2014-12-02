@@ -62,6 +62,10 @@ public class KingOfTheHill : GameMode {
 		Attack.transform.localScale = scale;
 	}
 
+	void OnNetworkInstantiate(NetworkMessageInfo info) {
+		GameManager.game = this;
+	}
+
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref percent);
 	}
