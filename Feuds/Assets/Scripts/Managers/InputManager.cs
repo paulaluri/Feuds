@@ -47,7 +47,7 @@ public class InputManager : MonoBehaviour {
         else if (c == Class.Guard)
         {
             //Do guard stuff
-            print("guard");
+            //print("guard");
             UseSkill();
         }
         else if (c == Class.Archer)

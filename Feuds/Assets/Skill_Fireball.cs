@@ -9,6 +9,13 @@ public class Skill_Fireball : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         particles = this.GetComponent<ParticleSystem>();
+        speed += Random.Range(-50, 50) / 25f;
+        if(skillDamage==0)target += new Vector3(Random.Range(-50, 50) / 20f, 0, Random.Range(-50, 50) / 20f);
+        Vector3 pos = target;
+        pos.y += 25;
+        pos.x += 10;
+        pos.z += 10;
+        this.transform.position = pos;
         particles.Play();
 	}
 	

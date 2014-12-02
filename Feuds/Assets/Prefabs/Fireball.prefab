@@ -71,8 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6ee0ef69299054186ad15f505c087c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  target: {fileID: 0}
+  speed: 10
+  target: {x: 0, y: 0, z: 0}
+  skillDamage: 20
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

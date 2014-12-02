@@ -69,7 +69,11 @@ public class UISelection : MonoBehaviour
                 List<GameObject> allcharacters = GameManager.characters[GameManager.other];
                 foreach (GameObject wizard in selectedCharacters)
                 {
-                    this.GetComponent<UISkill>().LetThereBeFire(pos,wizard.GetComponent<CombatController>().skillValue);
+                    this.GetComponent<UISkill>().LetThereBeFire(pos, wizard.GetComponent<CombatController>().skillValue);
+                    this.GetComponent<UISkill>().LetThereBeFire(pos, 0);
+                    this.GetComponent<UISkill>().LetThereBeFire(pos, 0);
+                    this.GetComponent<UISkill>().LetThereBeFire(pos, 0);
+                    this.GetComponent<UISkill>().LetThereBeFire(pos, 0);
                 }
             }
             return;
