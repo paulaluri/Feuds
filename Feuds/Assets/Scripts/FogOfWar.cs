@@ -38,10 +38,10 @@ public class FogOfWar : MonoBehaviour
         foreach (GameObject character in characters)
         {
             RaycastHit hit;
-            Debug.DrawRay(character.transform.position-100*cameraDir, 100 * cameraDir);
+            //Debug.DrawRay(character.transform.position-100*cameraDir, 100 * cameraDir);
             if (Physics.Raycast(character.transform.position - 100 * cameraDir, 100 * cameraDir, out hit, layerMask))
             {
-                print(hit.point);
+                //print(hit.point);
                 Vector3 point = mf.transform.InverseTransformPoint(hit.point);
                 tmp[count] = point;
                 count++;

@@ -35,6 +35,7 @@ public class UIFogOfWar : MonoBehaviour {
 		if(character.renderer != null){
 			character.renderer.enabled = false;
 		}
+        character.GetComponent<UICharacter>().rendering = false;
 	}
 	
 	public static void EnableRenderer(GameObject character){
@@ -46,5 +47,6 @@ public class UIFogOfWar : MonoBehaviour {
 		if(character.renderer != null){
 			character.renderer.enabled = true;
 		}
+        character.GetComponent<UICharacter>().rendering = true;
 	}
 }

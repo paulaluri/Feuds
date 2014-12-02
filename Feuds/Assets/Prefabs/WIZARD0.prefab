@@ -2111,6 +2111,7 @@ MonoBehaviour:
     magic: 10
   skillCD: 5
   startCD: 0
+  skillValue: 20
   Radius: 10
   Class: 2
   inCombat: 0
@@ -2152,6 +2153,7 @@ MonoBehaviour:
   Icon: {fileID: 2800000, guid: c4e9fcdbdcb75c8498d7217c5dab65a6, type: 3}
   selection: {fileID: 2300000}
   inputManager: {fileID: 0}
+  rendering: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -55,29 +55,24 @@ public class UISelection : MonoBehaviour
         if (selectMode == SelectMode.AOESKILL)
         {
             MoveAoeSkill(lightForAoe);
-            if (Input.GetMouseButtonDown(LEFT_CLICK))
+            if (Input.GetMouseButtonUp(LEFT_CLICK))
             {
                 selectMode = SelectMode.NORMAL;
                 lightForAoe.enabled = false;
                 return;
             }
-            if (Input.GetMouseButtonDown(RIGHT_CLICK))
+            if (Input.GetMouseButtonUp(RIGHT_CLICK))
             {
                 selectMode = SelectMode.NORMAL;
                 lightForAoe.enabled = false;
                 Vector3 pos = GetWorldPositionFromMouse();
                 List<GameObject> allcharacters = GameManager.characters[GameManager.other];
-
-                foreach (GameObject character in allcharacters)
+                foreach (GameObject wizard in selectedCharacters)
                 {
-                    if ((character.transform.position - pos).magnitude < skillRadius)
-                    {
-                        //initiate some kind of damage on the character
-
-                    }
+                    this.GetComponent<UISkill>().LetThereBeFire(pos,wizard.GetComponent<CombatController>().skillValue);
                 }
-                return;
             }
+            return;
         }
         if (Input.GetMouseButtonDown(LEFT_CLICK))
         {

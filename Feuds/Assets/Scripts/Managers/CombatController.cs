@@ -47,7 +47,8 @@ public class CombatController : MonoBehaviour {
 	public Damage Defense;
     public float skillCD;
     public float startCD;
-	public float Radius;
+    public float skillValue;
+    public float Radius;
 	public Class Class;
 
 	public bool isDead { get {return Health.current <= 0;} }

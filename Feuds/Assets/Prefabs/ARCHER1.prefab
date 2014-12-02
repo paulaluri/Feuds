@@ -2526,6 +2526,7 @@ MonoBehaviour:
   Icon: {fileID: 2800000, guid: 39c09e17a63a2184eb269fbebb70c7be, type: 3}
   selection: {fileID: 2300036}
   inputManager: {fileID: 0}
+  rendering: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2574,6 +2575,7 @@ MonoBehaviour:
     magic: 5
   skillCD: 5
   startCD: 0
+  skillValue: .699999988
   Radius: 10
   Class: 1
   inCombat: 0

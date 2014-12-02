@@ -7,6 +7,7 @@ public class UICharacter : MonoBehaviour {
     public Texture Icon;
 	public MeshRenderer selection;
 	public InputManager inputManager;
+    public bool rendering;
 
 	private CombatController combat;
 
@@ -15,6 +16,7 @@ public class UICharacter : MonoBehaviour {
 		combat = gameObject.GetComponent<CombatController> ();
         selection.enabled = false;
 		inputManager = FindObjectOfType<InputManager> ();
+        rendering = true;
 	}
 	
 	// Update is called once per frame
@@ -32,8 +34,7 @@ public class UICharacter : MonoBehaviour {
 
 	void OnGUI(){
 		if (!combat.isDead) {
-            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
-            if (renderers[0].enabled || renderers[renderers.Length-1].enabled)
+            if (rendering)
             {
                 Vector3 screen = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 2.2f, 0));
 
