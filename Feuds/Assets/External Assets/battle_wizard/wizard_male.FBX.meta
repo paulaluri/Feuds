@@ -840,7 +840,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1041,7 +1041,7 @@ ModelImporter:
     - serializedVersion: 16
       name: MM_Sneaking
       takeName: 
-      firstFrame: 1943
+      firstFrame: 1943.00012
       lastFrame: 1993
       wrapMode: 2
       orientationOffsetY: 0
@@ -1068,7 +1068,7 @@ ModelImporter:
       name: MM_Run
       takeName: 
       firstFrame: 1998
-      lastFrame: 2020
+      lastFrame: 2020.00012
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -1126,7 +1126,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
