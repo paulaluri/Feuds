@@ -59,8 +59,6 @@ public class ActionController : MonoBehaviour {
 		foreach(Action action in IdleAction) {
 			action.Start(gameObject);
 		}
-		//Let the GameManager add the character itself
-        GameManager.characters [gameObject.layer - 10].Add (gameObject);
 	}
 	
 	// Update is called once per frame
@@ -89,5 +87,7 @@ public class ActionController : MonoBehaviour {
 
 	void OnNetworkInstantiate(NetworkMessageInfo info) {
 		enabled = networkView.isMine;
+		//Let the GameManager add the character itself
+		GameManager.characters [gameObject.layer - 10].Add (gameObject);
 	}
 }
