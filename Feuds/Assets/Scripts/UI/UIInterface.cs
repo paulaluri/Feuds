@@ -6,6 +6,7 @@ public class UIInterface : MonoBehaviour {
 	public GUIStyle buttonStyle;
 	public GUIStyle buttonSelectStyle;
 	public GUIStyle buttonSpecialStyle;
+	public GUIStyle timerStyle;
 	public Texture attack;
 	public Texture defense;
 	public Texture standground;
@@ -79,5 +80,31 @@ public class UIInterface : MonoBehaviour {
 		GUI.BeginGroup(new Rect(Screen.width-224, Screen.height-224, 216, 216));
 		GUI.DrawTexture(new Rect(0,0,216,216), terrain);
 		GUI.EndGroup();
+
+		//Timer
+		int t = Mathf.RoundToInt(GameManager.timeLeft);
+		int mins = t / 60;
+		int secs = t % 60;
+		string min_s = mins < 10 ? "0" + mins.ToString () : mins.ToString ();
+		string sec_s = secs < 10 ? "0" + secs.ToString () : secs.ToString ();
+		string final_time = min_s + ":" + sec_s;
+		float X_PADDING = 0;
+		float Y_PADDING = 0;
+
+		GUIContent c = new GUIContent (final_time);
+		Vector2 time_size = timerStyle.CalcSize (c).x;
+		float time_width = time_size.x;
+		float line_height = time_size.y;
+
+		GUIStyle shadow_style = new GUIStyle (timerStyle);
+		shadow_style.normal.textColor = Color.black;
+
+		GUI.Label (new Rect(Screen.width-(time_width + (-1+X_PADDING)), -1+Y_PADDING, Screen.width - X_PADDING, line_height), final_time, shadow_style);
+		GUI.Label (new Rect(Screen.width-(time_width + (1+X_PADDING)), -1+Y_PADDING, Screen.width - X_PADDING, line_height), final_time, shadow_style);
+		GUI.Label (new Rect(Screen.width-(time_width + (-1+X_PADDING)), 1+Y_PADDING, Screen.width - X_PADDING, line_height), final_time, shadow_style);
+		GUI.Label (new Rect(Screen.width-(time_width + (1+X_PADDING)), 1+Y_PADDING, Screen.width - X_PADDING, line_height), final_time, shadow_style);
+
+		GUI.Label (new Rect(Screen.width-(time_width+X_PADDING), Y_PADDING, Screen.width - X_PADDING, line_height), final_time, timerStyle);
+
 	}
 }
