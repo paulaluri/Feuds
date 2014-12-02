@@ -2185,6 +2185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d369889937bf402daf876d69e422d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Duration: 300
 --- !u!4 &1027289626
 Transform:
   m_ObjectHideFlags: 0
@@ -3197,6 +3198,65 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  buttonSpecialStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
   attack: {fileID: 2800000, guid: ef986ec7d5aa42746860d3137670c937, type: 3}
   defense: {fileID: 2800000, guid: cb8e53aa51bb51d4c91dccb74a111a6c, type: 3}
   standground: {fileID: 2800000, guid: 8ce75ed8a3fa36340bc717402b7627f8, type: 3}
@@ -3389,6 +3449,8 @@ MonoBehaviour:
   Select: {fileID: 100002, guid: 942655921daa40e4ab664b021f508313, type: 2}
   bottom_threshold: 0
   inputManager: {fileID: 326996369}
+  lightForAoe: {fileID: 0}
+  skillRadius: 10
 --- !u!114 &1459197887
 MonoBehaviour:
   m_ObjectHideFlags: 0

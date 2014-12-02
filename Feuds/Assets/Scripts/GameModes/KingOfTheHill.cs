@@ -14,7 +14,7 @@ public class KingOfTheHill : GameMode {
 			if(percent >= 100.0f) {
 				return attacker;
 			}
-			else if(GameManager.characters[attacker].Count == 0) {
+			else if(GameManager.characters[attacker].Count == 0 || GameManager.timeLeft < 0) {
 				return defender;
 			}
 			else {

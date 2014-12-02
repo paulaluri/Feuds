@@ -46,6 +46,10 @@ public class nav_LOUNGE : MonoBehaviour {
 
 	private int init_resources = 0;
 
+	void Start() {
+		GameManager.gameStarted = false;
+	}
+
 	void Awake(){
 		init_resources = RESOURCES;
 	}

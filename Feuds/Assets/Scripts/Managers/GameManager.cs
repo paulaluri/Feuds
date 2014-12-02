@@ -21,9 +21,14 @@ public class GameManager : MonoBehaviour {
 	public static int round;
 	public static int maxRound;
 	public static GameMode game;
+	public static bool gameStarted;
+	public static float timeLeft;
+
+	public float Duration;
 
 	// Use this for initialization
 	void Start () {
+		timeLeft = Duration;
 		InitializeRound();
 		player = Convert.ToInt32(!(Network.peerType == NetworkPeerType.Disconnected || Network.isServer));
 		FindObjectOfType<CharacterSpawn> ().Ready ();
@@ -31,8 +36,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Round-End Condition
-		checkRoundEnd();
+		if(gameStarted) {
+			timeLeft -= Time.deltaTime;
+		}
 	}
 	
 	public static void InitializeGameManager(int maxRound, PlayMode mode){
@@ -58,5 +64,9 @@ public class GameManager : MonoBehaviour {
 		if(winner == 2){
 			//player 2
 		}
+	}
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		stream.Serialize (ref timeLeft);
 	}
 }

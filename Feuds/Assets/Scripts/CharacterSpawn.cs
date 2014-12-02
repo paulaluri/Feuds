@@ -23,7 +23,8 @@ public class CharacterSpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(ready && Application.loadedLevelName.StartsWith ("game")) {
+		GameManager.gameStarted = ready && Application.loadedLevelName.StartsWith ("game");
+		if(GameManager.gameStarted) {
 			Vector3 spawnLocation;
 			
 			if(GameManager.player == GameManager.round % 2) {
