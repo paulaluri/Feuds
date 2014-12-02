@@ -105,7 +105,7 @@ public class UISelection : MonoBehaviour
             }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            int layer = 1 << 8;
+			int layer = 1<<8 | 1<<10 | 1<<11;
             if (Physics.Raycast(ray, out hit, 1000, layer))
             {
                 if (hit.collider.gameObject.layer == GameManager.otherLayer)
