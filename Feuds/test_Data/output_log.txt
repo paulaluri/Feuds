@@ -12,60 +12,32 @@ Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly
 Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.081 seconds
+- Completed reload, in  0.088 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 0.322107 ms
+UnloadTime: 0.677767 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 146.
-Total: 0.635924 ms (FindLiveObjects: 0.012236 ms CreateObjectMapping: 0.006710 ms MarkObjects: 0.097500 ms  DeleteObjects: 0.007500 ms)
+Total: 0.871189 ms (FindLiveObjects: 0.011447 ms CreateObjectMapping: 0.007894 ms MarkObjects: 0.097105 ms  DeleteObjects: 0.008684 ms)
 
-Empty game name given during host registration, aborting
- 
-(Filename:  Line: 585)
-
-UnloadTime: 0.489871 ms
+UnloadTime: 0.408160 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1204.
-Total: 1.647641 ms (FindLiveObjects: 0.094342 ms CreateObjectMapping: 0.041842 ms MarkObjects: 0.484345 ms  DeleteObjects: 0.009079 ms)
-
-UnloadTime: 0.431449 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1197.
-Total: 1.088690 ms (FindLiveObjects: 0.071053 ms CreateObjectMapping: 0.025263 ms MarkObjects: 0.352107 ms  DeleteObjects: 0.032368 ms)
-
-Empty game name given during host registration, aborting
- 
-(Filename:  Line: 585)
-
-UnloadTime: 0.397107 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1208.
-Total: 0.835662 ms (FindLiveObjects: 0.030394 ms CreateObjectMapping: 0.015000 ms MarkObjects: 0.260527 ms  DeleteObjects: 0.005526 ms)
-
-UnloadTime: 0.290528 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1201.
-Total: 1.135270 ms (FindLiveObjects: 0.031184 ms CreateObjectMapping: 0.015394 ms MarkObjects: 0.318554 ms  DeleteObjects: 0.037105 ms)
-
-UnloadTime: 0.340265 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1213.
-Total: 0.728688 ms (FindLiveObjects: 0.029605 ms CreateObjectMapping: 0.015000 ms MarkObjects: 0.260922 ms  DeleteObjects: 0.005131 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1205.
+Total: 1.205928 ms (FindLiveObjects: 0.072237 ms CreateObjectMapping: 0.065526 ms MarkObjects: 0.524213 ms  DeleteObjects: 0.010263 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-UnloadTime: 0.558950 ms
+UnloadTime: 0.718820 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1475.
-Total: 2.156065 ms (FindLiveObjects: 0.110526 ms CreateObjectMapping: 0.057237 ms MarkObjects: 0.565266 ms  DeleteObjects: 0.654082 ms)
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 1468.
+Total: 1.673694 ms (FindLiveObjects: 0.069474 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.375397 ms  DeleteObjects: 0.638688 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 745)
+

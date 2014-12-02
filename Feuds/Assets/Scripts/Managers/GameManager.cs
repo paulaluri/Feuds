@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 		timeLeft = Duration;
 		InitializeRound();
 		player = Convert.ToInt32(!(Network.peerType == NetworkPeerType.Disconnected || Network.isServer));
-		//FindObjectOfType<CharacterSpawn> ().Ready ();
+		FindObjectOfType<CharacterSpawn> ().Ready ();
 	}
 	
 	// Update is called once per frame
