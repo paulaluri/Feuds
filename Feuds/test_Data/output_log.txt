@@ -12,29 +12,29 @@ Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly
 Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.086 seconds
+- Completed reload, in  0.077 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 0.372633 ms
+UnloadTime: 0.377765 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 150.
-Total: 0.702635 ms (FindLiveObjects: 0.017763 ms CreateObjectMapping: 0.011447 ms MarkObjects: 0.121579 ms  DeleteObjects: 0.009868 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 166.
+Total: 0.697504 ms (FindLiveObjects: 0.014210 ms CreateObjectMapping: 0.009868 ms MarkObjects: 0.112895 ms  DeleteObjects: 0.009868 ms)
 
-UnloadTime: 0.621714 ms
+UnloadTime: 0.363160 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1201.
-Total: 1.169217 ms (FindLiveObjects: 0.051710 ms CreateObjectMapping: 0.024079 ms MarkObjects: 0.399870 ms  DeleteObjects: 0.015789 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1201.
+Total: 0.829347 ms (FindLiveObjects: 0.035921 ms CreateObjectMapping: 0.014210 ms MarkObjects: 0.284606 ms  DeleteObjects: 0.039868 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-UnloadTime: 0.445660 ms
+UnloadTime: 0.404607 ms
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1477.
-Total: 1.646062 ms (FindLiveObjects: 0.115658 ms CreateObjectMapping: 0.047368 ms MarkObjects: 0.493029 ms  DeleteObjects: 0.450792 ms)
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1478.
+Total: 1.286060 ms (FindLiveObjects: 0.054868 ms CreateObjectMapping: 0.024079 ms MarkObjects: 0.301580 ms  DeleteObjects: 0.427107 ms)
 
 RGBA(0.000, 0.000, 1.000, 1.000)
  
@@ -45,7 +45,11 @@ RGBA(0.000, 0.000, 1.000, 1.000)
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-The server has disconnected from the client. Most likely the server has shut down.
+RGBA(0.000, 0.000, 1.000, 1.000)
  
-(Filename:  Line: 745)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+RGBA(0.000, 0.000, 1.000, 1.000)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UIFogOfWar : MonoBehaviour {
 	
-	public static float visionLength = 10;
+	public static float visionLength = 20;
 	
 	// Use this for initialization
 	void Start () {

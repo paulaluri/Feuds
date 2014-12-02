@@ -28,7 +28,7 @@ public class UseSkill : Action
                     cc.Defense += new Damage(1.0f, 1.0f);
                 }
             }
-            attacker.inSkill = true;
+            attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
 
             //set cooldown...
             attacker.startCD = Time.time;
@@ -57,7 +57,7 @@ public class UseSkill : Action
         {
             //Now that's a bit complicated . . .
             //set the animation
-            attacker.inSkill = true;
+            attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
             //set cooldown...
             attacker.startCD = Time.time;
         }
