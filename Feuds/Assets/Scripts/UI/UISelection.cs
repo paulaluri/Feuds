@@ -120,7 +120,7 @@ public class UISelection : MonoBehaviour
                     //Move to this position
                     GameObject.Instantiate(Select, hit.point, Quaternion.identity);
                     inputManager.MoveTo(hit.point);
-                    print(hit.collider.name);
+                    //print(hit.collider.name);
                 }
             }
         }

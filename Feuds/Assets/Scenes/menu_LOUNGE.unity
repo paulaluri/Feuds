@@ -181,8 +181,8 @@ MonoBehaviour:
   - {fileID: 100006, guid: 5095e0fe94b474d30b9341ba0eecaa54, type: 2}
   - {fileID: 100014, guid: 09d675edef2ba4383994dbef75cbe203, type: 2}
   ArcherPrefab:
-  - {fileID: 100132, guid: b266231991221224a99dbeb75c3081e7, type: 2}
   - {fileID: 100132, guid: 9b078f5ac0371ee418f1f94a5b6916c8, type: 2}
+  - {fileID: 100132, guid: b266231991221224a99dbeb75c3081e7, type: 2}
   WizardPrefab:
   - {fileID: 100002, guid: fe60ce16ae3f90c49a366ddd4e32f048, type: 2}
   - {fileID: 100002, guid: 10349bd628f151a4b9029e95fa8532c5, type: 2}

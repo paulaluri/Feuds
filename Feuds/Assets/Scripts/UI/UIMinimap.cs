@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UIMinimap : MonoBehaviour
 {
     public Diamond minimapDiamond; //-->>GUI Position
-    public GameObject map; //-->terrain
+    public InputManager inputManager;
     public GUIStyle style;
     public Diamond positionDiamond;
     public GameObject cameras;
@@ -49,6 +50,17 @@ public class UIMinimap : MonoBehaviour
                 cameras.transform.position = newCameraPos;
             }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            //Move selected characters to that place
+            Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
+            if (minimapDiamond.Contains(guiPosition))
+            {
+                
+                
+            }
+            //inputManager.MoveTo(hit.point);
+        }
 
         //print (FromMouseToGUIPosition(Input.mousePosition));
 
@@ -92,6 +104,7 @@ public class UIMinimap : MonoBehaviour
 
     void OnGUI()
     {
+        GUI.depth = 1;
         //Debug.Log("I");
         Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
         if (minimapDiamond.Contains(guiPosition))
