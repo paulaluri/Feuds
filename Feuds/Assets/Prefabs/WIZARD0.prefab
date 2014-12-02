@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 100004, guid: c2920a59d81575d468ec4dcd296567f1, type: 2}
   spawnpoint: {fileID: 100122}
-  time: 0
+  time: .379999995
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

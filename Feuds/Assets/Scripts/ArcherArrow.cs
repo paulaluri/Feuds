@@ -2,14 +2,12 @@
 using System.Collections;
 
 public class ArcherArrow : MonoBehaviour {
-	Animator anim;
 	public GameObject projectile;
 	public GameObject spawnpoint;
 	private GameObject g;
 	private Vector3 target;
 	// Use this for initialization
 	void Start () {
-		anim = gameObject.GetComponent<Animator>();
 	}
 
 	public void LoadArrow(){

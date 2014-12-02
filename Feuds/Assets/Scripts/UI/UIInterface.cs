@@ -16,6 +16,7 @@ public class UIInterface : MonoBehaviour {
 	public Texture terrain;
 
 	public InputManager inputManager;
+    public GameObject cameras;
 
 	// Use this for initialization
 	void Start () {
@@ -74,8 +75,8 @@ public class UIInterface : MonoBehaviour {
                 Vector3 pos = inputManager.selectedCharacters[i].transform.position;
                 pos.x += 53;
                 pos.z -= 53;
-                pos.y = Camera.main.transform.position.y;
-                //Camera.main.transform.position = pos;
+                pos.y = cameras.transform.position.y;
+                cameras.transform.position = pos;
             }
             GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
 			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health.current/combat.Health.max)*64, 4), health);

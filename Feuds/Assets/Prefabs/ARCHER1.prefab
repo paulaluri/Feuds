@@ -2551,7 +2551,7 @@ MonoBehaviour:
     current: 0
     max: .5
   Attack:
-    physical: 0
+    physical: 10
     magic: 0
   Defense:
     physical: 5
