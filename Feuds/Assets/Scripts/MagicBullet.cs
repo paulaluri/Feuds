@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class MagicBullet : MonoBehaviour {
-	private bool isFiring = false;
 	public float speed = 1f;
 	// Use this for initialization
 	void Start () {
