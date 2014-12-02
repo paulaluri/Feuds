@@ -5,7 +5,8 @@ public class GetTarget : Action {
 
 	// Update is called once per frame
 	public override bool Update () {
-		Collider[] enemies = Physics.OverlapSphere(ac.position,30.0f,ac.attackables);
+		Vector3 position = ac.CurrentStance == Stance.Aggressive ? ac.transform.position : ac.position;
+		Collider[] enemies = Physics.OverlapSphere(position,30.0f,ac.attackables);
 		if(enemies.Length > 0) {
 			float d = float.MaxValue;
 			GameObject closest = null;
