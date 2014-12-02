@@ -27,7 +27,7 @@ public class CharacterSpawn : MonoBehaviour {
 		if(GameManager.gameStarted) {
 			Vector3 spawnLocation;
 			
-			if(GameManager.player == GameManager.round % 2) {
+			if(GameManager.player == GameManager.Rounds.current % 2) {
 				spawnLocation = GameObject.Find("AttackSpawn").transform.position;
 			}
 			else {
