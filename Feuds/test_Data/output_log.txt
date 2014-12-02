@@ -12,34 +12,41 @@ Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly
 Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.054 seconds
+- Completed reload, in  0.076 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 Platform assembly: C:\Users\Pasan\Desktop\Feuds\Feuds\test_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 0.312633 ms
+UnloadTime: 0.418028 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 150.
-Total: 0.888163 ms (FindLiveObjects: 0.013026 ms CreateObjectMapping: 0.010263 ms MarkObjects: 0.110526 ms  DeleteObjects: 0.010657 ms)
+Total: 0.838820 ms (FindLiveObjects: 0.020131 ms CreateObjectMapping: 0.009868 ms MarkObjects: 0.133027 ms  DeleteObjects: 0.010263 ms)
 
-UnloadTime: 0.388423 ms
+UnloadTime: 0.273159 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 146.
+Total: 0.577898 ms (FindLiveObjects: 0.007894 ms CreateObjectMapping: 0.006315 ms MarkObjects: 0.085658 ms  DeleteObjects: 0.007894 ms)
+
+UnloadTime: 0.274738 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 150.
+Total: 0.709741 ms (FindLiveObjects: 0.007105 ms CreateObjectMapping: 0.009473 ms MarkObjects: 0.101842 ms  DeleteObjects: 0.007894 ms)
+
+UnloadTime: 0.417239 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1402.
-Total: 0.961979 ms (FindLiveObjects: 0.052500 ms CreateObjectMapping: 0.022105 ms MarkObjects: 0.365133 ms  DeleteObjects: 0.014605 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at GameManager.OnSerializeNetworkView (UnityEngine.BitStream stream, NetworkMessageInfo info) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1403.
+Total: 1.076848 ms (FindLiveObjects: 0.061974 ms CreateObjectMapping: 0.017763 ms MarkObjects: 0.328423 ms  DeleteObjects: 0.015789 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-UnloadTime: 0.570792 ms
+UnloadTime: 0.386844 ms
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1666.
-Total: 2.225145 ms (FindLiveObjects: 0.195790 ms CreateObjectMapping: 0.065526 ms MarkObjects: 0.758688 ms  DeleteObjects: 0.663951 ms)
+Total: 1.517377 ms (FindLiveObjects: 0.060000 ms CreateObjectMapping: 0.030000 ms MarkObjects: 0.426318 ms  DeleteObjects: 0.470923 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
 The server has disconnected from the client. Most likely the server has shut down.
