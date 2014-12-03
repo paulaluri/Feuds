@@ -22,17 +22,22 @@ public class UISkill : MonoBehaviour
 
     public void SparkleEverywhere(GameObject character)
     {
-        if (character.GetComponentInChildren<TempStatModifier>() != null) return;
         GameObject sp = (GameObject)GameObject.Instantiate(guardAura);
         sp.transform.parent = character.transform;
         sp.transform.localPosition = new Vector3(0, 0, 0);
     }
 
-    public void YouShallNotMove(GameObject character)
+    public void YouShallNotMove(Vector3 position)
     {
-        if (character.GetComponentInChildren<TempStatModifier>() != null) return;
-        GameObject sp = (GameObject)GameObject.Instantiate(archerFrost);
-        sp.transform.parent = character.transform;
-        sp.transform.localPosition = new Vector3(0, 0, 0);
+        
+        foreach (GameObject character in GameManager.characters[GameManager.other])
+        {
+            if ((position - character.transform.position).magnitude < 1)
+            {
+                GameObject frost = (GameObject)GameObject.Instantiate(archerFrost); 
+                frost.transform.parent = character.transform;
+                frost.transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
     }
 }

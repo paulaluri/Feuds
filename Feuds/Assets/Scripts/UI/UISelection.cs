@@ -21,7 +21,7 @@ public class UISelection : MonoBehaviour
     public const int LEFT_CLICK = 0;
     public const int RIGHT_CLICK = 1;
 
-    public float skillRadius = 10;
+    
 
 	public List<GameObject>[] controlGroups = new List<GameObject>[10];
 
@@ -34,7 +34,9 @@ public class UISelection : MonoBehaviour
         AOESKILL
     }
 
-    public static SelectMode selectMode;
+    public static SelectMode selectMode; 
+    public static float skillRadius = 10;
+
     // Use this for initialization
     void Start()
     {
