@@ -31,13 +31,19 @@ public class UIStats : MonoBehaviour {
 
 	void OnGUI(){
 		//Continue OR MAIN MENU if game done
-		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Continue", menu_btn)) {
-			if(GameManager.Rounds.current == GameManager.Rounds.max) {
-				Application.LoadLevel(SceneLobby);
-			}
-			else {
-				Application.LoadLevel(SceneLounge);
-			}
+		string scene;
+		string text;
+		if(GameManager.Rounds.current == GameManager.Rounds.max ||
+		   GameManager.wins[GameManager.winner] > GameManager.Rounds.max / 2) {
+			scene = SceneLobby;
+			text = "Exit";
+		}
+		else {
+			scene = SceneLounge;
+			text = "Continue";
+		}
+		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), text, menu_btn)) {
+			Application.LoadLevel(scene);
 		}
 
 		//Feud Balance bar
@@ -68,7 +74,7 @@ public class UIStats : MonoBehaviour {
 		GUI.EndGroup();
 
 		//Feud Title Bar
-		DrawText(new Rect(0, 10, Screen.width, 70), "Victory", text_style, true, 50, Color.white);
+		DrawText(new Rect(0, 10, Screen.width, 70), GameManager.winner == GameManager.player ? "Victory" : "Defeat", text_style, true, 50, Color.white);
 	}
 
 	void DrawText(Rect r, string s, GUIStyle g, bool outline, int size, Color c){
