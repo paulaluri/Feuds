@@ -54,8 +54,7 @@ public class InputManager : MonoBehaviour {
         else if (c == Class.Archer)
         {
             //Do archer stuff
-            UISelection.selectMode = UISelection.SelectMode.AOESKILL;
-            UISelection.skillRadius = 1;
+            UseSkill(new Vector3());
         }
 
     }
