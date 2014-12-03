@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FogOfWar : MonoBehaviour
 {
     public float radius;
-    public GameObject cameras;
+    public Camera Camera;
 	public LayerMask FogLayer;
     Mesh mesh;
     MeshFilter mf;
@@ -18,7 +18,7 @@ public class FogOfWar : MonoBehaviour
         mesh = GetComponent<MeshFilter>().mesh;
         mf = GetComponent<MeshFilter>();
         vertices = mesh.vertices;
-		cameraDir = Camera.main.transform.forward;
+		cameraDir = Camera.transform.forward;
         GetComponent<MeshRenderer>().enabled = true;
 
     }
