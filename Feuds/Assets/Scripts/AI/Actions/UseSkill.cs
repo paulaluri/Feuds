@@ -30,7 +30,7 @@ public class UseSkill : Action
             }
 
             attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
-			attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("UseSkill", RPCMode.Others);
+			attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("NetUseSkill", RPCMode.Others);
 
             //set cooldown...
             attacker.startCD = Time.time;

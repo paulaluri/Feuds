@@ -23,6 +23,11 @@ public class UISelection : MonoBehaviour
 
     public float skillRadius = 10;
 
+	public List<GameObject>[] controlGroups = new List<GameObject>[10];
+
+	private bool rightControl = false;
+	private bool leftControl = false;
+
     public enum SelectMode
     {
         NORMAL,
@@ -38,6 +43,10 @@ public class UISelection : MonoBehaviour
         bottom_threshold = 192;
         lightForAoe.enabled = false;
         selectMode = SelectMode.NORMAL;
+
+		for(int i = 0 ; i < controlGroups.Length; i++){
+			controlGroups[i] = new List<GameObject>();
+		}
     }
 
     // Update is called once per frame
@@ -167,8 +176,50 @@ public class UISelection : MonoBehaviour
             }
         }
 
-        
+        //Control Groups
+		if(Input.GetKeyDown(KeyCode.LeftControl))
+			leftControl = true;
+		if(Input.GetKeyUp(KeyCode.LeftControl))
+			leftControl = false;
+
+		if(Input.GetKeyDown(KeyCode.RightControl))
+			rightControl = true;
+		if(Input.GetKeyUp(KeyCode.RightControl))
+			rightControl = false;
+
+		bool ctrl = leftControl || rightControl;
+
+		if(Input.GetKeyDown (KeyCode.Alpha0))
+			setControlGroup(0,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha1))
+			setControlGroup(1,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha2))
+			setControlGroup(2,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha3))
+			setControlGroup(3,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha4))
+			setControlGroup(4,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha5))
+			setControlGroup(5,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha6))
+			setControlGroup(6,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha7))
+			setControlGroup(7,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha8))
+			setControlGroup(8,ctrl);
+		else if(Input.GetKeyDown (KeyCode.Alpha9))
+			setControlGroup(9,ctrl);
     }
+
+	private void setControlGroup(int index, bool ctrl){
+		if(ctrl){
+			controlGroups[index].Clear ();
+			controlGroups[index].AddRange (selectedCharacters);
+		}else{
+			selectedCharacters = controlGroups[index];
+			inputManager.SelectCharacters(selectedCharacters);
+		}
+	}
 
     void OnGUI()
     {

@@ -22,7 +22,20 @@ public class UIInterface : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
+	void Update(){
+		if(Input.GetKeyDown (KeyCode.Q))
+			inputManager.SetStance(Stance.Aggressive);
+		if(Input.GetKeyDown (KeyCode.W))
+			inputManager.SetStance(Stance.Defensive);
+		if(Input.GetKeyDown (KeyCode.E))
+			inputManager.SetStance(Stance.StandGround);
+		if(Input.GetKeyDown (KeyCode.R))
+			inputManager.SetStance(Stance.Passive);
+		if(Input.GetKeyDown (KeyCode.A))
+			inputManager.clickSkill();
+	}
+
 	// Update is called once per frame
 	void OnGUI () {
 		//Background

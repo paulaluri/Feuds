@@ -42,7 +42,7 @@ public class AnimationUpdater : MonoBehaviour {
 	}
 
 	[RPC]
-	public void UseSkill(){
+	public void NetUseSkill(){
 		anim.SetTrigger ("use_skill");
 	}
 
