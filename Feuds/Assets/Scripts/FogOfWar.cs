@@ -37,11 +37,11 @@ public class FogOfWar : MonoBehaviour
         foreach (GameObject character in characters)
         {
             RaycastHit hit;
-			Debug.DrawRay(character.transform.position, -1000.0f*cameraDir);
+			//Debug.DrawRay(character.transform.position, -1000.0f*cameraDir);
             if (Physics.Raycast(character.transform.position, -cameraDir, out hit, 1000.0f, FogLayer))
             {
-				Debug.Log(hit.collider.gameObject.name);
-				Debug.Log(hit.point);
+				//Debug.Log(hit.collider.gameObject.name);
+				//Debug.Log(hit.point);
                 Vector3 point = mf.transform.InverseTransformPoint(hit.point);
                 tmp[count] = point;
                 count++;
