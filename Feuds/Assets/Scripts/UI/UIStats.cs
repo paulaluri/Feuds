@@ -41,19 +41,27 @@ public class UIStats : MonoBehaviour {
 		}
 
 		//Feud Balance bar
-		DrawBar(0.5f);
+		float playerWins = (float)GameManager.wins[GameManager.player];
+		float oppWins = (float)GameManager.wins[GameManager.other];
+		float playerWinPercentage = playerWins / playerWins+oppWins;
+		DrawBar(playerWinPercentage);
 
 		//Feud Rounds
 		GUI.BeginGroup(new Rect(Screen.width/2 - 200, 180, 400, 400), text_style);
 
 		DrawText(new Rect(0, 0, 100, 60), "Round", text_style, true, 30, Color.white);
-		DrawText(new Rect(100, 0, 150, 60), "Player 1", text_style, true, 30, Color.white);
-		DrawText(new Rect(250, 0, 150, 60), "Player 2", text_style, true, 30, Color.white);
+		DrawText(new Rect(100, 0, 150, 60), "Your Forces", text_style, true, 30, Color.white);
+		DrawText(new Rect(250, 0, 150, 60), "The Enemy", text_style, true, 30, Color.white);
 
-		int latest = 2;
-		for(int i = 0; i < 6; i++){
+		int latest = (int)GameManager.Rounds.current;
+		for(int i = 0; i < (int)GameManager.Rounds.max; i++){
 			DrawText(new Rect(0, (i+1)*50, 100, 60), (i+1).ToString(), text_style, true, 30, latest==i?(new Color(255f/255f, 216f/255f, 0)):Color.white);
-			GUI.DrawTexture(new Rect(150,(i+1)*50, 50, 50), check);
+			int x_pos = 150;
+
+			if(GameManager.winners[i] == GameManager.other)
+				x_pos = 300;
+
+			GUI.DrawTexture(new Rect(x_pos,(i+1)*50, 50, 50), check);
 		}
 
 		GUI.EndGroup();

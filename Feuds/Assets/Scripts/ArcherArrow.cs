@@ -20,6 +20,7 @@ public class ArcherArrow : MonoBehaviour {
 		if (target != null) {
 			g.transform.parent = null;
 			g.GetComponent<Arrow> ().Fire (this.transform, target);
+			this.GetComponent<CharacterSound>().Clash ();
 		}
 	}
 }

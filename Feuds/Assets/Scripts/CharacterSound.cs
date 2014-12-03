@@ -8,7 +8,7 @@ public class CharacterSound : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	public void PlaySound(){
+	public void Clash(){
 		clash.Play ();
 	}
 }

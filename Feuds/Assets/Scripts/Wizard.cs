@@ -13,6 +13,7 @@ public class Wizard : MonoBehaviour {
 			GameObject g = (GameObject)GameObject.Instantiate(projectile, spawnpoint.transform.position, Quaternion.identity);
 			g.transform.parent = null;
 			g.GetComponent<MagicBullet> ().Fire (this.transform, this.gameObject.GetComponent<AnimationUpdater>().targetPos);
+			this.GetComponent<CharacterSound>().Clash ();
 		}
 	}
 }
