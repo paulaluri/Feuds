@@ -37,6 +37,8 @@ public class KingOfTheHill : GameMode {
 
 	// Use this for initialization
 	void Start () {
+		attacker = Mathf.RoundToInt(GameManager.Rounds.current) % 2;
+
 		percent = 0.0f;
 
 		Attack.renderer.material.color = (attacker == GameManager.player ? Good : Bad);

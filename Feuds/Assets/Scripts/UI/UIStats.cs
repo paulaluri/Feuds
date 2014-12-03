@@ -10,6 +10,9 @@ public class UIStats : MonoBehaviour {
 	public GUIStyle menu_btn;
 	public GUIStyle text_style;
 
+	public string SceneLounge;
+	public string SceneLobby;
+
 	private const int BAR_HEIGHT = 64;
 	private const int END_WIDTH = 32;
 
@@ -29,7 +32,12 @@ public class UIStats : MonoBehaviour {
 	void OnGUI(){
 		//Continue OR MAIN MENU if game done
 		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Continue", menu_btn)) {
-
+			if(GameManager.Rounds.current == GameManager.Rounds.max) {
+				Application.LoadLevel(SceneLobby);
+			}
+			else {
+				Application.LoadLevel(SceneLounge);
+			}
 		}
 
 		//Feud Balance bar

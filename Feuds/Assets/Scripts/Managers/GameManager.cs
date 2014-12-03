@@ -44,24 +44,26 @@ public class GameManager : MonoBehaviour {
 		if(ready && !gameStarted) {
 			StartRound();
 		}
-		if(gameStarted && winner < 0) {
-			if(networkView.isMine) {
-				timeLeft -= Time.deltaTime;
-				checkRoundEnd();
-			}
-			if(TimeAlerts.Count > 0 && TimeAlerts[0] > timeLeft) {
-				TimeSpan time = TimeSpan.FromSeconds(TimeAlerts[0]);
-				if(!msg) {
-					msg = FindObjectOfType<UIMessage>();
+		if(gameStarted) {
+			if(winner < 0) {
+				if(networkView.isMine) {
+					timeLeft -= Time.deltaTime;
+					checkRoundEnd();
 				}
-				else {
-					msg.Add(string.Format("Only {0:D}:{1:D2} left!",time.Minutes,time.Seconds), 10.0f, true);
-					TimeAlerts.RemoveAt(0);
+				if(TimeAlerts.Count > 0 && TimeAlerts[0] > timeLeft) {
+					TimeSpan time = TimeSpan.FromSeconds(TimeAlerts[0]);
+					if(!msg) {
+						msg = FindObjectOfType<UIMessage>();
+					}
+					else {
+						msg.Add(string.Format("Only {0:D}:{1:D2} left!",time.Minutes,time.Seconds), 10.0f, true);
+						TimeAlerts.RemoveAt(0);
+					}
 				}
 			}
-		}
-		else if(winner >= 0) {
-			//EndRound(winner);
+			else {
+				EndRound(winner);
+			}
 		}
 	}
 
@@ -115,21 +117,23 @@ public class GameManager : MonoBehaviour {
 			winners [Mathf.RoundToInt(Rounds.current)] = winner;
 			Rounds.current++;
 
-			GameManager.winner = -1;
-
 			networkView.RPC("EndRound",RPCMode.OthersBuffered,winner);
 		}
 
 		Application.LoadLevel (SceneGameover);
 	}
 
-	void EndGame() {
+	public void EndGame() {
+		Network.Disconnect ();
 		Destroy (gameObject);
 	}
 
 	void OnLevelWasLoaded(int level) {
 		if(Application.loadedLevelName.StartsWith("game")) {
 			Ready();
+		}
+		if (Application.loadedLevelName.EndsWith("LOBBY")) {
+			EndGame();
 		}
 	}
 
