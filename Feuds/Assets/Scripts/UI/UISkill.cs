@@ -19,8 +19,11 @@ public class UISkill : MonoBehaviour
         fB.particleSystem.Play();
     }
 
-    public void SparkleEverywhere()
+    public void SparkleEverywhere(GameObject character)
     {
-
+        if (character.GetComponentInChildren<TempStatModifier>() != null) return;
+        GameObject sp = (GameObject)GameObject.Instantiate(guardAura);
+        sp.transform.parent = character.transform;
+        sp.transform.localPosition = new Vector3(0, 0, 0);
     }
 }

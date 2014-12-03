@@ -25,7 +25,7 @@ public class UseSkill : Action
                 if ((character.transform.position - pos).magnitude < guardSkillRadius)
                 {
                     CombatController cc = character.GetComponent<CombatController>();
-                    cc.Defense += new Damage(1.0f, 1.0f);
+                    cc.GetComponent<UISkill>().SparkleEverywhere(cc.gameObject);
                 }
             }
 

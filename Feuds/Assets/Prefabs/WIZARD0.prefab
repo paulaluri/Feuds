@@ -37,6 +37,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400010}
   - 54: {fileID: 5400000}
+  - 114: {fileID: 11400012}
   m_Layer: 10
   m_Name: WIZARD0
   m_TagString: Player1
@@ -2179,6 +2180,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 100004, guid: c2920a59d81575d468ec4dcd296567f1, type: 2}
   spawnpoint: {fileID: 100122}
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb4f96b45601dd41baea73265c0bc53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireBall: {fileID: 100002, guid: f15b3768ad0b79141a395c12703f74b7, type: 2}
+  guardAura: {fileID: 100000, guid: 50d5e430cdb64a04b9553a99979c2e3a, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
