@@ -36,6 +36,7 @@ public class UseSkill : Action
         }
         else if (attacker.Class == Class.Archer)
         {
+            if (target == null) return true;
             //animation...?
             if (attacker.CanAttack(target))
             {
@@ -54,18 +55,26 @@ public class UseSkill : Action
         else if (attacker.Class == Class.Magician)
         {
             //Now that's a bit complicated . . .
-            //set the animation
-            attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
-            //set cooldown...
-            attacker.startCD = Time.time;
-            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, attacker.skillValue);
+            if ((attacker.gameObject.transform.position - ac.position).sqrMagnitude < attacker.Radius * attacker.Radius)
+            {
+                //set the animation
+                attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
+                attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("NetUseSkill", RPCMode.Others);
+                //set cooldown...
+                attacker.startCD = Time.time;
+                attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, attacker.skillValue);
 
-            //for show
-            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
-            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
-            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
-            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
-            Debug.Log(attacker.gameObject + " " + attacker.startCD);
+                //for show
+                attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+                attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+                attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+                attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+                Debug.Log(attacker.gameObject + " " + attacker.startCD);
+            }
+            else
+            {
+
+            }
         }
 
         return true;

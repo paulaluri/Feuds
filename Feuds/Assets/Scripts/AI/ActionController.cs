@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public enum Command{
 	Attack,
 	Move,
+    MoveThenSkill,
     UseSkill,
 	None
 }
@@ -30,6 +31,7 @@ public class ActionController : MonoBehaviour {
 	private Action[] CommandActions = new Action[] {
 		new Sequencer(new Pursue(), new Rotate(), new Attack(), new Move()),
 		new Move(),
+        new Sequencer(new MoveClose(),new UseSkill()),
         new UseSkill(),
 		new Idle()
 	};
@@ -82,7 +84,8 @@ public class ActionController : MonoBehaviour {
 
     public void UseSkill(Vector3 pos)
     {
-        CurrentCommand = Command.UseSkill;
+        if (myCombat.Class == Class.Magician) CurrentCommand = Command.MoveThenSkill;
+        else CurrentCommand = Command.UseSkill;
         position = pos;
     }
 
