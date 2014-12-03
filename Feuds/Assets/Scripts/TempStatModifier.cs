@@ -17,12 +17,18 @@ public class TempStatModifier : MonoBehaviour
     void Start()
     {
         cc = gameObject.GetComponentInParent<CombatController>();
-        modifyStat(1);
+        if(cc!=null)modifyStat(1);
+        print(cc.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (cc == null)
+        {
+            cc = gameObject.GetComponentInParent<CombatController>();
+            if (cc != null) modifyStat(1);
+        }
         time -= Time.deltaTime;
         if (time < 0)
         {

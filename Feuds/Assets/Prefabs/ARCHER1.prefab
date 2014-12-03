@@ -2607,6 +2607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBall: {fileID: 100002, guid: f15b3768ad0b79141a395c12703f74b7, type: 2}
   guardAura: {fileID: 100000, guid: 50d5e430cdb64a04b9553a99979c2e3a, type: 2}
+  archerFrost: {fileID: 100000, guid: a28344f0a88320d4fade8f01ddd06d01, type: 2}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1

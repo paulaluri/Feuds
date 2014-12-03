@@ -4,7 +4,6 @@ using System.Collections;
 public class UseSkill : Action
 {
     public float guardSkillRadius = 10;
-    public float archerSlowConstant;
     public override bool Update()
     {
         CombatController attacker = ac.myCombat;
@@ -30,31 +29,20 @@ public class UseSkill : Action
             }
 
             attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
-			attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("NetUseSkill", RPCMode.Others);
+            attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("NetUseSkill", RPCMode.Others);
 
             //set cooldown...
             attacker.startCD = Time.time;
         }
         else if (attacker.Class == Class.Archer)
         {
-            if (attacker.CanAttack(target))
-            {
-                if (target.MovSpeed.current > 5)
-                {
-                    //No stacking
-                    target.MovSpeed.current *= archerSlowConstant;
-                    //target.GetComponent<UISkill>().YouShallNotMove();
-                }
-                //... start countdown to return to normal speed?
+            //animation...?
 
-                //do attack?
-                //how many damage?
-                attacker.inCombat = true;
-                attacker.attackedThisFrame = true;
-                attacker.DoDamage(target);
-            }
             //set cooldown...
             attacker.startCD = Time.time;
+
+            attacker.GetComponent<UISkill>().YouShallNotMove(ac.position);
+
         }
         else if (attacker.Class == Class.Magician)
         {
