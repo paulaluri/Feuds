@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class UILoading : MonoBehaviour {
-	public GameObject GameCamera;
+	public GameObject Visor;
 	public GameObject UIObject;
 	public GUIStyle loadingStyle;
 
@@ -16,7 +16,7 @@ public class UILoading : MonoBehaviour {
 
 		//If game is ready, hide this screen and flip on other camera
 		if(GameManager.ready){
-			GameCamera.SetActive(true);
+			Visor.SetActive(false);
 			UIObject.SetActive(true);
 			this.gameObject.SetActive(false);
 		}

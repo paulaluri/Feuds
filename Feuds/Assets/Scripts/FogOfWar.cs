@@ -6,6 +6,7 @@ public class FogOfWar : MonoBehaviour
 {
     public float radius;
     public GameObject cameras;
+	public LayerMask FogLayer;
     Mesh mesh;
     MeshFilter mf;
     Vector3[] vertices;
@@ -17,8 +18,7 @@ public class FogOfWar : MonoBehaviour
         mesh = GetComponent<MeshFilter>().mesh;
         mf = GetComponent<MeshFilter>();
         vertices = mesh.vertices;
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(0,0,0));
-        cameraDir = ray.direction;
+		cameraDir = Camera.main.transform.forward;
         GetComponent<MeshRenderer>().enabled = true;
 
     }
@@ -34,14 +34,14 @@ public class FogOfWar : MonoBehaviour
     {
         Vector3[] tmp = new Vector3[characters.Count];
         int count = 0;
-        int layerMask = 1 << 12;
         foreach (GameObject character in characters)
         {
             RaycastHit hit;
-            //Debug.DrawRay(character.transform.position-100*cameraDir, 100 * cameraDir);
-            if (Physics.Raycast(character.transform.position - 100 * cameraDir, 100 * cameraDir, out hit, layerMask))
+			Debug.DrawRay(character.transform.position, -1000.0f*cameraDir);
+            if (Physics.Raycast(character.transform.position, -cameraDir, out hit, 1000.0f, FogLayer))
             {
-                //print(hit.point);
+				Debug.Log(hit.collider.gameObject.name);
+				Debug.Log(hit.point);
                 Vector3 point = mf.transform.InverseTransformPoint(hit.point);
                 tmp[count] = point;
                 count++;
