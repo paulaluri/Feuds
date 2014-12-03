@@ -52,6 +52,7 @@ MonoBehaviour:
   - 10
   - 5
   msg: {fileID: 0}
+  SceneGameover: 
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
