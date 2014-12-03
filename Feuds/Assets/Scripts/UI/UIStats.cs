@@ -43,7 +43,7 @@ public class UIStats : MonoBehaviour {
 		//Feud Balance bar
 		float playerWins = (float)GameManager.wins[GameManager.player];
 		float oppWins = (float)GameManager.wins[GameManager.other];
-		float playerWinPercentage = playerWins / playerWins+oppWins;
+		float playerWinPercentage = playerWins / (playerWins+oppWins);
 		DrawBar(playerWinPercentage);
 
 		//Feud Rounds
@@ -53,7 +53,7 @@ public class UIStats : MonoBehaviour {
 		DrawText(new Rect(100, 0, 150, 60), "Your Forces", text_style, true, 30, Color.white);
 		DrawText(new Rect(250, 0, 150, 60), "The Enemy", text_style, true, 30, Color.white);
 
-		int latest = (int)GameManager.Rounds.current;
+		int latest = (int)GameManager.Rounds.current-1;
 		for(int i = 0; i < (int)GameManager.Rounds.max; i++){
 			DrawText(new Rect(0, (i+1)*50, 100, 60), (i+1).ToString(), text_style, true, 30, latest==i?(new Color(255f/255f, 216f/255f, 0)):Color.white);
 			int x_pos = 150;
@@ -61,7 +61,8 @@ public class UIStats : MonoBehaviour {
 			if(GameManager.winners[i] == GameManager.other)
 				x_pos = 300;
 
-			GUI.DrawTexture(new Rect(x_pos,(i+1)*50, 50, 50), check);
+			if(i <= latest)
+				GUI.DrawTexture(new Rect(x_pos,(i+1)*50, 50, 50), check);
 		}
 
 		GUI.EndGroup();
@@ -115,7 +116,7 @@ public class UIStats : MonoBehaviour {
 		}
 
 		if(END_WIDTH > (bar_width-final_width)){
-			GUI.DrawTextureWithTexCoords(new Rect(bar_width-END_WIDTH*2, 0, END_WIDTH*2-(bar_width-final_width), BAR_HEIGHT), p1End, new Rect(0, 0, (END_WIDTH*2-(bar_width-final_width))/END_WIDTH*2, 1));
+			GUI.DrawTextureWithTexCoords(new Rect(bar_width-END_WIDTH*2, 0, END_WIDTH*2-(bar_width-final_width), BAR_HEIGHT), p1End, new Rect(0, 0, (END_WIDTH*2-(bar_width-final_width))/(END_WIDTH*2), 1));
 		}
 
 		if(width_to_draw > 0){
