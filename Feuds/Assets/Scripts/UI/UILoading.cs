@@ -5,6 +5,7 @@ public class UILoading : MonoBehaviour {
 	public GameObject Cameras;
 	public GameObject UIObject;
 	public GUIStyle loadingStyle;
+	public GameObject DirLight;
 
 	private const string LOADING = "Waiting for other player...";
 	private const float DELTA = .5f;
@@ -18,6 +19,7 @@ public class UILoading : MonoBehaviour {
 		if(GameManager.ready){
 			Cameras.SetActive(true);
 			UIObject.SetActive(true);
+			DirLight.SetActive(true);
 			this.gameObject.SetActive(false);
 		}
 	}
