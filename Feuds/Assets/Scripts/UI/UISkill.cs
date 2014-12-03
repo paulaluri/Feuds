@@ -27,17 +27,11 @@ public class UISkill : MonoBehaviour
         sp.transform.localPosition = new Vector3(0, 0, 0);
     }
 
-    public void YouShallNotMove(Vector3 position)
+    public void YouShallNotMove(GameObject character)
     {
-        
-        foreach (GameObject character in GameManager.characters[GameManager.other])
-        {
-            if ((position - character.transform.position).magnitude < 1)
-            {
-                GameObject frost = (GameObject)GameObject.Instantiate(archerFrost); 
-                frost.transform.parent = character.transform;
-                frost.transform.localPosition = new Vector3(0, 0, 0);
-            }
-        }
+
+        GameObject frost = (GameObject)GameObject.Instantiate(archerFrost);
+        frost.transform.parent = character.transform;
+        frost.transform.localPosition = new Vector3(0, 0, 0);
     }
 }

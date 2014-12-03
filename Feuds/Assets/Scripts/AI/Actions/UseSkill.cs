@@ -37,11 +37,18 @@ public class UseSkill : Action
         else if (attacker.Class == Class.Archer)
         {
             //animation...?
+            if (attacker.CanAttack(target))
+            {
+                attacker.inCombat = true;
+                attacker.attackedThisFrame = true;
+                attacker.DoDamage(target);
+                attacker.GetComponent<UISkill>().YouShallNotMove(target.gameObject);
+                //set cooldown...
+                attacker.startCD = Time.time;
+            }
 
-            //set cooldown...
-            attacker.startCD = Time.time;
 
-            attacker.GetComponent<UISkill>().YouShallNotMove(ac.position);
+            
 
         }
         else if (attacker.Class == Class.Magician)
