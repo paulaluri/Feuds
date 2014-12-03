@@ -80,9 +80,10 @@ public class ActionController : MonoBehaviour {
 		position = pos;
 	}
 
-    public void UseSkill()
+    public void UseSkill(Vector3 pos)
     {
         CurrentCommand = Command.UseSkill;
+        position = pos;
     }
 
 	void OnNetworkInstantiate(NetworkMessageInfo info) {

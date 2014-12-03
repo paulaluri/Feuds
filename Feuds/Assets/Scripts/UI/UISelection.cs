@@ -75,15 +75,7 @@ public class UISelection : MonoBehaviour
                 selectMode = SelectMode.NORMAL;
                 lightForAoe.enabled = false;
                 Vector3 pos = GetWorldPositionFromMouse();
-                List<GameObject> allcharacters = GameManager.characters[GameManager.other];
-                foreach (GameObject wizard in selectedCharacters)
-                {
-                    wizard.GetComponent<UISkill>().LetThereBeFire(pos, wizard.GetComponent<CombatController>().skillValue);
-                    wizard.GetComponent<UISkill>().LetThereBeFire(pos, 0);
-                    wizard.GetComponent<UISkill>().LetThereBeFire(pos, 0);
-                    wizard.GetComponent<UISkill>().LetThereBeFire(pos, 0);
-                    wizard.GetComponent<UISkill>().LetThereBeFire(pos, 0);
-                }
+                inputManager.UseSkill(pos);
             }
             return;
         }

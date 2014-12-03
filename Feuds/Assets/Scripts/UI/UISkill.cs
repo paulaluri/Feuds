@@ -5,6 +5,7 @@ public class UISkill : MonoBehaviour
 {
     public GameObject fireBall;
     public GameObject guardAura;
+    public GameObject archerFrost;
 
     void Start()
     {
@@ -23,6 +24,14 @@ public class UISkill : MonoBehaviour
     {
         if (character.GetComponentInChildren<TempStatModifier>() != null) return;
         GameObject sp = (GameObject)GameObject.Instantiate(guardAura);
+        sp.transform.parent = character.transform;
+        sp.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    public void YouShallNotMove(GameObject character)
+    {
+        if (character.GetComponentInChildren<TempStatModifier>() != null) return;
+        GameObject sp = (GameObject)GameObject.Instantiate(archerFrost);
         sp.transform.parent = character.transform;
         sp.transform.localPosition = new Vector3(0, 0, 0);
     }

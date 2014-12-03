@@ -33,8 +33,8 @@ public class TempStatModifier : MonoBehaviour
 
     void modifyStat(int mode)
     {
-        cc.MovSpeed.current += mode * MovSpeed;
-        cc.AtkSpeed.current += mode * AtkSpeed;
+        cc.MovSpeed.max += mode * MovSpeed;
+        cc.AtkSpeed.max += mode * AtkSpeed;
         cc.Attack += mode * Attack;
         cc.Defense += mode * Defense;
         cc.skillCD += mode * skillCD;

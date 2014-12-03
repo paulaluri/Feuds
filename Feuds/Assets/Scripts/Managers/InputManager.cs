@@ -20,11 +20,11 @@ public class InputManager : MonoBehaviour {
 	}
 
     //Selected characters use skill
-    public void UseSkill()
+    public void UseSkill(Vector3 pos)
     {
         foreach (GameObject g in selectedCharacters)
         {
-            g.GetComponent<ActionController>().UseSkill();
+            g.GetComponent<ActionController>().UseSkill(pos);
         }
     }
 
@@ -48,12 +48,12 @@ public class InputManager : MonoBehaviour {
         {
             //Do guard stuff
             //print("guard");
-            UseSkill();
+            UseSkill(new Vector3());
         }
         else if (c == Class.Archer)
         {
             //Do archer stuff
-            UseSkill();
+            UseSkill(new Vector3());
         }
 
     }

@@ -43,6 +43,7 @@ public class UseSkill : Action
                 {
                     //No stacking
                     target.MovSpeed.current *= archerSlowConstant;
+                    //target.GetComponent<UISkill>().YouShallNotMove();
                 }
                 //... start countdown to return to normal speed?
 
@@ -62,6 +63,14 @@ public class UseSkill : Action
             attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
             //set cooldown...
             attacker.startCD = Time.time;
+            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, attacker.skillValue);
+
+            //for show
+            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+            attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
+            Debug.Log(attacker.gameObject + " " + attacker.startCD);
         }
 
         return true;
