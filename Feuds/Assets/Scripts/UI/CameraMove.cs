@@ -5,7 +5,7 @@ public class CameraMove : MonoBehaviour {
 	private const int SCROLL_THRESH = 20;
 	private const float SCROLL_SPEED = 1f;
 	private const float MAX_SPEED = .5f;
-	private const float BOTTOM_MARGIN = 192;
+	private const float BOTTOM_MARGIN = 0;//192;
 	
 	public static float leftMost = -20;
 	public static float rightMost = 100;
@@ -23,8 +23,8 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 mouse_pos = Input.mousePosition;
-		
-		float height = Screen.height-BOTTOM_MARGIN;
+
+        float height = Screen.height -BOTTOM_MARGIN;
 
 		float x_off = 0;
 		float z_off = 0;
