@@ -1551,7 +1551,7 @@ MonoBehaviour:
   Defense:
     physical: 10
     magic: 0
-  skillCD: 0
+  skillCD: 10
   startCD: 0
   skillValue: 10
   Radius: 3
