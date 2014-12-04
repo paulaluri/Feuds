@@ -6,14 +6,25 @@ public class ArcherArrow : MonoBehaviour {
 	public GameObject spawnpoint;
 	private GameObject g;
 	private Vector3 target;
+    public bool frostArrow;
 	// Use this for initialization
 	void Start () {
+        frostArrow = false;
 	}
 
 	public void LoadArrow(){
 		g = (GameObject)GameObject.Instantiate(projectile, spawnpoint.transform.position, spawnpoint.transform.rotation);
 		g.transform.parent = spawnpoint.transform;
 		target = this.gameObject.GetComponent<AnimationUpdater>().targetPos;
+        if (!frostArrow)
+        {
+            ParticleSystem ps = g.GetComponentInChildren<ParticleSystem>();
+            ps.Stop();
+        }
+        else
+        {
+            frostArrow = !frostArrow;
+        }
 	}
 
 	public void Shoot(){

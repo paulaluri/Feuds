@@ -105,12 +105,6 @@ public class UIMinimap : MonoBehaviour
     void OnGUI()
     {
         GUI.depth = 1;
-        //Debug.Log("I");
-        Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
-        if (minimapDiamond.Contains(guiPosition))
-        {
-            //GUI.Box(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,10,10),"");
-        }
 
         GUI.Box(new Rect(center.x, center.y, 5, 5), "");
         Ray r = Camera.main.ScreenPointToRay(new Vector3(0, 0, 0));

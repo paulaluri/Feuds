@@ -46,6 +46,7 @@ public class UseSkill : Action
                 attacker.GetComponent<UISkill>().YouShallNotMove(target.gameObject);
                 //set cooldown...
                 attacker.startCD = Time.time;
+                attacker.gameObject.GetComponent<ArcherArrow>().frostArrow = true;
             }
 
 
