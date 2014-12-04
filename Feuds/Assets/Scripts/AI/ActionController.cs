@@ -25,6 +25,7 @@ public class ActionController : MonoBehaviour {
 	public NavMeshAgent agent;
 	public CombatController myCombat;
 	public Vector3 position;
+	public float moveRadius;
 
 	public CombatController targetCombat;
 
@@ -80,6 +81,10 @@ public class ActionController : MonoBehaviour {
 	public void MoveTo(Vector3 pos) {
 		CurrentCommand = Command.Move;
 		position = pos;
+		moveRadius = 2.5f;
+		if((transform.position - position).magnitude < moveRadius) {
+			moveRadius = 0.5f;
+		}
 	}
 
     public void UseSkill(Vector3 pos)

@@ -7,10 +7,9 @@ public class Move : Action {
 	// return true if the target has been reached
 	public override bool Update() {
 		Vector3 to = ac.position;
-		float radius = 2.5f;
 
-		if((ac.transform.position - to).sqrMagnitude >= radius*radius) {
-			ac.agent.stoppingDistance = radius;
+		if((ac.transform.position - to).sqrMagnitude >= ac.moveRadius*ac.moveRadius) {
+			ac.agent.stoppingDistance = ac.moveRadius;
 			ac.agent.SetDestination(to);
 			return false;
 		}
