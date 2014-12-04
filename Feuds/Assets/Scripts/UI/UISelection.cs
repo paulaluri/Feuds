@@ -227,7 +227,15 @@ public class UISelection : MonoBehaviour
 	private void setControlGroup(int index, bool ctrl){
 		if(ctrl){
 			controlGroups[index].Clear ();
-			controlGroups[index].AddRange (selectedCharacters);
+            foreach(GameObject character in selectedCharacters){
+                UICharacter uic = character.GetComponent<UICharacter>();
+                if (uic.currentControlGroup > -1)
+                {
+                    controlGroups[uic.currentControlGroup].Remove(character);
+                }
+                uic.currentControlGroup = index;
+            }
+            controlGroups[index].AddRange(selectedCharacters);
 		}else{
 			selectedCharacters.Clear();
             selectedCharacters.AddRange(controlGroups[index]);
