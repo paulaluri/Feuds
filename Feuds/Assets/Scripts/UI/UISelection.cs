@@ -28,6 +28,9 @@ public class UISelection : MonoBehaviour
 	private bool rightControl = false;
 	private bool leftControl = false;
 
+    private bool rightShift = false;
+    private bool leftShift = false;
+
     public enum SelectMode
     {
         NORMAL,
@@ -63,6 +66,19 @@ public class UISelection : MonoBehaviour
         {
             if (!mouseDown) return;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            leftShift = true;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            leftShift = false;
+
+        if (Input.GetKeyDown(KeyCode.RightShift))
+            rightShift = true;
+        if (Input.GetKeyUp(KeyCode.RightShift))
+            rightShift = false;
+
+        bool shift = leftShift || rightShift;
+
         if (selectMode == SelectMode.AOESKILL)
         {
             MoveAoeSkill(lightForAoe);
@@ -86,11 +102,14 @@ public class UISelection : MonoBehaviour
             mouseStartPosition = Input.mousePosition;
             mouseDown = true;
 
-            //To do
-            //ClearSelect()
-            selectedCharacters.Clear();
-            //Send it somewhere?
-            inputManager.SelectCharacters(selectedCharacters);
+            if (!shift)
+            {
+                //To do
+                //ClearSelect()
+                selectedCharacters.Clear();
+                //Send it somewhere?
+                inputManager.SelectCharacters(selectedCharacters);
+            }
         }
         if (Input.GetMouseButtonUp(LEFT_CLICK))
         {
@@ -160,7 +179,7 @@ public class UISelection : MonoBehaviour
                 }
                 else
                 {
-                    if (selectedCharacters.Contains(c))
+                    if (selectedCharacters.Contains(c) && !shift)
                     {
                         selectedCharacters.Remove(c);
                         //Send it somewhere?
