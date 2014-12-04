@@ -36,13 +36,13 @@ public class nav_LOUNGE : MonoBehaviour {
 
 	private List<LoungeCharacter> chars = new List<LoungeCharacter>();
 
-	private const int RESOURCES = 1500;
-	private const int COST_GUARD = 300;
-	private const int COST_ARCHER = 400;
-	private const int COST_WIZARD = 450;
-	private const int COST_B_ATTACK = 50;
-	private const int COST_B_DEFENSE = 65;
-	private const int COST_B_RESIST = 75;
+	public int RESOURCES = 1500;
+	public int COST_GUARD = 300;
+	public int COST_ARCHER = 400;
+	public int COST_WIZARD = 450;
+	public int COST_B_ATTACK = 50;
+	public int COST_B_DEFENSE = 65;
+	public int COST_B_RESIST = 75;
 
 	private int init_resources = 0;
 

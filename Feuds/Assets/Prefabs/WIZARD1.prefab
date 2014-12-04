@@ -2160,7 +2160,7 @@ MonoBehaviour:
     max: 100
   MovSpeed:
     current: 2
-    max: 5
+    max: 2
   AtkSpeed:
     current: 0
     max: .5

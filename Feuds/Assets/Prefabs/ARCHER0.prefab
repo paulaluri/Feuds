@@ -2623,8 +2623,8 @@ MonoBehaviour:
     current: 100
     max: 100
   MovSpeed:
-    current: 2
-    max: 5
+    current: 4
+    max: 4
   AtkSpeed:
     current: 0
     max: .5
