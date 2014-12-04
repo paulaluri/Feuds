@@ -69,9 +69,7 @@ public class GameManager : MonoBehaviour {
 
 
 	public static void StartGame() {
-		Rounds = new Stat ();
-		Rounds.current = 0;
-		Rounds.max = 6;
+		Rounds = new Stat (0,6);
 
 		player = Convert.ToInt32(!Network.isServer);
 		wins = new int[2] {0,0};

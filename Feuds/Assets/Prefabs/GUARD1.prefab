@@ -127,6 +127,7 @@ GameObject:
   - 114: {fileID: 11400010}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400012}
+  - 148: {fileID: 14800004}
   m_Layer: 11
   m_Name: GUARD1
   m_TagString: Player2
@@ -1609,14 +1610,15 @@ MonoBehaviour:
   AtkSpeed:
     current: 0
     max: .5
+  SkillSpeed:
+    current: 10
+    max: 10
   Attack:
     physical: 10
     magic: 0
   Defense:
     physical: 10
     magic: 0
-  skillCD: 10
-  startCD: 0
   skillValue: 10
   Radius: 3
   Class: 0
@@ -1769,6 +1771,18 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 1
   m_Observed: {fileID: 11400000}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14800004
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11400006}
   m_ViewID:
     m_ID: 0
     m_Type: 0

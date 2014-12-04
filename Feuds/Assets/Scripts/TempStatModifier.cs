@@ -50,7 +50,7 @@ public class TempStatModifier : MonoBehaviour
         cc.AtkSpeed.max += mode * AtkSpeed;
         cc.Attack += mode * Attack;
         cc.Defense += mode * Defense;
-        cc.skillCD += mode * skillCD;
+        cc.SkillSpeed.max += mode * skillCD;
         cc.Radius += mode * Radius;
     }
 }

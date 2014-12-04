@@ -32,7 +32,7 @@ public class UseSkill : Action
             attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("NetUseSkill", RPCMode.Others);
 
             //set cooldown...
-            attacker.startCD = Time.time;
+			attacker.SkillSpeed.current = 0;
         }
         else if (attacker.Class == Class.Archer)
         {
@@ -45,7 +45,7 @@ public class UseSkill : Action
                 attacker.DoDamage(target);
                 attacker.GetComponent<UISkill>().YouShallNotMove(target.gameObject);
                 //set cooldown...
-                attacker.startCD = Time.time;
+				attacker.SkillSpeed.current = 0;
                 attacker.gameObject.GetComponent<ArcherArrow>().frostArrow = true;
             }
 
@@ -62,7 +62,7 @@ public class UseSkill : Action
                 attacker.gameObject.GetComponent<Animator>().SetTrigger("use_skill");
                 attacker.gameObject.GetComponent<AnimationUpdater>().networkView.RPC("NetUseSkill", RPCMode.Others);
                 //set cooldown...
-                attacker.startCD = Time.time;
+				attacker.SkillSpeed.current = 0;
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, attacker.skillValue);
 
                 //for show

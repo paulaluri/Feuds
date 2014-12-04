@@ -1052,6 +1052,7 @@ GameObject:
   - 114: {fileID: 11400014}
   - 82: {fileID: 8200000}
   - 64: {fileID: 6400000}
+  - 148: {fileID: 14800004}
   m_Layer: 11
   m_Name: ARCHER1
   m_TagString: Player2
@@ -2706,14 +2707,15 @@ MonoBehaviour:
   AtkSpeed:
     current: 0
     max: .5
+  SkillSpeed:
+    current: 5
+    max: 5
   Attack:
     physical: 10
     magic: 0
   Defense:
     physical: 5
     magic: 5
-  skillCD: 5
-  startCD: 0
   skillValue: .699999988
   Radius: 10
   Class: 1
@@ -2911,6 +2913,18 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 1
   m_Observed: {fileID: 11400000}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14800004
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100132}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11400006}
   m_ViewID:
     m_ID: 0
     m_Type: 0
