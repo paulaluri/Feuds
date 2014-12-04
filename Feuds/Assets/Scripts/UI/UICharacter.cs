@@ -27,7 +27,7 @@ public class UICharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			if (inputManager.selectedCharacters.Contains (gameObject)) {
+		if (inputManager.selectedCharacters.Contains (gameObject)) {
 			//Draw selection circle
 			selection.enabled = true;
 			selected = true;
