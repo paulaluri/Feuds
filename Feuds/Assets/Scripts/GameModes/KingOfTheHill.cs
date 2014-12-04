@@ -78,6 +78,7 @@ public class KingOfTheHill : GameMode {
 	}
 
 	void OnTriggerExit(Collider other) {
+		Debug.Log (LayerMask.LayerToName (other.gameObject.layer));
 		units [other.gameObject.layer - 10].Remove(other);
 		if(GameManager.player == defender
 		   && other.gameObject.layer == defenderLayer
