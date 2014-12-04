@@ -14,6 +14,9 @@ public class UIInterface : MonoBehaviour {
 	public Texture health;
 	public Texture wound;
 	public Texture terrain;
+	public GUIStyle guardBtn;
+	public GUIStyle wizardBtn;
+	public GUIStyle archerBtn;
 
 	public InputManager inputManager;
     public GameObject cameras;
@@ -91,8 +94,24 @@ public class UIInterface : MonoBehaviour {
 		for (int i = 0; i < inputManager.selectedCharacters.Count; i++) {
 			CombatController combat = inputManager.selectedCharacters[i].GetComponent<CombatController>();
 
+			GUIStyle current_style = guardBtn;
+			switch(inputManager.selectedCharacters[i].GetComponent<CombatController>().Class){
+				case Class.Guard:
+					current_style = guardBtn;
+					break;
+				case Class.Magician:
+					current_style = wizardBtn;
+					break;
+				case Class.Archer:
+					current_style = archerBtn;
+					break;
+				default:
+					current_style = guardBtn;
+					break;
+			}
+
             //GUI.DrawTexture(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon);
-            if (GUI.Button(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon))
+            if (GUI.Button(new Rect(8 + 68 * i, 30, 64, 64), "", current_style))
             {
                 //Move Camera to that character
                 Vector3 pos = inputManager.selectedCharacters[i].transform.position;
