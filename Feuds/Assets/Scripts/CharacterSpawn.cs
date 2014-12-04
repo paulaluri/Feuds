@@ -22,14 +22,20 @@ public class CharacterSpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(GameManager.ready) {
+			Transform spawnTransform;
 			Vector3 spawnLocation;
 			
 			if(GameManager.player == GameManager.Rounds.current % 2) {
-				spawnLocation = GameObject.Find("AttackSpawn").transform.position;
+				spawnTransform = GameObject.Find("AttackSpawn").transform;
+				spawnLocation = spawnTransform.position;
 			}
 			else {
-				spawnLocation = GameObject.Find("DefenseSpawn").transform.position;
+				spawnTransform = GameObject.Find("DefenseSpawn").transform;
+				spawnLocation = spawnTransform.position;
+
 			}
+
+			GameObject.Find("Cameras").transform.position = spawnTransform.position;
 			
 			foreach(LoungeCharacter unit in units) {
 				GameObject typePrefab;

@@ -7,10 +7,10 @@ public class CameraMove : MonoBehaviour {
 	private const float MAX_SPEED = .5f;
 	private const float BOTTOM_MARGIN = 192;
 	
-	public static float leftMost = -20;
+	public static float leftMost = -100;
 	public static float rightMost = 100;
 	public static float topMost = -100;
-	public static float bottomMost = 20;
+	public static float bottomMost = 100;
 	
 	private float TIME_SCROLL = 0;
 

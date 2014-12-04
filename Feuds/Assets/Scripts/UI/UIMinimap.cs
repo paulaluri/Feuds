@@ -7,27 +7,26 @@ public class UIMinimap : MonoBehaviour
     public Diamond minimapDiamond; //-->>GUI Position
     public InputManager inputManager;
     public GUIStyle style;
-    public Diamond positionDiamond;
     public GameObject cameras;
 
+	public Vector2 anchor;
     public int UIHeight = 192;
-
-    public Vector2 center;
 
     public bool mouseDown = false;
 
     // Use this for initialization
     void Start()
     {
-        Vector2 leftcorner = new Vector2(Screen.width - 224, Screen.height - 224);
-        minimapDiamond = new Diamond(new Vector2(leftcorner.x + 108, leftcorner.y), new Vector2(leftcorner.x + 108, leftcorner.y + 216 - 50),
-                                     new Vector2(leftcorner.x + 25, leftcorner.y + 108 - 25), new Vector2(leftcorner.x + 216 - 25, leftcorner.y + 108 - 25));
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && minimapDiamond.Contains(FromMouseToGUIPosition(Input.mousePosition)))
+		anchor.x = Screen.width;
+		anchor.y = Screen.height;
+
+        if (Input.GetMouseButtonDown(0))
         {
             mouseDown = true;
         }
@@ -37,18 +36,17 @@ public class UIMinimap : MonoBehaviour
         }
         if (mouseDown)
         {
-            Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
-            if (minimapDiamond.Contains(guiPosition))
+            Vector2 diamondPos = ScreenToDiamond(FromMouseToGUIPosition(Input.mousePosition));
+            if (minimapDiamond.Contains(diamondPos))
             {
-                //transport camera to that position
-                //get ratio first
-                Vector2 relativePos = GetRelativePosFromPoint(guiPosition);
-                //print (relativePos);
-                Vector3 newCameraPos = new Vector3(0, cameras.transform.position.y, 0);
-                newCameraPos.x = relativePos.x * CameraMove.GetWidth() + CameraMove.leftMost;
-                newCameraPos.z = relativePos.y * CameraMove.GetHeight() + CameraMove.topMost;
-                cameras.transform.position = newCameraPos;
+				Debug.Log("called");
+				Vector3 cameraPos = DiamondToWorld(diamondPos);
+				cameraPos.y = cameras.transform.position.y;
+				cameras.transform.position = cameraPos;
             }
+			else {
+				Debug.Log(diamondPos);
+			}
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -64,7 +62,7 @@ public class UIMinimap : MonoBehaviour
 
         //print (FromMouseToGUIPosition(Input.mousePosition));
 
-        center = GetGUICenterPoint();
+        //center = GetGUICenterPoint();
         //print (center);
 
 
@@ -75,8 +73,8 @@ public class UIMinimap : MonoBehaviour
         Vector2 tmp = new Vector2();
         tmp.x = point.x - minimapDiamond.left.x;
         tmp.y = point.y - minimapDiamond.top.y;
-        tmp.x *= Mathf.Sqrt(2) / minimapDiamond.GetLength();
-        tmp.y *= Mathf.Sqrt(2) / minimapDiamond.GetLength();
+        //tmp.x *= Mathf.Sqrt(2) / minimapDiamond.GetLength();
+        //tmp.y *= Mathf.Sqrt(2) / minimapDiamond.GetLength();
 
         Vector2 ans = new Vector2();
         ans.x = (tmp.x + tmp.y - 1) / 2f;
@@ -96,8 +94,8 @@ public class UIMinimap : MonoBehaviour
         relativePos.x = (worldPoint.x - CameraMove.leftMost) / CameraMove.GetWidth();
         relativePos.y = (worldPoint.z - CameraMove.topMost) / CameraMove.GetHeight();
         Vector2 ret = new Vector2();
-        ret.x = minimapDiamond.left.x + (relativePos.x + relativePos.y) * minimapDiamond.GetLength() / Mathf.Sqrt(2);
-        ret.y = minimapDiamond.top.y + (relativePos.x + 1 - relativePos.y) * minimapDiamond.GetLength() / Mathf.Sqrt(2);
+        //ret.x = minimapDiamond.left.x + (relativePos.x + relativePos.y) * minimapDiamond.GetLength() / Mathf.Sqrt(2);
+        //ret.y = minimapDiamond.top.y + (relativePos.x + 1 - relativePos.y) * minimapDiamond.GetLength() / Mathf.Sqrt(2);
         return ret;
     }
 
@@ -105,25 +103,49 @@ public class UIMinimap : MonoBehaviour
     void OnGUI()
     {
         GUI.depth = 1;
-        //Debug.Log("I");
-        Vector2 guiPosition = FromMouseToGUIPosition(Input.mousePosition);
-        if (minimapDiamond.Contains(guiPosition))
+		{
+			Vector2 pos = WorldToScreen(cameras.transform.position);
+			GUI.Box (new Rect(pos.x, pos.y, 5, 5),"");
+		}
+		foreach (GameObject character in GameManager.characters[GameManager.player])
         {
-            //GUI.Box(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,10,10),"");
-        }
-
-        GUI.Box(new Rect(center.x, center.y, 5, 5), "");
-        Ray r = Camera.main.ScreenPointToRay(new Vector3(0, 0, 0));
-        foreach (GameObject character in GameManager.characters[GameManager.player])
-        {
-            Vector3 pos = character.transform.position;
-            pos.x += 53;
-            pos.z -= 53;
-            Vector2 cGUIpos = GetInMinimapPosition(pos);
-            GUI.Box(new Rect(cGUIpos.x, cGUIpos.y, 5, 5), "");
+			Vector2 pos = WorldToScreen(character.transform.position);
+            GUI.Box(new Rect(pos.x, pos.y, 5, 5), "");
         }
 
     }
+
+	Vector2 WorldToDiamond(Vector3 v) {
+		Vector3 localV = transform.InverseTransformPoint (v);
+		Vector2 local2d = new Vector2 (localV.x, localV.z);
+		local2d.x *= minimapDiamond.width/2;
+		local2d.y *= minimapDiamond.height/2;
+		return local2d;
+	}
+
+	Vector2 DiamondToScreen(Vector2 v) {
+		return (anchor - minimapDiamond.center) + v;
+	}
+
+	Vector2 WorldToScreen(Vector3 v) {
+		return DiamondToScreen (WorldToDiamond (v));
+	}
+
+	Vector2 ScreenToDiamond(Vector2 v) {
+		return v - (anchor - minimapDiamond.center);
+	}
+
+	Vector3 DiamondToWorld(Vector2 v) {
+		Vector2 local2d = v;
+		local2d.x /= minimapDiamond.width / 2;
+		local2d.y /= minimapDiamond.height / 2;
+		Vector3 localV = new Vector3 (local2d.x, 0, local2d.y);
+		return transform.TransformPoint (localV);
+	}
+
+	Vector3 ScreenToWorld(Vector2 v) {
+		return DiamondToWorld (ScreenToDiamond (v));
+	}
 
     Vector2 FromMouseToGUIPosition(Vector2 mP)
     {

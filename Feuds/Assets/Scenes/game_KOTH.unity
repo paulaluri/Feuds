@@ -2770,7 +2770,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378959944}
   m_LocalRotation: {x: 0, y: -.382683486, z: 0, w: .923879564}
-  m_LocalPosition: {x: 0, y: 53.4158783, z: 0}
+  m_LocalPosition: {x: -48.8831596, y: 3.71939087, z: 49.7434807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1406257393}
@@ -2961,7 +2961,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406257388}
   m_LocalRotation: {x: .30070582, y: 0, z: 0, w: .953716934}
-  m_LocalPosition: {x: 1.90734863e-06, y: 34.2853088, z: -48.964489}
+  m_LocalPosition: {x: 3.81469727e-06, y: 89.060463, z: -127.191498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1378959945}
@@ -3453,9 +3453,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1459197881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.4139519, y: -12.2732697, z: 28.9749298}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -.382683456, z: 0, w: .923879504}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 141.421356, y: 0, z: -141.421356}
   m_Children:
   - {fileID: 1002071066}
   m_Father: {fileID: 0}
@@ -3631,6 +3631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de4fa29370b6bb46a5672d5a15ebd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimapDiamond:
+    center: {x: 112, y: 112}
+    width: 216
+    height: 216
   inputManager: {fileID: 0}
   style:
     m_Name: 
@@ -3692,8 +3696,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   cameras: {fileID: 1378959944}
+  anchor: {x: 0, y: 0}
   UIHeight: 192
-  center: {x: 0, y: 0}
   mouseDown: 0
 --- !u!114 &1459197888
 MonoBehaviour:

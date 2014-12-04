@@ -1,48 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Diamond {
+[System.Serializable]
+public struct Diamond {
+	public Vector2 center;
+	public float width;
+	public float height;
 
-	public Vector2 top;
-	public Vector2 bottom;
-	public Vector2 left;
-	public Vector2 right;
+	public Vector2 top { get { return center + new Vector2(0,height/2); } }
+	public Vector2 bottom { get { return center + new Vector2(0,-height/2); } }
+	public Vector2 left { get { return center + new Vector2 (-width/2, 0); } }
+	public Vector2 right { get { return center + new Vector2 (width/2, 0); } }
 	
-	public Diamond(Vector2 top,Vector2 bottom, Vector2 left, Vector2 right){
-		this.top = top;
-		this.bottom = bottom;
-		this.left = left;
-		this.right = right;
-	}
-	
-	public float GetHeight(){
-		return top.y-bottom.y;
-	}
-	
-	public float GetWidth(){
-		return right.x-left.x;
-	}
-	
-	public float GetLength(){
-		return Mathf.Sqrt(Mathf.Pow(GetWidth()/2f,2) + Mathf.Pow(GetHeight()/2f,2));
-	}
+	//public float length { get { return Mathf.Sqrt (Mathf.Pow (width / 2f, 2) + Mathf.Pow (width / 2f, 2)); } }
 	
 	public bool Contains(Vector2 pos){
-		if(isPointUnderLine(pos,top,right) && isPointUnderLine(pos,top,left)
-			&& !isPointUnderLine(pos,left,bottom) && !isPointUnderLine(pos,right,bottom)){
-			return true;
+		float x = (2 * pos.x) / width;
+		float y = (2 * pos.y) / height;
+		if(Mathf.Abs(x) + Mathf.Abs(y) > 1) {
+			return false;
 		}
-		return false;
-		
-	}
-	
-	public bool isPointUnderLine(Vector2 point, Vector2 one, Vector2 two){
-		float m = (one.x-two.x)/(one.y-two.y);
-		//y-y1 = m(x-x1)
-		if(point.y-one.y >= m*(point.x-one.x)){
-			return true;
-		}
-		else return false;
+		return true;
 	}
 }
 
