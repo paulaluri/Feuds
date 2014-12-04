@@ -60,10 +60,8 @@ public class UIStats : MonoBehaviour {
 		}
 		else {
 			//Feud Title Bar
-			GUIStyle endOfGameStyle = new GUIStyle(text_style);
-			endOfGameStyle.fontSize = 60;
 			bool victor = GameManager.winner == GameManager.player;
-			DrawText (new Rect (0, 10, Screen.width, 130), victor? "Victory" : "Defeat", endOfGameStyle, true, 50, victor?(new Color(1,216f/255f,0)):Color.white);
+			DrawText (new Rect (0, 10, Screen.width, 130), victor? "Victory" : "Defeat", text_style, true,90, victor?(new Color(1,216f/255f,0)):Color.white);
 		}
 
 		//Feud Rounds
