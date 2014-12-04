@@ -821,8 +821,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -.370104462, y: 0, z: 0, w: .928990185}
+  m_LocalPosition: {x: 16.7467022, y: 2.35255957, z: -17.6547604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400076}
@@ -1562,6 +1562,9 @@ MonoBehaviour:
   inCombat: 0
   inSkill: 0
   attackedThisFrame: 0
+  hasAttackBoost: 0
+  hasDefenseBoost: 0
+  hasResistBoost: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1609,7 +1612,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: .25
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}

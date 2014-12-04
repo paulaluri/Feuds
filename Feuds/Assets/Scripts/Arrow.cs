@@ -4,6 +4,7 @@ using System.Collections;
 public class Arrow : MonoBehaviour {
     public float heightDistanceRatio;
     float timer;
+    bool isFired = false;
 	// Use this for initialization
 	void Start () {
 		//rigidbody.centerOfMass = new Vector3(-.2f, 0, 0);
@@ -14,14 +15,15 @@ public class Arrow : MonoBehaviour {
 	void Update () {
         if (timer > 0)
         {
-            if (Time.time - timer > 5)
+            if (Time.time - timer > 2)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
 	}
 
 	void FixedUpdate(){
+        if (rigidbody == null) return;
 		if(rigidbody.velocity != Vector3.zero)
 			rigidbody.rotation = Quaternion.LookRotation(rigidbody.velocity);  
 	}
@@ -39,15 +41,18 @@ public class Arrow : MonoBehaviour {
 		Vector3 direction = (t - init.position).normalized;
 
 		rigidbody.velocity = new Vector3(direction.x*hSpeed, vSpeed, direction.z*hSpeed);
+        this.gameObject.layer = init.gameObject.layer;
         timer = Time.time;
+        isFired = true;
 	}
 
-    void OnCollisionEnter(Collision collision) 
+    void OnTriggerEnter(Collider collider)
     {
-        Destroy(rigidbody);
-        Collider c = collision.collider;
-        print(c.gameObject);
-        gameObject.transform.parent = c.gameObject.transform;
 
+        print(collider.gameObject.name + " " + collider.gameObject.layer + "[]" + gameObject.name + " " + gameObject.layer);
+        if (this.gameObject.layer == collider.gameObject.layer || !isFired || rigidbody == null) return;
+        rigidbody.velocity = new Vector3(0,0,0);
+        Destroy(rigidbody);
+        gameObject.transform.parent = collider.gameObject.transform;
     }
 }

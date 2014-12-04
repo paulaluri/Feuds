@@ -70,11 +70,7 @@ public class UseSkill : Action
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
-                Debug.Log(attacker.gameObject + " " + attacker.startCD);
-            }
-            else
-            {
-
+                //Debug.Log(attacker.gameObject + " " + attacker.startCD);
             }
         }
 
