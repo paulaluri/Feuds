@@ -2762,7 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18fb8341cb65c94aa7a21d169d13874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 100000, guid: 4af761ae2ff1e1d42bb6f0820cebc509, type: 2}
+  projectile: {fileID: 100000, guid: f1e87203cdbfd476598be90273e05b01, type: 2}
   spawnpoint: {fileID: 100056}
   frostArrow: 0
 --- !u!114 &11400014

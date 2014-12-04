@@ -23,7 +23,7 @@ public class ArcherArrow : MonoBehaviour {
         }
         else
         {
-            frostArrow = !frostArrow;
+            frostArrow = false;
         }
 	}
 

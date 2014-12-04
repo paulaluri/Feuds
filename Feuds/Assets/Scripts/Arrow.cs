@@ -41,7 +41,7 @@ public class Arrow : MonoBehaviour {
 		Vector3 direction = (t - init.position).normalized;
 
 		rigidbody.velocity = new Vector3(direction.x*hSpeed, vSpeed, direction.z*hSpeed);
-        this.gameObject.layer = init.gameObject.layer;
+        //this.gameObject.layer = init.gameObject.layer;
         timer = Time.time;
         isFired = true;
 	}
@@ -49,8 +49,8 @@ public class Arrow : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
 
-        print(collider.gameObject.name + " " + collider.gameObject.layer + "[]" + gameObject.name + " " + gameObject.layer);
-        if (this.gameObject.layer == collider.gameObject.layer || !isFired || rigidbody == null) return;
+        //print(collider.gameObject.name + " " + collider.gameObject.layer + "[]" + gameObject.name + " " + gameObject.layer);
+        if (!isFired || rigidbody == null) return;
         rigidbody.velocity = new Vector3(0,0,0);
         Destroy(rigidbody);
         gameObject.transform.parent = collider.gameObject.transform;
