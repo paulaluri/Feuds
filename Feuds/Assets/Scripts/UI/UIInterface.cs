@@ -18,9 +18,11 @@ public class UIInterface : MonoBehaviour {
 	public InputManager inputManager;
     public GameObject cameras;
 
+	private UISelection uiselection;
+
 	// Use this for initialization
 	void Start () {
-	
+		uiselection = gameObject.GetComponent<UISelection> ();
 	}
 
 	void Update(){
@@ -32,7 +34,7 @@ public class UIInterface : MonoBehaviour {
 			inputManager.SetStance(Stance.StandGround);
 		if(Input.GetKeyDown (KeyCode.R))
 			inputManager.SetStance(Stance.Passive);
-		if(Input.GetKeyDown (KeyCode.A))
+		if(Input.GetKeyDown (KeyCode.A) && uiselection.selectedCharacters.Count == 1)
 			inputManager.clickSkill();
 	}
 
@@ -70,8 +72,16 @@ public class UIInterface : MonoBehaviour {
 			else if (GUI.Button (new Rect (200, 30, 64, 64), passive, buttonStyle))
 				inputManager.SetStance (Stance.Passive);
 
-            if (GUI.Button(new Rect(8, 94, 64, 64), "", buttonSpecialStyle))
-                inputManager.clickSkill();
+			if(uiselection.selectedCharacters.Count == 1){ 
+				bool canSkill = uiselection.selectedCharacters[0].GetComponent<CombatController>().CanUseSkill();
+				if(canSkill){
+					if (GUI.Button(new Rect(8, 94, 64, 64), "", buttonSpecialStyle))
+						inputManager.clickSkill();
+				}
+				else{
+					GUI.DrawTexture(new Rect(8, 94, 64, 64), buttonSpecialStyle.active.background);
+				}
+			}
 
 			GUI.EndGroup();
 		}

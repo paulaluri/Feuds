@@ -9,7 +9,7 @@ public class UseSkill : Action
         CombatController attacker = ac.myCombat;
         CombatController target = ac.targetCombat;
 
-        if (Time.time - attacker.startCD < attacker.skillCD)
+        if (!attacker.CanUseSkill())
         {
             return true;
         }

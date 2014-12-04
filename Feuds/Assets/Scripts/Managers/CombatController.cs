@@ -107,6 +107,10 @@ public class CombatController : MonoBehaviour {
 		return !isDead && !other.isDead && (other.transform.position - transform.position).sqrMagnitude < Radius*Radius;
 	}
 
+	public bool CanUseSkill(){
+		return !(Time.time - startCD < skillCD);
+	}
+
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref Health.current);
 	}
