@@ -36,11 +36,11 @@ public class UICharacter : MonoBehaviour {
 		if (!combat.isDead) {
             if (rendering)
             {
-				if(Camera.main)
+				if(Camera.main){
                 	Vector3 screen = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 2.2f, 0));
-
-                GUI.DrawTexture(new Rect(screen.x - 32, Screen.height - screen.y, 64, 4), Wound);
-                GUI.DrawTexture(new Rect(screen.x - 32, Screen.height - screen.y, Mathf.Max(1, (combat.Health.current / combat.Health.max) * 64), 4), Health);
+                	GUI.DrawTexture(new Rect(screen.x - 32, Screen.height - screen.y, 64, 4), Wound);
+                	GUI.DrawTexture(new Rect(screen.x - 32, Screen.height - screen.y, Mathf.Max(1, (combat.Health.current / combat.Health.max) * 64), 4), Health);
+				}
             }
         }
 	}
