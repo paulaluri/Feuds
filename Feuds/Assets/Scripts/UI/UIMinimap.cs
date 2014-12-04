@@ -105,12 +105,12 @@ public class UIMinimap : MonoBehaviour
         GUI.depth = 1;
 		{
 			Vector2 pos = WorldToScreen(cameras.transform.position);
-			GUI.Box (new Rect(pos.x, pos.y, 5, 5),"");
+			GUI.Box (new Rect(pos.x-2.5f, pos.y-2.5f, 5, 5),"");
 		}
 		foreach (GameObject character in GameManager.characters[GameManager.player])
         {
 			Vector2 pos = WorldToScreen(character.transform.position);
-            GUI.Box(new Rect(pos.x, pos.y, 5, 5), "");
+			GUI.Box(new Rect(pos.x-2.5f, pos.y-2.5f, 5, 5), "");
         }
 
     }

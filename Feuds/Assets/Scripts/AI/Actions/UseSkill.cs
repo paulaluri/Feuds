@@ -9,7 +9,7 @@ public class UseSkill : Action
         CombatController attacker = ac.myCombat;
         CombatController target = ac.targetCombat;
 
-        if (Time.time - attacker.startCD < attacker.skillCD)
+        if (!attacker.CanUseSkill())
         {
             return true;
         }
@@ -46,6 +46,7 @@ public class UseSkill : Action
                 attacker.GetComponent<UISkill>().YouShallNotMove(target.gameObject);
                 //set cooldown...
                 attacker.startCD = Time.time;
+                attacker.gameObject.GetComponent<ArcherArrow>().frostArrow = true;
             }
 
 
@@ -69,11 +70,7 @@ public class UseSkill : Action
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
                 attacker.GetComponent<UISkill>().LetThereBeFire(ac.position, 0);
-                Debug.Log(attacker.gameObject + " " + attacker.startCD);
-            }
-            else
-            {
-
+                //Debug.Log(attacker.gameObject + " " + attacker.startCD);
             }
         }
 

@@ -14,13 +14,18 @@ public class UIInterface : MonoBehaviour {
 	public Texture health;
 	public Texture wound;
 	public Texture terrain;
+	public GUIStyle guardBtn;
+	public GUIStyle wizardBtn;
+	public GUIStyle archerBtn;
 
 	public InputManager inputManager;
     public GameObject cameras;
 
+	private UISelection uiselection;
+
 	// Use this for initialization
 	void Start () {
-	
+		uiselection = gameObject.GetComponent<UISelection> ();
 	}
 
 	void Update(){
@@ -32,7 +37,7 @@ public class UIInterface : MonoBehaviour {
 			inputManager.SetStance(Stance.StandGround);
 		if(Input.GetKeyDown (KeyCode.R))
 			inputManager.SetStance(Stance.Passive);
-		if(Input.GetKeyDown (KeyCode.A))
+		if(Input.GetKeyDown (KeyCode.A) && uiselection.selectedCharacters.Count == 1)
 			inputManager.clickSkill();
 	}
 
@@ -70,8 +75,16 @@ public class UIInterface : MonoBehaviour {
 			else if (GUI.Button (new Rect (200, 30, 64, 64), passive, buttonStyle))
 				inputManager.SetStance (Stance.Passive);
 
-            if (GUI.Button(new Rect(8, 94, 64, 64), "", buttonSpecialStyle))
-                inputManager.clickSkill();
+			if(uiselection.selectedCharacters.Count == 1){ 
+				bool canSkill = uiselection.selectedCharacters[0].GetComponent<CombatController>().CanUseSkill();
+				if(canSkill){
+					if (GUI.Button(new Rect(8, 94, 64, 64), "", buttonSpecialStyle))
+						inputManager.clickSkill();
+				}
+				else{
+					GUI.DrawTexture(new Rect(8, 94, 64, 64), buttonSpecialStyle.active.background);
+				}
+			}
 
 			GUI.EndGroup();
 		}
@@ -81,8 +94,24 @@ public class UIInterface : MonoBehaviour {
 		for (int i = 0; i < inputManager.selectedCharacters.Count; i++) {
 			CombatController combat = inputManager.selectedCharacters[i].GetComponent<CombatController>();
 
+			GUIStyle current_style = guardBtn;
+			switch(inputManager.selectedCharacters[i].GetComponent<CombatController>().Class){
+				case Class.Guard:
+					current_style = guardBtn;
+					break;
+				case Class.Magician:
+					current_style = wizardBtn;
+					break;
+				case Class.Archer:
+					current_style = archerBtn;
+					break;
+				default:
+					current_style = guardBtn;
+					break;
+			}
+
             //GUI.DrawTexture(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon);
-            if (GUI.Button(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon))
+            if (GUI.Button(new Rect(8 + 68 * i, 30, 64, 64), "", current_style))
             {
                 //Move Camera to that character
                 Vector3 pos = inputManager.selectedCharacters[i].transform.position;

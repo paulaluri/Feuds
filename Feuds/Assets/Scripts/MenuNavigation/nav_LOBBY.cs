@@ -10,7 +10,7 @@ public class nav_LOBBY : MonoBehaviour {
 	public GameObject GameManager;
 
 	private int scene_lobby;
-	private string gameName = "";
+	private string gameName = "Untitled Game";
 	private HostData selectedHost = null;
 	private Vector2 scrollPosition = Vector2.zero;
 
@@ -69,7 +69,7 @@ public class nav_LOBBY : MonoBehaviour {
 	void Host() {
 		Network.InitializeServer (1, 15466, !Network.HavePublicAddress ());
 		Network.Instantiate (GameManager, Vector3.zero, Quaternion.identity, 0);
-		MasterServer.RegisterHost ("Feuds", gameName);
+		MasterServer.RegisterHost ("Feuds", gameName==""?"Untitled Game":gameName);
 		Application.LoadLevel (SceneLounge);
 	}
 }

@@ -1051,6 +1051,7 @@ GameObject:
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 82: {fileID: 8200000}
+  - 64: {fileID: 6400000}
   m_Layer: 10
   m_Name: ARCHER0
   m_TagString: Player1
@@ -2486,6 +2487,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &6400000
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2585,6 +2599,9 @@ MonoBehaviour:
   Health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   Wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
   Icon: {fileID: 2800000, guid: 39c09e17a63a2184eb269fbebb70c7be, type: 3}
+  attackBoost: {fileID: 2800000, guid: de5b78018528ed2448c3c16fd746124f, type: 3}
+  defenseBoost: {fileID: 2800000, guid: f32e503150c17704f9b57ff9e8164d4f, type: 3}
+  resistBoost: {fileID: 2800000, guid: 2b8bb8125b04ccf4185de8657cbfe6ba, type: 3}
   selection: {fileID: 2300036}
   inputManager: {fileID: 0}
   rendering: 0
@@ -2623,8 +2640,8 @@ MonoBehaviour:
     current: 100
     max: 100
   MovSpeed:
-    current: 2
-    max: 5
+    current: 3.5
+    max: 3.5
   AtkSpeed:
     current: 0
     max: .5
@@ -2642,6 +2659,9 @@ MonoBehaviour:
   inCombat: 0
   inSkill: 0
   attackedThisFrame: 0
+  hasAttackBoost: 0
+  hasDefenseBoost: 0
+  hasResistBoost: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2667,6 +2687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 100000, guid: 4af761ae2ff1e1d42bb6f0820cebc509, type: 2}
   spawnpoint: {fileID: 100056}
+  frostArrow: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2702,7 +2723,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: .25
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}

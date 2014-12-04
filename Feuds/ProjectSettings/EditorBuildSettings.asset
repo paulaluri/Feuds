@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/menu_STATS.unity
   - enabled: 1
     path: Assets/Scenes/game_KOTH.unity
+  - enabled: 1
+    path: Assets/Scenes/menu_ABOUT.unity
