@@ -33,8 +33,10 @@ public class UIStats : MonoBehaviour {
 		//Continue OR MAIN MENU if game done
 		string scene;
 		string text;
-		if(GameManager.Rounds.current == GameManager.Rounds.max ||
-		   GameManager.wins[GameManager.winner] > GameManager.Rounds.max / 2) {
+		bool endOfGame = GameManager.Rounds.current == GameManager.Rounds.max ||
+						GameManager.wins [GameManager.winner] > GameManager.Rounds.max / 2;
+
+		if(endOfGame) {
 			scene = SceneLobby;
 			text = "Exit";
 		}
@@ -46,11 +48,23 @@ public class UIStats : MonoBehaviour {
 			Application.LoadLevel(scene);
 		}
 
-		//Feud Balance bar
-		float playerWins = (float)GameManager.wins[GameManager.player];
-		float oppWins = (float)GameManager.wins[GameManager.other];
-		float playerWinPercentage = playerWins / (playerWins+oppWins);
-		DrawBar(playerWinPercentage);
+		if (!endOfGame) {
+			//Feud Title Bar
+			DrawText (new Rect (0, 10, Screen.width, 70), GameManager.winner == GameManager.player ? "Victory" : "Defeat", text_style, true, 50, Color.white);
+
+			//Feud Balance bar
+			float playerWins = (float)GameManager.wins [GameManager.player];
+			float oppWins = (float)GameManager.wins [GameManager.other];
+			float playerWinPercentage = playerWins / (playerWins + oppWins);
+			DrawBar (playerWinPercentage);
+		}
+		else {
+			//Feud Title Bar
+			GUIStyle endOfGameStyle = new GUIStyle(text_style);
+			endOfGameStyle.fontSize = 60;
+			bool victor = GameManager.winner == GameManager.player;
+			DrawText (new Rect (0, 10, Screen.width, 130), victor? "Victory" : "Defeat", endOfGameStyle, true, 50, victor?(new Color(1,216f/255f,0)):Color.white);
+		}
 
 		//Feud Rounds
 		GUI.BeginGroup(new Rect(Screen.width/2 - 200, 180, 400, 400), text_style);
@@ -72,9 +86,6 @@ public class UIStats : MonoBehaviour {
 		}
 
 		GUI.EndGroup();
-
-		//Feud Title Bar
-		DrawText(new Rect(0, 10, Screen.width, 70), GameManager.winner == GameManager.player ? "Victory" : "Defeat", text_style, true, 50, Color.white);
 	}
 
 	void DrawText(Rect r, string s, GUIStyle g, bool outline, int size, Color c){
