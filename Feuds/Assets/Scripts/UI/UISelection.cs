@@ -210,7 +210,8 @@ public class UISelection : MonoBehaviour
 			controlGroups[index].Clear ();
 			controlGroups[index].AddRange (selectedCharacters);
 		}else{
-			selectedCharacters = controlGroups[index];
+			selectedCharacters.Clear();
+            selectedCharacters.AddRange(controlGroups[index]);
 			inputManager.SelectCharacters(selectedCharacters);
 		}
 	}
