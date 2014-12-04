@@ -58,11 +58,11 @@ public class UICharacter : MonoBehaviour {
 							x_pos += 12;
 						}
 						if(combat.hasDefenseBoost){
-							GUI.DrawTexture(new Rect(x, y-12, 10, 10), defenseBoost);
+							GUI.DrawTexture(new Rect(x_pos, y-12, 10, 10), defenseBoost);
 							x_pos += 12;
 						}
 						if(combat.hasResistBoost){
-							GUI.DrawTexture(new Rect(x, y-12, 10, 10), resistBoost);
+							GUI.DrawTexture(new Rect(x_pos, y-12, 10, 10), resistBoost);
 						}
 					}
 				}
