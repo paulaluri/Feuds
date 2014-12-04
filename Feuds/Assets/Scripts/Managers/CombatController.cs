@@ -56,6 +56,10 @@ public class CombatController : MonoBehaviour {
 	public bool inSkill = false;
 	public bool attackedThisFrame = false;
 
+	public bool hasAttackBoost = false;
+	public bool hasDefenseBoost = false;
+	public bool hasResistBoost = false;
+
 	private NavMeshAgent agent;
 
 	// Use this for initialization
@@ -130,6 +134,11 @@ public class CombatController : MonoBehaviour {
 		Attack *= atkScale;
 		Defense.physical += physicalDef;
 		Defense.magic += magicDef;
+
+		hasAttackBoost = atkScale > 1;
+		hasDefenseBoost = physicalDef > 0;
+		hasResistBoost = magicDef > 0;
+
 		if(broadcast) {
 			networkView.RPC("SetBonus",RPCMode.OthersBuffered,atkScale,physicalDef,magicDef,false);
 		}

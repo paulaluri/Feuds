@@ -1502,6 +1502,9 @@ MonoBehaviour:
   Health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   Wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
   Icon: {fileID: 2800000, guid: 2afdf8d8fa00aa344beef700f53511c1, type: 3}
+  attackBoost: {fileID: 2800000, guid: de5b78018528ed2448c3c16fd746124f, type: 3}
+  defenseBoost: {fileID: 2800000, guid: f32e503150c17704f9b57ff9e8164d4f, type: 3}
+  resistBoost: {fileID: 2800000, guid: 2b8bb8125b04ccf4185de8657cbfe6ba, type: 3}
   selection: {fileID: 2300000}
   inputManager: {fileID: 0}
   rendering: 0
