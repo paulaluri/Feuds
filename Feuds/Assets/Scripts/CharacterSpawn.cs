@@ -44,7 +44,7 @@ public class CharacterSpawn : MonoBehaviour {
 					typePrefab = WizardPrefab[GameManager.player];
 					break;
 				}
-				Vector3 pos = 10 * Random.insideUnitSphere;
+				Vector3 pos = 6 * Random.insideUnitSphere;
 				pos.y = 0;
 				GameObject character = Network.Instantiate(typePrefab,spawnLocation + pos,Quaternion.identity,0) as GameObject;
 				CombatController combat = character.GetComponent<CombatController>();
