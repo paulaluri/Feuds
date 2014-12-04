@@ -35,7 +35,11 @@ public class CharacterSpawn : MonoBehaviour {
 
 			}
 
-			GameObject.Find("Cameras").transform.position = spawnTransform.position;
+			GameObject camera = GameObject.Find("Cameras");
+			if(!camera) {
+				camera = GameObject.Find("Loading Screen").GetComponent<UILoading>().Cameras;
+			}
+			camera.transform.position = spawnTransform.position;
 			
 			foreach(LoungeCharacter unit in units) {
 				GameObject typePrefab;

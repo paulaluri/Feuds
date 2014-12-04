@@ -39,14 +39,10 @@ public class UIMinimap : MonoBehaviour
             Vector2 diamondPos = ScreenToDiamond(FromMouseToGUIPosition(Input.mousePosition));
             if (minimapDiamond.Contains(diamondPos))
             {
-				Debug.Log("called");
 				Vector3 cameraPos = DiamondToWorld(diamondPos);
 				cameraPos.y = cameras.transform.position.y;
 				cameras.transform.position = cameraPos;
             }
-			else {
-				Debug.Log(diamondPos);
-			}
         }
         if (Input.GetMouseButtonDown(1))
         {
