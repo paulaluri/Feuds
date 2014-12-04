@@ -11,6 +11,11 @@ public class nav_MAIN : MonoBehaviour {
 
 	private int scene_lobby;
 
+	void Start(){
+		//Auto scale to resolution
+		Screen.SetResolution (Screen.currentResolution.width, Screen.currentResolution.height, true);
+	}
+
 	// Update is called once per frame
 	void OnGUI(){
 		//Logo
