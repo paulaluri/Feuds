@@ -64,9 +64,12 @@ public class nav_LOUNGE : MonoBehaviour {
 		}
 
 		//Resources Left
+		int fs = menu_text.fontSize;
+		menu_text.fontSize = 30;
 		GUI.color = new Color(1,216f/255f,0);
 		GUI.Label(new Rect(40, 60, 200, 20), "Resources left: " + init_resources.ToString(), menu_text);
 		GUI.color = new Color(255, 255, 255);
+		menu_text.fontSize = fs;
 
 		//Add items
 		GUI.BeginGroup(new Rect(40, 100, 264, 192));
@@ -158,7 +161,7 @@ public class nav_LOUNGE : MonoBehaviour {
 				init_resources -= COST_B_RESIST;
 			}
 
-			GUI.color = new Color(255,216,0);
+			GUI.color = new Color(1,216f/255f,0);
 			GUI.Label (new Rect(64, 74*i+40, 64, 64), "[" + COST_B_ATTACK.ToString() + "]", menu_text);
 			GUI.Label (new Rect(128, 74*i+40, 64, 64), "[" + COST_B_DEFENSE.ToString() + "]", menu_text);
 			GUI.Label (new Rect(192, 74*i+40, 64, 64), "[" + COST_B_RESIST.ToString() + "]", menu_text);
