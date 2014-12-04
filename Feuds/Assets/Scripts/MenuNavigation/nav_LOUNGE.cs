@@ -64,12 +64,12 @@ public class nav_LOUNGE : MonoBehaviour {
 		}
 
 		//Resources Left
-		GUI.color = new Color(255,216,0);
-		GUI.Label(new Rect(10, 60, 200, 20), "Resources left: " + init_resources.ToString(), menu_text);
+		GUI.color = new Color(1,216f/255f,0);
+		GUI.Label(new Rect(40, 60, 200, 20), "Resources left: " + init_resources.ToString(), menu_text);
 		GUI.color = new Color(255, 255, 255);
 
 		//Add items
-		GUI.BeginGroup(new Rect(10, 100, 264, 192));
+		GUI.BeginGroup(new Rect(40, 100, 264, 192));
 		if(GUI.Button(new Rect(0, 0, 64, 64), "", guard_btn) && init_resources >= COST_GUARD){
 			LoungeCharacter lc = new LoungeCharacter();
 			lc.Type = CharacterType.Guard;
@@ -97,7 +97,7 @@ public class nav_LOUNGE : MonoBehaviour {
 		}
 		GUI.Label (new Rect(68,128,200,64), "Wizard", menu_text);
 
-		GUI.color = new Color(255,216,0);
+		GUI.color = new Color(1,216f/255f,0);
 		GUI.Label (new Rect(68,16,200,64), "[" + COST_GUARD.ToString() + "]", menu_text);
 		GUI.Label (new Rect(68,80,200,64), "[" + COST_ARCHER.ToString() + "]", menu_text);
 		GUI.Label (new Rect(68,144,200,64), "[" + COST_WIZARD.ToString() + "]", menu_text);
@@ -106,7 +106,7 @@ public class nav_LOUNGE : MonoBehaviour {
 		GUI.EndGroup();
 		
 		//Attack icon
-		GUI.BeginGroup(new Rect(10, 300, 264, 192));
+		GUI.BeginGroup(new Rect(40, 300, 264, 192));
 		GUI.DrawTexture(new Rect(0, 0, 64, 64), boost_attack);
 		GUI.Label (new Rect(68,24,200,64), "Attack boost", menu_text);
 		GUI.DrawTexture(new Rect(0, 64, 64, 64), boost_defense);
