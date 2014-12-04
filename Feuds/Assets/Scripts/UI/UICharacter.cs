@@ -12,6 +12,7 @@ public class UICharacter : MonoBehaviour {
 	public InputManager inputManager;
     public bool rendering;
 	private bool selected = false;
+	public int currentControlGroup = -1;
 
 	private CombatController combat;
 
