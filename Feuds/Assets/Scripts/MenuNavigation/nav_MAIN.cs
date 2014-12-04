@@ -3,6 +3,7 @@ using System.Collections;
 
 public class nav_MAIN : MonoBehaviour {
 	public string SceneLobby;
+	public string SceneAbout;
 
 	public Texture logo;
 	public GUIStyle menu_btn;
@@ -21,7 +22,8 @@ public class nav_MAIN : MonoBehaviour {
 
 		if(GUI.Button(new Rect(Screen.width/2 - 86, 0, 172, 48), "Multiplayer", menu_btn))
 			Application.LoadLevel(SceneLobby);
-		GUI.Button(new Rect(Screen.width/2 - 86, 48, 172, 48), "About", menu_btn);
+		if (GUI.Button (new Rect (Screen.width / 2 - 86, 48, 172, 48), "About", menu_btn))
+			Application.LoadLevel (SceneAbout);
 
 		GUI.EndGroup ();
 

@@ -59,7 +59,7 @@ public class nav_LOUNGE : MonoBehaviour {
 		//Back and Confirm
 		if(GUI.Button(new Rect(Screen.width-354, Screen.height-58, 172, 48), "Back", menu_btn))
 			Application.LoadLevel (SceneLobby);
-		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Confirm Team", menu_btn)) {
+		if(GUI.Button(new Rect(Screen.width-182, Screen.height-58, 172, 48), "Start Battle", menu_btn)) {
 			StartGame();
 		}
 

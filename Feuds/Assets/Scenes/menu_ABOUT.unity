@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1448558861}
-  - 114: {fileID: 1448558862}
+  - 114: {fileID: 1448558863}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -165,7 +165,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1448558862
+--- !u!114 &1448558863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -173,11 +173,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1448558860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3223ed913dff5a04c90bc980ea5fab68, type: 3}
+  m_Script: {fileID: 11500000, guid: 5784c0dc3b37e46438fabe6bae2fa416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneLobby: menu_LOBBY
-  SceneAbout: menu_ABOUT
+  SceneMain: menu_MAIN
   logo: {fileID: 2800000, guid: 3f4f83da85e2aba468b0114c8894aa25, type: 3}
   menu_btn:
     m_Name: 
@@ -238,7 +237,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  credit_style:
+  text_style:
     m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
@@ -285,10 +284,10 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 97116876edeb68a48b1bfd2ef3d8cfde, type: 3}
-    m_FontSize: 12
+    m_FontSize: 30
     m_FontStyle: 0
-    m_Alignment: 4
-    m_WordWrap: 0
+    m_Alignment: 0
+    m_WordWrap: 1
     m_RichText: 1
     m_TextClipping: 0
     m_ImagePosition: 0
