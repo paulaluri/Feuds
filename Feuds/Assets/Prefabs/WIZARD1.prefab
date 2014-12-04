@@ -2159,8 +2159,8 @@ MonoBehaviour:
     current: 100
     max: 100
   MovSpeed:
-    current: 2
-    max: 2
+    current: 2.5
+    max: 2.5
   AtkSpeed:
     current: 0
     max: .5
@@ -2178,6 +2178,9 @@ MonoBehaviour:
   inCombat: 0
   inSkill: 0
   attackedThisFrame: 0
+  hasAttackBoost: 0
+  hasDefenseBoost: 0
+  hasResistBoost: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2626,8 +2626,8 @@ MonoBehaviour:
     current: 100
     max: 100
   MovSpeed:
-    current: 4
-    max: 4
+    current: 3.5
+    max: 3.5
   AtkSpeed:
     current: 0
     max: .5
@@ -2645,6 +2645,9 @@ MonoBehaviour:
   inCombat: 0
   inSkill: 0
   attackedThisFrame: 0
+  hasAttackBoost: 0
+  hasDefenseBoost: 0
+  hasResistBoost: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2684,6 +2687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 100000, guid: 4af761ae2ff1e1d42bb6f0820cebc509, type: 2}
   spawnpoint: {fileID: 100056}
+  frostArrow: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
