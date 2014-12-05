@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Pursue : Action {
-	NavMeshPath path = null;
 
 	// Update the destination if it is further away from the target than
 	// the stopping distance, return true if you have arrived at the target

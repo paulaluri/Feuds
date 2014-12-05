@@ -6,9 +6,6 @@ public class KingOfTheHill : GameMode {
 	
 	public float Speed;
 
-	public GameObject Attack;
-	public GameObject Defense;
-
 	public Color Good;
 	public Color Bad;
 
@@ -41,14 +38,15 @@ public class KingOfTheHill : GameMode {
 
 		percent = 0.0f;
 
-		Attack.renderer.material.color = (attacker == GameManager.player ? Good : Bad);
-		Defense.renderer.material.color = (attacker == GameManager.other ? Good : Bad);
-
-		msg = FindObjectOfType<UIMessage> ();
+		renderer.material.SetColor("_Col0", attacker == GameManager.player ? Good : Bad);
+		renderer.material.SetColor("_Col1", attacker == GameManager.player ? Bad : Good);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(!msg) {
+			msg = FindObjectOfType<UIMessage> ();
+		}
 		for(int i = 0; i < units.Length; i++) {
 			for(int j = units[i].Count - 1; j >= 0; j--) {
 				if(!units[i][j].enabled) {
@@ -62,11 +60,10 @@ public class KingOfTheHill : GameMode {
 		if(networkView.isMine) {
 
 			if(units[defender].Count == 0 && units[attacker].Count > 0) {
-				percent = Mathf.Min(Speed * Time.deltaTime + percent,100.0f);
+				percent += Speed * Time.deltaTime;
 			}
 		}
-		Vector3 scale = new Vector3 (percent / 100.0f, 1.0f, percent / 100.0f);
-		Attack.transform.localScale = scale;
+		renderer.material.SetFloat ("_Fill", percent / 100.0f);
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -78,7 +75,6 @@ public class KingOfTheHill : GameMode {
 	}
 
 	void OnTriggerExit(Collider other) {
-		Debug.Log (LayerMask.LayerToName (other.gameObject.layer));
 		units [other.gameObject.layer - 10].Remove(other);
 		if(GameManager.player == defender
 		   && other.gameObject.layer == defenderLayer
