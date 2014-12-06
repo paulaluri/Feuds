@@ -203,46 +203,62 @@ public class UISelection : MonoBehaviour
 		bool ctrl = leftControl || rightControl;
 
 		if(Input.GetKeyDown (KeyCode.Alpha0))
-			setControlGroup(0,ctrl);
+			setControlGroup(0,ctrl,shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha1))
-			setControlGroup(1,ctrl);
+            setControlGroup(1, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha2))
-			setControlGroup(2,ctrl);
+            setControlGroup(2, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha3))
-			setControlGroup(3,ctrl);
+            setControlGroup(3, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha4))
-			setControlGroup(4,ctrl);
+            setControlGroup(4, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha5))
-			setControlGroup(5,ctrl);
+            setControlGroup(5, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha6))
-			setControlGroup(6,ctrl);
+            setControlGroup(6, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha7))
-			setControlGroup(7,ctrl);
+            setControlGroup(7, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha8))
-			setControlGroup(8,ctrl);
+            setControlGroup(8, ctrl, shift);
 		else if(Input.GetKeyDown (KeyCode.Alpha9))
-			setControlGroup(9,ctrl);
+            setControlGroup(9, ctrl, shift);
     }
 
-	private void setControlGroup(int index, bool ctrl){
+	private void setControlGroup(int index, bool ctrl, bool shift){
 		if(ctrl){
-            foreach (GameObject character in controlGroups[index])
+            if (shift)
             {
-                if (!selectedCharacters.Contains(character))
+                foreach (GameObject character in selectedCharacters)
                 {
-                    character.GetComponent<UICharacter>().currentControlGroup = -1;
+                    UICharacter uic = character.GetComponent<UICharacter>();
+                    if (uic.currentControlGroup > -1)
+                    {
+                        controlGroups[uic.currentControlGroup].Remove(character);
+                    }
+                    uic.currentControlGroup = index;
                 }
+            }
+            else
+            {
+                foreach (GameObject character in controlGroups[index])
+                {
+                    if (!selectedCharacters.Contains(character))
+                    {
+                        character.GetComponent<UICharacter>().currentControlGroup = -1;
+                    }
 
-            }
-            foreach(GameObject character in selectedCharacters){
-                UICharacter uic = character.GetComponent<UICharacter>();
-                if (uic.currentControlGroup > -1)
-                {
-                    controlGroups[uic.currentControlGroup].Remove(character);
                 }
-                uic.currentControlGroup = index;
+                foreach (GameObject character in selectedCharacters)
+                {
+                    UICharacter uic = character.GetComponent<UICharacter>();
+                    if (uic.currentControlGroup > -1)
+                    {
+                        controlGroups[uic.currentControlGroup].Remove(character);
+                    }
+                    uic.currentControlGroup = index;
+                }
+                controlGroups[index].Clear();
             }
-            controlGroups[index].Clear();
             controlGroups[index].AddRange(selectedCharacters);
 		}else{
 			selectedCharacters.Clear();
