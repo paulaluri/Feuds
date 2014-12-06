@@ -337,8 +337,8 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110291220}
   m_DstState: {fileID: 110220251}
-  m_TransitionDuration: .214285657
-  m_TransitionOffset: 0
+  m_TransitionDuration: .287942916
+  m_TransitionOffset: .00322247786
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: is_combat
