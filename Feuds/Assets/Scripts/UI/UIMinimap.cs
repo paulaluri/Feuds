@@ -9,6 +9,9 @@ public class UIMinimap : MonoBehaviour
     public GUIStyle style;
     public GameObject cameras;
 
+	public Texture miniMapPlayer;
+	public Texture miniMapOpponent;
+
 	public Vector2 anchor;
     public int UIHeight = 192;
 
@@ -105,10 +108,13 @@ public class UIMinimap : MonoBehaviour
 		}
 		foreach (GameObject character in GameManager.characters[GameManager.player])
         {
-			Vector2 pos = WorldToScreen(character.transform.position);
-			GUI.Box(new Rect(pos.x-2.5f, pos.y-2.5f, 5, 5), "");
-        }
+			bool isPlayer = GameManager.playerLayer==character.layer;
 
+			Texture dot = isPlayer?miniMapPlayer:miniMapOpponent;
+			Vector2 pos = WorldToScreen(character.transform.position);
+			Rect r = new Rect(pos.x-1.5f, pos.y-1.5f, 3, 3);
+			GUI.DrawTexture (r, dot);
+        }
     }
 
 	Vector2 WorldToDiamond(Vector3 v) {
