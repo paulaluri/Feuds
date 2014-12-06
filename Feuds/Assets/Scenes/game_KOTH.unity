@@ -3985,7 +3985,7 @@ MonoBehaviour:
   passive: {fileID: 2800000, guid: 727368cfbd1f73048b4f5f6eca926944, type: 3}
   health: {fileID: 2800000, guid: 895ac495f8138ac4ba97b3fa736f051a, type: 3}
   wound: {fileID: 2800000, guid: 31e49bb3869385c4e9148f7f31f1d6c7, type: 3}
-  terrain: {fileID: 2800000, guid: 47f16d18e6456eb48a63576573f45e1a, type: 3}
+  terrain: {fileID: 2800000, guid: 57dd9afb02e516f48b18062cf353d30f, type: 3}
   guardBtn:
     m_Name: 
     m_Normal:
