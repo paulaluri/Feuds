@@ -106,14 +106,18 @@ public class UIMinimap : MonoBehaviour
 			Vector2 pos = WorldToScreen(cameras.transform.position);
 			GUI.Box (new Rect(pos.x-2.5f, pos.y-2.5f, 5, 5),"");
 		}
-		foreach (GameObject character in GameManager.characters[GameManager.player])
+        List<GameObject> charactersInMinimap = new List<GameObject>();
+        charactersInMinimap.AddRange(GameManager.characters[GameManager.player]);
+        charactersInMinimap.AddRange(GameManager.characters[GameManager.other]);
+
+        foreach (GameObject character in charactersInMinimap)
         {
 			bool isPlayer = GameManager.playerLayer==character.layer;
 
 			Texture dot = isPlayer?miniMapPlayer:miniMapOpponent;
 			Vector2 pos = WorldToScreen(character.transform.position);
 			Rect r = new Rect(pos.x-1.5f, pos.y-1.5f, 3, 3);
-			GUI.DrawTexture (r, dot);
+			if(isPlayer || character.GetComponent<UICharacter>().rendering)GUI.DrawTexture (r, dot);
         }
     }
 
