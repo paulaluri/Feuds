@@ -4472,8 +4472,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   cameras: {fileID: 1378959944}
-  miniMapPlayer: {fileID: 2800000, guid: df8bab08d267eca428b72eb52a21a215, type: 3}
-  miniMapOpponent: {fileID: 2800000, guid: e4ec6256e420b884897a3a64d0d1ea3e, type: 3}
+  miniMapPlayer: {fileID: 2800000, guid: 321be93c108458746bbb6fc36b776a2a, type: 3}
+  miniMapOpponent: {fileID: 2800000, guid: 5e030131e9043ef45b01d13208102415, type: 3}
   anchor: {x: 0, y: 0}
   UIHeight: 192
   mouseDown: 0
