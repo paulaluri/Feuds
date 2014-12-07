@@ -115,9 +115,9 @@ public class UIInterface : MonoBehaviour {
             {
                 //Move Camera to that character
                 Vector3 pos = inputManager.selectedCharacters[i].transform.position;
-                pos.x += 53;
-                pos.z -= 53;
-                pos.y = cameras.transform.position.y;
+                //pos.x += 53;
+                //pos.z -= 53;
+                //pos.y = cameras.transform.position.y;
                 cameras.transform.position = pos;
             }
             GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
