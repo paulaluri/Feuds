@@ -11,6 +11,7 @@ public class UIMinimap : MonoBehaviour
 
 	public Texture miniMapPlayer;
 	public Texture miniMapOpponent;
+	public Texture camBox;
 
 	public Vector2 anchor;
     public int UIHeight = 192;
@@ -102,10 +103,7 @@ public class UIMinimap : MonoBehaviour
     void OnGUI()
     {
         GUI.depth = 1;
-		{
-			Vector2 pos = WorldToScreen(cameras.transform.position);
-			GUI.Box (new Rect(pos.x-2.5f, pos.y-2.5f, 5, 5),"");
-		}
+
         List<GameObject> charactersInMinimap = new List<GameObject>();
         charactersInMinimap.AddRange(GameManager.characters[GameManager.player]);
         charactersInMinimap.AddRange(GameManager.characters[GameManager.other]);
@@ -119,6 +117,12 @@ public class UIMinimap : MonoBehaviour
 			Rect r = new Rect(pos.x-1.5f, pos.y-1.5f, 3, 3);
 			if(isPlayer || character.GetComponent<UICharacter>().rendering)GUI.DrawTexture (r, dot);
         }
+
+		{
+			Vector2 pos = WorldToScreen(cameras.transform.position);
+			Rect r = new Rect(pos.x-8f, pos.y-4.5f, 16, 9);
+			GUI.DrawTexture(r, camBox);
+		}
     }
 
 	Vector2 WorldToDiamond(Vector3 v) {

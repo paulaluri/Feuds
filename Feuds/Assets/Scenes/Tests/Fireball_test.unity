@@ -282,7 +282,7 @@ GameObject:
   - 4: {fileID: 1319734794}
   - 198: {fileID: 1319734793}
   - 199: {fileID: 1319734792}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,8 +1461,8 @@ GameObject:
   - 54: {fileID: 1589974844}
   - 114: {fileID: 1589974843}
   - 65: {fileID: 1589974842}
-  m_Layer: 0
-  m_Name: Arrow
+  m_Layer: 14
+  m_Name: Arrow0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1534,7 +1534,7 @@ GameObject:
   - 33: {fileID: 2104605895}
   - 23: {fileID: 2104605894}
   - 65: {fileID: 2104605893}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: arrow_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -55,12 +55,12 @@ Material:
         second: .0114605296
       data:
         first:
-          name: _EmissionLM
-        second: 0
-      data:
-        first:
           name: _Shininess
         second: .637319684
+      data:
+        first:
+          name: _EmissionLM
+        second: 0
     m_Colors:
       data:
         first:

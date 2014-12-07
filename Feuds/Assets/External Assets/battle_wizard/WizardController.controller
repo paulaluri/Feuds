@@ -411,7 +411,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Wizard_walk
-  m_Speed: 1
+  m_Speed: 1.70000005
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400074, guid: cb38e45ccaa86634da6cd431234007ac, type: 3}

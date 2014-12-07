@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: -.507249951, y: .480641514, z: .512274086, w: .499255836}
+  m_LocalRotation: {x: -.507250011, y: .480641544, z: .512274146, w: .499255866}
   m_LocalPosition: {x: -.100059353, y: .0382141098, z: .000718517287}
   m_LocalScale: {x: .999999821, y: 1, z: .999999881}
   m_Children:
@@ -2429,6 +2429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 100000, guid: 4af761ae2ff1e1d42bb6f0820cebc509, type: 2}
   spawnpoint: {fileID: 100018}
+  frostArrow: 0
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

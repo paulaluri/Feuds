@@ -285,7 +285,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Archer_Walk
-  m_Speed: 1.39999998
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400040, guid: 23ce0c9ca6ae68d42bf0d9a288a77f43, type: 3}
