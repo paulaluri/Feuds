@@ -29,6 +29,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _Detail
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _Diffuse
         second:
           m_Texture: {fileID: 2800000, guid: 7bc94eff0823b4145a4278e61023818f, type: 3}
@@ -46,13 +53,6 @@ Material:
           name: _Specular
         second:
           m_Texture: {fileID: 2800000, guid: 0628a3f031f695c43ad013b30f9d7882, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Detail
-        second:
-          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:

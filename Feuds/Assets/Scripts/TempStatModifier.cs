@@ -18,7 +18,7 @@ public class TempStatModifier : MonoBehaviour
     {
         cc = gameObject.GetComponentInParent<CombatController>();
         if(cc!=null)modifyStat(1);
-        print(cc.gameObject);
+        //print(cc.gameObject);
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class TempStatModifier : MonoBehaviour
 
     void modifyStat(int mode)
     {
+        if (cc == null) return;
         if (mode == 1)
         {
             cc.MovSpeed.current *= MovSpeed;

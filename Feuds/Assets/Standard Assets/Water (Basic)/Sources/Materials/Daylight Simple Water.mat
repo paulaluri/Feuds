@@ -36,6 +36,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _WavesTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ColorControlCube
         second:
           m_Texture: {fileID: 8900000, guid: 98c330f39d11745ad0004adb8d76c639, type: 3}
@@ -46,13 +53,6 @@ Material:
           name: _ColorControl
         second:
           m_Texture: {fileID: 2800000, guid: 047330f39d11745ad0004adb8d76c639, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _WavesTex
-        second:
-          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -76,12 +76,12 @@ Material:
         second: 1
       data:
         first:
-          name: _WaveScale
-        second: .0702830181
-      data:
-        first:
           name: _Highlight
         second: 33.2075462
+      data:
+        first:
+          name: _WaveScale
+        second: .0702830181
       data:
         first:
           name: _bScale

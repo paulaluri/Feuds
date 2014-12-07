@@ -292,7 +292,7 @@ public class UISelection : MonoBehaviour
         Vector3 pos = GetWorldPositionFromMouse();
         pos.y += skillRadius;
         light.transform.position = pos;
-        print(pos +" "+ light.transform.position);
+        //print(pos +" "+ light.transform.position);
         //do something with the character in the area?
 
     }
