@@ -23,10 +23,12 @@ public class nav_MAIN : MonoBehaviour {
 
 		//Options
 		//GUI.Button(new Rect(Screen.width/2 - 86, 250, 172, 48), "Single Player", menu_btn);
-		GUI.BeginGroup (new Rect(0, Screen.height / 2 - (2 * 48), Screen.width, 96)); 
+		GUI.BeginGroup (new Rect(0, Mathf.Max (Screen.height / 2 - (48), 210), Screen.width, (2*48))); 
 
 		if(GUI.Button(new Rect(Screen.width/2 - 86, 0, 172, 48), "Multiplayer", menu_btn))
 			Application.LoadLevel(SceneLobby);
+		//if (GUI.Button (new Rect (Screen.width / 2 - 86, 48, 172, 48), "Settings", menu_btn))
+			//Application.LoadLevel (SceneAbout);
 		if (GUI.Button (new Rect (Screen.width / 2 - 86, 48, 172, 48), "About", menu_btn))
 			Application.LoadLevel (SceneAbout);
 
