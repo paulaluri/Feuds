@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour {
 	public UIMessage msg;
 	public String SceneGameover;
 
+	private float syncTimeLeft;
+
 	// Use this for initialization
 	void Awake () {
 		StartGame ();
@@ -46,12 +48,13 @@ public class GameManager : MonoBehaviour {
 		}
 		if(gameStarted) {
 			if(winner < 0) {
+				timeLeft -= Time.deltaTime;
 				if(networkView.isMine) {
-					timeLeft -= Time.deltaTime;
 					checkRoundEnd();
 				}
 				if(TimeAlerts.Count > 0 && TimeAlerts[0] > timeLeft) {
 					TimeSpan time = TimeSpan.FromSeconds(TimeAlerts[0]);
+					syncTimeLeft = timeLeft;
 					if(!msg) {
 						msg = FindObjectOfType<UIMessage>();
 					}
@@ -85,6 +88,7 @@ public class GameManager : MonoBehaviour {
 	void StartRound( ) {
 		gameStarted = true;
 		timeLeft = Duration;
+		syncTimeLeft = timeLeft;
 		winner = -1;
 		if(Network.isServer) {
 			Network.Instantiate(gameModePrefab,gameModePrefab.transform.position,Quaternion.identity,0);
@@ -139,7 +143,10 @@ public class GameManager : MonoBehaviour {
 	// fast and efficient, and this will give the server complete authority
 	// over these variables. If too slow, modify EndRound
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
-		stream.Serialize (ref timeLeft);
+		stream.Serialize (ref syncTimeLeft);
+		if(stream.isReading) {
+			timeLeft = syncTimeLeft;
+		}
 	}
 
 	void Ready() {
