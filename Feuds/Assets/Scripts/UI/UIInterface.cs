@@ -7,6 +7,7 @@ public class UIInterface : MonoBehaviour {
 	public GUIStyle buttonSelectStyle;
 	public GUIStyle buttonSpecialStyle;
 	public GUIStyle timerStyle;
+	public GUIStyle helpText;
 	public Texture attack;
 	public Texture defense;
 	public Texture standground;
@@ -22,6 +23,13 @@ public class UIInterface : MonoBehaviour {
     public GameObject cameras;
 
 	private UISelection uiselection;
+
+	private Rect offsetAggr = new Rect (8, 30, 64, 64);
+	private Rect offsetDef = new Rect (72,30, 64, 64);
+	private Rect offsetSG = new Rect (136,30, 64, 64);
+	private Rect offsetPass = new Rect (200, 30, 64, 64);
+
+	private float btn_y_offset = Screen.height-192;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +49,29 @@ public class UIInterface : MonoBehaviour {
 			inputManager.clickSkill();
 	}
 
+	void DrawText(Rect r, string s, GUIStyle g, bool outline, int size, Color c){
+		GUIStyle cp = new GUIStyle(g);
+		cp.fontSize = size;
+		cp.normal.textColor = c;
+		
+		if(outline){
+			Rect br = new Rect(r.x-1, r.y-1, r.width, r.height);
+			Rect ur = new Rect(r.x-1, r.y+1, r.width, r.height);
+			Rect bl = new Rect(r.x+1, r.y-1, r.width, r.height);
+			Rect ul = new Rect(r.x+1, r.y+1, r.width, r.height);
+			
+			GUIStyle shadow = new GUIStyle(cp);
+			shadow.normal.textColor = Color.black;
+			
+			GUI.Label (br, s, shadow);
+			GUI.Label (ur, s, shadow);
+			GUI.Label (bl, s, shadow);
+			GUI.Label (ul, s, shadow);
+		}
+		
+		GUI.Label (r, s, cp);
+	}
+
 	// Update is called once per frame
 	void OnGUI () {
 		//Background
@@ -48,31 +79,32 @@ public class UIInterface : MonoBehaviour {
 		style.border.right = 0;
 		style.border.top = 1;
 		GUI.Label (new Rect(0, Screen.height - 192, Screen.width, 192), "", style);
+		btn_y_offset = Screen.height-192;
 
 		if(inputManager.selectedCharacters.Count > 0){
 			//Buttons
-			GUI.BeginGroup(new Rect(0, Screen.height-192, 300, 192));
+			GUI.BeginGroup(new Rect(0, btn_y_offset, 300, 192));
 
 			Stance common = inputManager.GetCommonStance ();
 
 			if (common == Stance.Aggressive)
-				GUI.Button (new Rect (8, 30, 64, 64), attack, buttonSelectStyle);
-			else if (GUI.Button (new Rect (8, 30, 64, 64), attack, buttonStyle))
+				GUI.Button (offsetAggr, attack, buttonSelectStyle);
+			else if (GUI.Button (offsetAggr, attack, buttonStyle))
 				inputManager.SetStance (Stance.Aggressive);
 
 			if (common == Stance.Defensive)
-				GUI.Button (new Rect (72,30, 64, 64), defense, buttonSelectStyle);
-			else if (GUI.Button (new Rect(72,30, 64, 64), defense, buttonStyle))
+				GUI.Button (offsetDef, defense, buttonSelectStyle);
+			else if (GUI.Button (offsetDef, defense, buttonStyle))
 				inputManager.SetStance (Stance.Defensive);
 
 			if (common == Stance.StandGround)
-				GUI.Button (new Rect (136,30, 64, 64), standground, buttonSelectStyle);
-			else if (GUI.Button (new Rect(136,30, 64, 64), standground, buttonStyle))
+				GUI.Button (offsetSG, standground, buttonSelectStyle);
+			else if (GUI.Button (offsetSG, standground, buttonStyle))
 				inputManager.SetStance (Stance.StandGround);
 
 			if (common == Stance.Passive)
-				GUI.Button (new Rect (200, 30, 64, 64), passive, buttonSelectStyle);
-			else if (GUI.Button (new Rect (200, 30, 64, 64), passive, buttonStyle))
+				GUI.Button (offsetPass, passive, buttonSelectStyle);
+			else if (GUI.Button (offsetPass, passive, buttonStyle))
 				inputManager.SetStance (Stance.Passive);
 
 			if(uiselection.selectedCharacters.Count == 1){ 
@@ -156,6 +188,42 @@ public class UIInterface : MonoBehaviour {
 		GUI.Label (new Rect(Screen.width-(time_width + (1+X_PADDING)), 1+Y_PADDING, time_width, line_height), final_time, shadow_style);
 
 		GUI.Label (new Rect(Screen.width-(time_width+X_PADDING), Y_PADDING, time_width, line_height), final_time, timerStyle);
+		
+		//Helpers Labels
+		Vector3 mouse = Input.mousePosition;
+		mouse.y = Screen.height - Input.mousePosition.y;
+		
+		Rect aggr = offsetAggr;
+		aggr.y += btn_y_offset;
+		Rect def = offsetDef;
+		def.y += btn_y_offset;
+		Rect sg = offsetSG;
+		sg.y += btn_y_offset;
+		Rect pass = offsetPass;
+		pass.y += btn_y_offset;
+		
+		Rect fullBtns = new Rect(aggr.x, Screen.height-192+30,256,64); 
+		Rect specialBtn = new Rect(aggr.x, fullBtns.y + 64, 64, 64);
+		if(fullBtns.Contains(mouse)){
+			if(aggr.Contains(mouse)){
+				DrawHelpMessage("Aggressive Stance");
+			}
+			else if(def.Contains(mouse)){
+				DrawHelpMessage("Defensive Stance");
+			}
+			else if(sg.Contains(mouse)){
+				DrawHelpMessage("Stand Ground");
+			}
+			else if(pass.Contains(mouse)){
+				DrawHelpMessage("Passive Stance");
+			}
+		}
+		else if(uiselection.selectedCharacters.Count == 1 && specialBtn.Contains(mouse)){
+			DrawHelpMessage("Special Attack");
+		}
+	}
 
+	private void DrawHelpMessage(string s){
+		DrawText(new Rect(12, Screen.height-220, Screen.width, 30), s, helpText, true, helpText.fontSize, Color.white);
 	}
 }
