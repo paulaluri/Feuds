@@ -663,7 +663,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400084}
   - 137: {fileID: 13700000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
