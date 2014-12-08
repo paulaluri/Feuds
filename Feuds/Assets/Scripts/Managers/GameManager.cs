@@ -109,12 +109,12 @@ public class GameManager : MonoBehaviour {
 		meReady = false;
 		otherReady = false;
 
+		GameManager.winner = winner;
+		wins [winner]++;
+		winners [Mathf.RoundToInt(Rounds.current)] = winner;
+		Rounds.current++;
+
 		if(Network.isServer) {
-
-			wins [winner]++;
-			winners [Mathf.RoundToInt(Rounds.current)] = winner;
-			Rounds.current++;
-
 			networkView.RPC("EndRound",RPCMode.OthersBuffered,winner);
 		}
 
@@ -140,14 +140,6 @@ public class GameManager : MonoBehaviour {
 	// over these variables. If too slow, modify EndRound
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		stream.Serialize (ref timeLeft);
-		stream.Serialize (ref winner);
-		stream.Serialize (ref wins [0]);
-		stream.Serialize (ref wins [1]);
-		for(int i = 0; i < winners.Length; i++) {
-			stream.Serialize(ref winners[i]);
-		}
-		stream.Serialize (ref Rounds.current);
-		stream.Serialize (ref Rounds.max);
 	}
 
 	void Ready() {
