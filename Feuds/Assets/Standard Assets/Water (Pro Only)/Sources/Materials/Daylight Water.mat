@@ -87,7 +87,7 @@ Material:
       data:
         first:
           name: _RefrColor
-        second: {r: .5968858, g: .705166459, b: .882352948, a: 1}
+        second: {r: .328125, g: .535560369, b: .875, a: 1}
       data:
         first:
           name: _Fresnel_ST
