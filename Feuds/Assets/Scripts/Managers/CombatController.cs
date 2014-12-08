@@ -194,7 +194,7 @@ public class CombatController : MonoBehaviour {
 	
 	public void TakeDamage(Damage atk) {
 		if(networkView.isMine) {
-			Health.current -= (atk - Random.Range (1.0f, 1.5f) * Defense).total;
+			Health.current -= (atk - Random.Range (0.0f, 1.0f) * Defense).total;
 		}
 		else {
 			networkView.RPC("TakeDamageN",RPCMode.OthersBuffered,atk.physical,atk.magic);
