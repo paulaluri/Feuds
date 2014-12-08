@@ -121,7 +121,11 @@ public class UIInterface : MonoBehaviour {
 			GUI.EndGroup();
 		}
 		//Selections
-		GUI.BeginGroup(new Rect(310, Screen.height-192, Screen.width-(300+400), 192));
+		float panel_w = Screen.width-(550);
+		GUI.BeginGroup(new Rect(310, Screen.height-192, panel_w, 192));
+		float px = 0;
+		float py = 0;
+		float p_total_w = 0;
 
 		for (int i = 0; i < inputManager.selectedCharacters.Count; i++) {
 			CombatController combat = inputManager.selectedCharacters[i].GetComponent<CombatController>();
@@ -142,8 +146,13 @@ public class UIInterface : MonoBehaviour {
 					break;
 			}
 
+			if(px * 68 > (panel_w-68)){
+				px = 0;
+				py += 68;
+			}
+
             //GUI.DrawTexture(new Rect(8 + 68 * i, 30, 64, 64), inputManager.selectedCharacters[i].GetComponent<UICharacter>().Icon);
-            if (GUI.Button(new Rect(8 + 68 * i, 30, 64, 64), "", current_style))
+            if (GUI.Button(new Rect(8 + 68 * px, 30 + py, 64, 64), "", current_style))
             {
                 //Move Camera to that character
                 Vector3 pos = inputManager.selectedCharacters[i].transform.position;
@@ -152,8 +161,10 @@ public class UIInterface : MonoBehaviour {
                 //pos.y = cameras.transform.position.y;
                 cameras.transform.position = pos;
             }
-            GUI.DrawTexture(new Rect(8 + 68*i,30, 64, 4), wound);
-			GUI.DrawTexture(new Rect(8 + 68*i,30, (combat.Health.current/combat.Health.max)*64, 4), health);
+			GUI.DrawTexture(new Rect(8 + 68*px,30+py, 64, 4), wound);
+			GUI.DrawTexture(new Rect(8 + 68*px,30+py, (combat.Health.current/combat.Health.max)*64, 4), health);
+
+			px++;
 		}
 
 		GUI.EndGroup();
