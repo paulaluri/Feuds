@@ -260,7 +260,15 @@ public class UISelection : MonoBehaviour
                 controlGroups[index].Clear();
             }
             controlGroups[index].AddRange(selectedCharacters);
-		}else{
+		}else if(shift){
+			foreach(GameObject c in controlGroups[index]){
+				if (!selectedCharacters.Contains(c))
+					selectedCharacters.Add(c);
+			}
+
+			inputManager.SelectCharacters(selectedCharacters);
+		}
+		else{
 			selectedCharacters.Clear();
             selectedCharacters.AddRange(controlGroups[index]);
 			inputManager.SelectCharacters(selectedCharacters);
