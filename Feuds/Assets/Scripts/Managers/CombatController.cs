@@ -62,6 +62,7 @@ public class Stat {
 }
 
 public abstract class Buff {
+	public string stat;
 	public Stat ttl;
 	protected abstract void Apply();
 	protected abstract void Remove();
@@ -90,11 +91,13 @@ public class DamageBuff : Buff {
 	}
 
 	protected override void Apply() {
-		value += mod;
+		value.physical += mod.physical;
+		value.magic += mod.magic;
 	}
 
 	protected override void Remove() {
-		value -= mod;
+		value.physical -= mod.physical;
+		value.magic -= mod.magic;
 	}
 }
 
@@ -110,11 +113,13 @@ public class StatBuff : Buff {
 	}
 	
 	protected override void Apply() {
-		value += mod;
+		value.current += mod.current;
+		value.max += mod.max;
 	}
 	
 	protected override void Remove() {
-		value -= mod;
+		value.current -= mod.current;
+		value.max -= mod.max;
 	}
 }
 

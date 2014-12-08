@@ -1,57 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public class StatMod {
+	public string statName;
+	public float v1;
+	public float v2;
+	public float duration;
+}
+
 public class TempStatModifier : MonoBehaviour
 {
-    public float MovSpeed;
-    public float AtkSpeed;
-    public Damage Attack;
-    public Damage Defense;
-    public float skillCD;
-    public float Radius;
-
-    public float time;
+	public StatMod[] stats;
+	public float duration;
 
     CombatController cc;
     // Use this for initialization
     void Start()
     {
         cc = gameObject.GetComponentInParent<CombatController>();
-        if(cc!=null)modifyStat(1);
+        if(cc!=null) {
+			foreach(StatMod stat in stats) {
+				cc.AddBuff(stat.statName,stat.v1,stat.v2,stat.duration);
+			}
+		} else {
+			Debug.Log("nope");
+		}
         //print(cc.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cc == null)
+        duration -= Time.deltaTime;
+        if (duration < 0)
         {
-            cc = gameObject.GetComponentInParent<CombatController>();
-            if (cc != null) modifyStat(1);
+            Destroy(gameObject);
         }
-        time -= Time.deltaTime;
-        if (time < 0)
-        {
-            modifyStat(-1);
-            Destroy(this.gameObject);
-        }
-    }
-
-    void modifyStat(int mode)
-    {
-        if (cc == null) return;
-        if (mode == 1)
-        {
-            cc.MovSpeed.current *= MovSpeed;
-        }
-        else
-        {
-            cc.MovSpeed.current /= MovSpeed;
-        }
-        cc.AtkSpeed.max += mode * AtkSpeed;
-        cc.Attack += mode * Attack;
-        cc.Defense += mode * Defense;
-        cc.SkillSpeed.max += mode * skillCD;
-        cc.Radius += mode * Radius;
     }
 }

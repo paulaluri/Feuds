@@ -39,17 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a777706d947beb74f8b6e262d9a98b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovSpeed: .5
-  AtkSpeed: 0
-  Attack:
-    physical: 0
-    magic: 0
-  Defense:
-    physical: 0
-    magic: 0
-  skillCD: 0
-  Radius: 0
-  time: 5
+  stats:
+  - statName: MovSpeed
+    v1: -1.5
+    v2: -1.5
+    duration: 5
+  duration: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

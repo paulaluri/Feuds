@@ -41,17 +41,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a777706d947beb74f8b6e262d9a98b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovSpeed: 1
-  AtkSpeed: 0
-  Attack:
-    physical: 0
-    magic: 0
-  Defense:
-    physical: 10
-    magic: 10
-  skillCD: 0
-  Radius: 0
-  time: 5
+  stats:
+  - statName: Defense
+    v1: 20
+    v2: 20
+    duration: 5
+  duration: 5
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

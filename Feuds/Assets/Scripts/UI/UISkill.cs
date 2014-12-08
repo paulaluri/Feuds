@@ -53,7 +53,6 @@ public class UISkill : MonoBehaviour
 
     public void YouShallNotMove(GameObject character)
     {
-
         GameObject frost = (GameObject)GameObject.Instantiate(archerFrost);
         frost.transform.parent = character.transform;
         frost.transform.localPosition = new Vector3(0, 0, 0);
