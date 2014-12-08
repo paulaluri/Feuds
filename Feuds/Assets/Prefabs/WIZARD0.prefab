@@ -2187,7 +2187,7 @@ MonoBehaviour:
     magic: 10
   Defense:
     physical: 0
-    magic: 20
+    magic: 40
   skillValue: 20
   Radius: 10
   Class: 2

@@ -187,8 +187,8 @@ MonoBehaviour:
   - {fileID: 100002, guid: fe60ce16ae3f90c49a366ddd4e32f048, type: 2}
   - {fileID: 100002, guid: 10349bd628f151a4b9029e95fa8532c5, type: 2}
   BonusDamageScale: 1.5
-  BonusDefense: 20
-  BonusResist: 20
+  BonusDefense: 40
+  BonusResist: 40
 --- !u!4 &920008300
 Transform:
   m_ObjectHideFlags: 0

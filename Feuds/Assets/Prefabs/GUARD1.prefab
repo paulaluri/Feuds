@@ -1617,7 +1617,7 @@ MonoBehaviour:
     physical: 10
     magic: 0
   Defense:
-    physical: 20
+    physical: 40
     magic: 0
   skillValue: 10
   Radius: 3
